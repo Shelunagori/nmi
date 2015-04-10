@@ -47,7 +47,9 @@ echo $this->fetch('meta'); ?>
 {
 	color:#C2C1C1;
 }
-
+/*.page-sidebar-closed .page-content-wrapper .page-content {
+    margin-left: 0px !important;
+}*/
 @media (max-width: 480px) 
 {
   .navbar-brand > img
@@ -95,30 +97,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 			<!-- END HEADER SEARCH BOX -->
 			
 			<!-- BEGIN TOP NAVIGATION MENU -->
-			<div class="hor-menu">
-				<ul class="header-navigation" style="padding-right:22px;">
-					<!-- BEGIN NOTIFICATION DROPDOWN -->
-					<li>
-						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/index"  style="font-size:17px;">Home</a>
-						</li>
-                    
-                    	<li>
-						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/about_us" style="font-size:17px;">About Us</a>
-						</li>
-                        
-						<li>
-						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/register" style="font-size:17px;">Register</a>
-						</li>
-                        
-                         <li>
-						 <a href="<?php echo $this->webroot; ?>Nonmovinginventory/login" style="font-size:17px;">Sign In</a>
-						</li>
-					<!-- END TODO DROPDOWN -->
-					<!-- BEGIN USER LOGIN DROPDOWN -->
-					
-					<!-- END USER LOGIN DROPDOWN -->
-				</ul>
-			</div>
+			
 			<!-- END TOP NAVIGATION MENU -->
 		</div>
 		<!-- END PAGE TOP -->
@@ -151,7 +130,27 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						<span class="selected"></span>
 						</a>
 					</li>
-					
+                    <li class="">
+						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/about_us">
+						<i class="icon-users"></i>
+						<span class="title">About Us</span>
+						<span class="selected"></span>
+						</a>
+					</li>
+                    <li class="">
+						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/register">
+						<i class="icon-user"></i>
+						<span class="title">Register</span>
+						<span class="selected"></span>
+						</a>
+					</li>
+                    <li class="">
+						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/login">
+						<i class="fa fa-key"></i>
+						<span class="title">Sign In</span>
+						<span class="selected"></span>
+						</a>
+					</li>
 				</ul>
 				<!-- END SIDEBAR MENU -->
 			</div>

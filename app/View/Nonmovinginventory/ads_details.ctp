@@ -85,7 +85,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
                   <h1><?php echo $sub_categories; ?> ( <?php echo $product_name; ?> )</h1>
                   <div class="price-availability-block clearfix">
                     <div class="price">
-                      <strong><span><img src="<?PHP echo $this->webroot; ?>images/image/rupees.jpg" style="width:12px"></span><?php echo $price ; ?></strong>
+                      <strong><span>&nbsp;<i class="fa fa-inr"></i></span><?php echo $price ; ?></strong>
                       
                     </div>
                     <div class="availability">

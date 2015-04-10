@@ -122,7 +122,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 					</li>
 				</ul>
 			</div>-->
-			<div class="btn-group">
+			<!--<div class="btn-group">
 				<button type="button" class="btn btn-circle green-haze dropdown-toggle" data-toggle="dropdown">
 				<i class="icon-bell"></i>&nbsp;<span class="hidden-sm hidden-xs">Post&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
 				</button>
@@ -131,7 +131,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/ecommerce_new_post">
 						<i class="icon-docs"></i> New Post </a>
 					</li>
-					<li>
+				<!--	<li>
 						<a href="#">
 						<i class="icon-tag"></i> New Comment </a>
 					</li>
@@ -150,9 +150,9 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						<a href="#">
 						<i class="icon-users"></i> Feedbacks <span class="badge badge-danger">2</span>
 						</a>
-					</li>
-				</ul>
-			</div>
+					</li>-->
+				<!--</ul>
+			</div>-->
 		</div>
 			<!-- BEGIN HEADER SEARCH BOX -->
 			<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
@@ -173,24 +173,21 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 					<li class="dropdown dropdown-user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-						<img alt="" class="img-circle" src="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout2/img/avatar3_small.jpg">
+						<!--<img alt="" class="img-circle" src="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout2/img/avatar3_small.jpg">-->
 						<span class="username username-hide-on-mobile">
 						Php Poets </span>
 						<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
-							<li>
+						<!--	<li>
 								<a href="<?php echo $this->webroot; ?>Nonmovinginventory/user_profile">
 								<i class="icon-user"></i> My Profile </a>
-							</li>
+							</li>-->
 							
 							
 							
 							<li>
-                            <!--<form  action="<?php echo $this->webroot; ?>Nonmovinginventory/index" method="post">
-                          <!--  <button type="submit" class="btn btn-default" style="font-size: 14px; font-weight: 300; display: block; clear: both; line-height: 18px; white-space: nowrap; padding: 8px 14px; border:none !important; background-color: transparent; width:100%; border-radius: 0px !important;" name="logout"><i class="icon-key"></i> Log Out</button>-->
-                       
-                          <!--  </form>-->
+                          
 								<form id="form1" action="<?php echo $this->webroot; ?>Nonmovinginventory/index" method="post">
                                <input type="hidden" value="logout" name="logout">
                                 <a id="hoverlog" style="color: #555; padding: 8px 14px; text-decoration: none; display: block; clear: both; line-height: 18px; white-space: nowrap; " href="#" onclick="document.getElementById('form1').submit();"><i class="icon-key"></i>&nbsp;&nbsp; Logout </a>
