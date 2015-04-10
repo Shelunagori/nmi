@@ -14,7 +14,7 @@ class NonmovinginventoryController extends AppController
 	{
 		if(!empty($this->request->data['logout']))
 		{
-			session_destroy();
+			$this->Session->destroy();
 		}
 		$this->layout='index_layout';
 		$this->loadmodel('Categorie');

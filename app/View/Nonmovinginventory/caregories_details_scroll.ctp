@@ -50,7 +50,7 @@ foreach($classified_posts_arr_ajax as $ftc_classified_post)
                                 <div class="row static-info">
                                     <div class="col-md-12 value">
                                         <div  style="overflow:auto;margin-bottom:10px" class="col-sm-8 " >
-                                           <p class="description"> <b>Price :  <img src="<?PHP echo $this->webroot; ?>images/rupees.jpg" style="width:12px"></b>   <?php echo $price ; ?> </p>
+                                           <p class="description"> <b>Price :</b> &nbsp;<i class="fa fa-inr"></i>   <?php echo $price ; ?> </p>
                                             <p class="description"> <b>Brand :</b>   <?php echo $brand ; ?> </p>
                                             <p class="description"> <b>Stock :</b>   <?php echo $stock ; echo $ftc_classified_post['Classified_post']['unit'] ; ?> </p>
                                            <!-- <p class="description"> <b>Post Date :</b>   <?php echo $classified_post_date_show ; ?> </p>-->

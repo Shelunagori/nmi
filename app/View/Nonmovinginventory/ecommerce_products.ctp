@@ -49,11 +49,11 @@
                                     <th width="10%">
                                          Status
                                     </th>
-                                    <th width="10%">
+                                   <!-- <th width="10%">
                                          Actions
-                                    </th>
+                                    </th>-->
                                 </tr>
-                                <tr role="row" class="filter">
+                               <!-- <tr role="row" class="filter">
                                    
                                     <td>
                                         <input type="text" class="form-control form-filter input-sm" name="product_id">
@@ -132,7 +132,7 @@
                                     <td>
                                         
                                     </td>
-                                </tr>
+                                </tr>-->
                                 </thead>
                                 <tbody>
                                 <?php
@@ -160,11 +160,11 @@
                                 <td class="sorting_1"><?php echo $value['classified_post']['id']; ?></td>
                                 <td><?php echo $value['classified_post']['product_name']; ?></td>
                                 <td><?php if(!empty($value['classified_post']['sub_category_id'])){ echo $categories_name."/".$subcategories_name; } else { echo $categories_name; } ?></td>
-                                <td><?php echo $value['classified_post']['price']; ?></td>
+                                <td><i class="fa fa-inr"></i><?php echo $value['classified_post']['price']; ?></td>
                                 <td><?php echo $value['classified_post']['stock']; ?></td>
                                 <td><?php echo date('d-m-Y', strtotime($value['classified_post']['date'])); ?></td>
                                 <td><?php if($status_id=='1'){ ?><span class="label label-sm label-success"><?php } else if($status_id=='2'){ ?><span class="label label-sm label-info"><?php }  else if($status_id=='3'){ ?><span class="label label-sm label-danger"><?php }  echo $status_name; ?></span> </td>
-                                <td><a href="ecommerce_products_edit" class="btn btn-xs default btn-editable"><i class="fa fa-pencil"></i> Edit</a></td>
+                               <!-- <td><a href="ecommerce_products_edit" class="btn btn-xs default btn-editable"><i class="fa fa-pencil"></i> Edit</a></td>-->
                                 </tr>
                                 <?php
 								}
