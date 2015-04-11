@@ -386,7 +386,7 @@ class NonmovinginventoryController extends AppController
 				
 				$this->loadmodel('Registration');
 			
-			 $this->Registration->saveAll(array('login_id' => $getLastInsertID,'organization_name' => $organization_name,'address_for_correspondence' => $address_for_correspondence,'year_of_incorporation' => $year_of_incorporation, 'website_of_organization' => $website_of_organization, 'name_of_person' => $name_of_person,'designation' => $designation,'mobile_no' => $mobile_no, 'phone_no' => $phone_no, 'tin_no' => $tin_no,'pan_no' => $pan_no,'category_of_organization' => $category_of_organization,'type_of_organization' => $type_of_organization_data,'name_of_products' => $name_of_products, 'date_time' => date('Y-m-d h:i:s')));
+			 $this->Registration->saveAll(array('login_id' => $getLastInsertID,'organization_name' => $organization_name,'address_for_correspondence' => $address_for_correspondence,'year_of_incorporation' => $year_of_incorporation, 'website_of_organization' => $website_of_organization, 'name_of_person' => $name_of_person,'designation' => $designation,'mobile_no' => @$mobile_no, 'phone_no' => @$phone_no, 'tin_no' => @$tin_no,'pan_no' => @$pan_no,'category_of_organization' => $category_of_organization,'type_of_organization' => $type_of_organization_data,'name_of_products' => $name_of_products, 'date_time' => date('Y-m-d h:i:s')));
 			
 			
 			return $this->redirect(array('action' => 'index'));
