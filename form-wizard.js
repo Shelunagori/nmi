@@ -34,7 +34,7 @@ var FormWizard = function () {
                 focusInvalid: false, // do not focus the last invalid input
                 rules: {
                     //account
-                    organization_name: {
+                    username: {
                         minlength: 5,
                         required: true
                     },
