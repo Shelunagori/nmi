@@ -385,11 +385,11 @@ class NonmovinginventoryController extends AppController
 			
 				
 				$this->loadmodel('Registration');
-			if(empty($mobile_no)){ $mobile_no=''; }
-			if(empty($phone_no)){ $phone_no=''; }
-			if(empty($tin_no)){ $tin_no=''; }
-			if(empty($pan_no)){ $pan_no=''; }
-			if(empty($category_of_organization)){ $category_of_organization=''; }
+			if(empty($mobile_no)){ $mobile_no=0; }
+			if(empty($phone_no)){ $phone_no=0; }
+			if(empty($tin_no)){ $tin_no=0; }
+			if(empty($pan_no)){ $pan_no=0; }
+			if(empty($category_of_organization)){ $category_of_organization=0; }
 			
 			 $this->Registration->saveAll(array('login_id' => $getLastInsertID,'organization_name' => $organization_name,'address_for_correspondence' => $address_for_correspondence,'year_of_incorporation' => $year_of_incorporation, 'website_of_organization' => $website_of_organization, 'name_of_person' => $name_of_person,'designation' => $designation,'mobile_no' => $mobile_no, 'phone_no' => $phone_no, 'tin_no' => $tin_no,'pan_no' => $pan_no,'category_of_organization' => $category_of_organization,'type_of_organization' => $type_of_organization_data,'name_of_products' => $name_of_products, 'date_time' => date('Y-m-d h:i:s')));
 			
