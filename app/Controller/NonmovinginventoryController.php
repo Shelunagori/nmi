@@ -359,10 +359,18 @@ class NonmovinginventoryController extends AppController
 			@$tin_no=$this->request->data['tin_no'];
 			@$pan_no=$this->request->data['pan_no'];
 			@$category_of_organization=$this->request->data['category_of_organization'];
-			@$type_of_organization=$this->request->data['type_of_organization'];
+			 @$type_of_organization=$this->request->data['type_of_organization'];
+			
 			@$name_of_products=$this->request->data['name_of_products'];
-	
-			$type_of_organization_data=implode(',',$type_of_organization);
+			
+			if(!empty($type_of_organization))
+			{
+				$type_of_organization_data=implode(',',$type_of_organization);
+			}
+			else
+			{
+				$type_of_organization_data='';
+			}
 			
 			$this->loadmodel('Login');
 			$conditions=array("email_id"=>$email_id);
