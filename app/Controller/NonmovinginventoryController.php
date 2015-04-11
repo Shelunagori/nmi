@@ -310,6 +310,16 @@ class NonmovinginventoryController extends AppController
 	{
 		$this->layout='user_index_layout';
 		$user_id=$this->Session->read('user_id');
+		
+		$productid=base64_decode($this->request->query('productid'));
+		$this->set('productid',$productid);
+		
+		$conditions=array('user_id' => $user_id, 'id' => $productid);
+		
+		$this->loadmodel('classified_post');
+		$this->set('arr_classified',$this->classified_post->find('all',array('conditions'=>$conditions)));
+		
+		
 		$this->loadmodel('categorie');
 		$this->set('arr_categories',$this->categorie->find('all'));
 		

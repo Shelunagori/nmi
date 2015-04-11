@@ -49,7 +49,7 @@
                                     <th width="10%">
                                          Status
                                     </th>
-                                   <!-- <th width="10%">
+                                  <!--  <th width="10%">
                                          Actions
                                     </th>-->
                                 </tr>
@@ -164,7 +164,7 @@
                                 <td><?php echo $value['classified_post']['stock']; ?></td>
                                 <td><?php echo date('d-m-Y', strtotime($value['classified_post']['date'])); ?></td>
                                 <td><?php if($status_id=='1'){ ?><span class="label label-sm label-success"><?php } else if($status_id=='2'){ ?><span class="label label-sm label-info"><?php }  else if($status_id=='3'){ ?><span class="label label-sm label-danger"><?php }  echo $status_name; ?></span> </td>
-                               <!-- <td><a href="ecommerce_products_edit" class="btn btn-xs default btn-editable"><i class="fa fa-pencil"></i> Edit</a></td>-->
+                                <!--<td><a href="ecommerce_products_edit?productid=<?php echo base64_encode($value['classified_post']['id']); ?>" class="btn btn-xs btn-info btn-editable"><i class="fa fa-pencil"></i> Edit</a></td>-->
                                 </tr>
                                 <?php
 								}

@@ -261,6 +261,21 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout2/scripts/layout.js" type="text/javascript"></script>
 <script src="../../assets/admin/layout2/scripts/demo.js" type="text/javascript"></script>
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/admin/pages/scripts/components-form-tools.js"></script>
+<script id="_webengage_script_tag" type="text/javascript">
+  var _weq = _weq || {};
+  _weq['webengage.licenseCode'] = '14507c5a6';
+  _weq['webengage.widgetVersion'] = "4.0";
+
+  (function(d){
+    var _we = d.createElement('script');
+    _we.type = 'text/javascript';
+    _we.async = true;
+    _we.src = (d.location.protocol == 'https:' ? "//ssl.widgets.webengage.com" : "//cdn.widgets.webengage.com") +
+              "/js/widget/webengage-min-v-3.0.js";
+    var _sNode = d.getElementById('_webengage_script_tag');
+    _sNode.parentNode.insertBefore(_we, _sNode);
+  })(document);
+</script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
 jQuery(document).ready(function() {    

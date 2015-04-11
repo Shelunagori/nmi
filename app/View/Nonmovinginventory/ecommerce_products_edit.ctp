@@ -10,6 +10,34 @@ select
 	cursor:pointer;
 }
 </style>
+<?php
+foreach($arr_classified as $value)
+{
+	$category_id_fetch=$value['classified_post']['category_id'];
+	$sub_category_id_fetch=$value['classified_post']['sub_category_id'];
+	$price_fetch=$value['classified_post']['price'];
+	$year_of_manufacture_fetch=$value['classified_post']['year_of_manufacture'];
+	$brand_fetch=$value['classified_post']['brand'];
+	$stock_fetch=$value['classified_post']['stock'];
+	$sku_fetch=$value['classified_post']['sku'];
+	$city_id_fetch=$value['classified_post']['city_id'];
+	$product_name_fetch=$value['classified_post']['product_name'];
+	$description_fetch=$value['classified_post']['description'];
+	$short_description_fetch=$value['classified_post']['short_description'];
+	$part_no_fetch=$value['classified_post']['part_no'];
+	$photo_fetch=$value['classified_post']['photo'];
+	$date_fetch=$value['classified_post']['date'];
+	$time_fetch=$value['classified_post']['time'];
+	$available_from_fetch=$value['classified_post']['available_from'];
+	$available_to_fetch=$value['classified_post']['available_to'];
+	$tax_class_fetch=$value['classified_post']['tax_class'];
+	$status_fetch=$value['classified_post']['status'];
+	$meta_title_fetch=$value['classified_post']['meta_title'];
+	$meta_keywords_fetch=$value['classified_post']['meta_keywords'];
+	$meta_description_fetch=$value['classified_post']['meta_description'];
+	$location_address_fetch=$value['classified_post']['location_address'];
+}
+?>
 <div class="row" >
 
     <div class="col-md-12" id="loadingform">
@@ -51,7 +79,7 @@ select
                         <div class="tab-content no-space">
                             <div class="tab-pane active" id="tab_general">
                                 <div class="form-body">
-                                <input type="hidden" id="update_table" value="0" />
+                                <input type="hidden" id="update_table" value="<?php echo $productid; ?>" />
                                     <div class="form-group">
                                             <label class="col-md-2 control-label">Category: <span class="required"> * </span>
                                             </label>
@@ -64,7 +92,7 @@ select
                                                         $categories=$value ['categorie']['categories'];
                                                         $categories_id=$value['categorie']['id'];
                                                         ?>
-                                                        <option  value="<?php echo $categories_id; ?>" >&nbsp;&nbsp;&nbsp;<?php echo $categories ; ?></option>
+                                                        <option  value="<?php echo $categories_id; ?>" <?php if($categories_id==$category_id_fetch){ ?> selected="selected" <?php } ?> >&nbsp;&nbsp;&nbsp;<?php echo $categories; ?></option>
                                                          <?php
                                                     }
                                                     ?>
@@ -76,35 +104,35 @@ select
                                         <label class="col-md-2 control-label">Product Name: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="product_name" placeholder="" type="text">
+                                            <input class="form-control" name="product_name" placeholder="" type="text" value="<?php echo $product_name_fetch; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Brand Name: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="brand" placeholder="" type="text">
+                                            <input class="form-control" name="brand" placeholder="" type="text"  value="<?php echo $brand_fetch; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Total Stock: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="stock" placeholder="" type="text">
+                                            <input class="form-control" name="stock" placeholder="" type="text" value="<?php echo $stock_fetch; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Year of Manufacture: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="year_of_manufacture" placeholder="" type="text">
+                                            <input class="form-control" name="year_of_manufacture" placeholder="" type="text" value="<?php echo $year_of_manufacture_fetch; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Part No.: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="part_no" placeholder="" type="text">
+                                            <input class="form-control" name="part_no" placeholder="" type="text" value="<?php echo $part_no_fetch; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -119,7 +147,7 @@ select
                                                     $states=$value['state']['states'];
                                                     $states_id=$value['state']['id'];
                                                     ?>
-                                                        <optgroup label="<?php echo $states ; ?>">
+                                                        <optgroup label="<?php echo $states; ?>">
                                                         <?php 
                                                             $return_array=$this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'find_city_arr'),array('pass'=>array($states_id)));
                                                         foreach($return_array as $value_city_nmae)
@@ -128,7 +156,7 @@ select
                                                         $city_name=$value_city_nmae['city_name']['city_name'];
                                                         $city_name_id=$value_city_nmae['city_name']['id'];
                                                         ?>
-                                                                        <option  value="<?php echo $city_name_id; ?>" >&nbsp;&nbsp;&nbsp;<?php echo $city_name ; ?></option>
+                                                                        <option  value="<?php echo $city_name_id; ?>" <?php if($city_name_id==$city_id_fetch){ ?> selected="selected" <?php } ?> >&nbsp;&nbsp;&nbsp;<?php echo $city_name; ?></option>
                                                                     <?php
                                                    }
                                                     ?>
@@ -143,21 +171,21 @@ select
                                         <label class="col-md-2 control-label">Address: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control" name="location_address"></textarea>
+                                            <textarea class="form-control" name="location_address"><?php echo $location_address_fetch; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Description: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control" name="description"></textarea>
+                                            <textarea class="form-control" name="description"><?php echo $description_fetch; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Short Description: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control" name="short_description"></textarea>
+                                            <textarea class="form-control" name="short_description"><?php echo $short_description_fetch; ?></textarea>
                                             <span class="help-block">
                                             shown in product listing </span>
                                         </div>
@@ -168,10 +196,10 @@ select
                                         </label>
                                         <div class="col-md-10">
                                             <div class="input-group input-large date-picker input-daterange" data-date="2012/10/11" data-date-format="yyyy/mm/dd">
-                                                <input class="form-control" name="available_from" type="text">
+                                                <input class="form-control" name="available_from" type="text" value="<?php echo $available_from_fetch; ?>">
                                                 <span class="input-group-addon">
                                                 to </span>
-                                                <input class="form-control" name="available_to" type="text">
+                                                <input class="form-control" name="available_to" type="text"  value="<?php echo $available_to_fetch; ?>">
                                             </div>
                                             <span class="help-block">
                                             availability daterange. </span>
@@ -181,37 +209,43 @@ select
                                         <label class="col-md-2 control-label">SKU: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="sku" placeholder="" type="text">
+                                            <input class="form-control" name="sku" placeholder="" type="text" value="<?php echo $sku_fetch; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Price: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="price" placeholder="" type="text">
+                                            <input class="form-control" name="price" placeholder="" type="text" value="<?php echo $price_fetch; ?>">
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                   <!-- <div class="form-group">
                                         <label class="col-md-2 control-label">Tax Class: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
                                             <select class="table-group-action-input form-control input-medium" name="tax_class">
                                                 <option value="">Select...</option>
                                                 <option value="1">None</option>
-                                                <option value="0">Taxable Goods</option>
-                                                <option value="0">Shipping</option>
-                                                <option value="0">USA</option>
+                                                <option value="2">Taxable Goods</option>
+                                                <option value="3">Shipping</option>
+                                                <option value="4">USA</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Status: <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
                                             <select class="table-group-action-input form-control input-medium" name="status">
                                                 <option value="">Select...</option>
-                                                <option value="1">Published</option>
-                                                <option value="0">Not Published</option>
+                                                <?php
+												foreach($arr_status as $value)
+                                                { 
+												?>
+                                                <option value="<?php echo $value['status']['id']; ?>" <?php if($$value['status']['id']==$status_fetch){ ?> selected="selected" <?php } ?> >&nbsp;&nbsp;&nbsp;<?php echo $value['status']['status_name']; ?></option>
+                                                <?php
+												}
+												?>
                                             </select>
                                         </div>
                                     </div>
@@ -222,7 +256,7 @@ select
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Meta Title:</label>
                                         <div class="col-md-10">
-                                            <input class="form-control maxlength-handler" name="meta_title" maxlength="100" placeholder="" type="text">
+                                            <input class="form-control maxlength-handler" name="meta_title" maxlength="100" placeholder="" type="text" value="<?php echo $meta_title_fetch; ?>">
                                             <span class="help-block">
                                             max 100 chars </span>
                                         </div>
@@ -230,7 +264,7 @@ select
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Meta Keywords:</label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control maxlength-handler" rows="8" name="meta_keywords" maxlength="1000"></textarea>
+                                            <textarea class="form-control maxlength-handler" rows="8" name="meta_keywords" maxlength="1000"><?php echo $meta_keywords_fetch; ?></textarea>
                                             <span class="help-block">
                                             max 1000 chars </span>
                                         </div>
@@ -238,7 +272,7 @@ select
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Meta Description:</label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control maxlength-handler" rows="8" name="meta_description" maxlength="255"></textarea>
+                                            <textarea class="form-control maxlength-handler" rows="8" name="meta_description" maxlength="255"><?php echo $meta_description_fetch; ?></textarea>
                                             <span class="help-block">
                                             max 255 chars </span>
                                         </div>
