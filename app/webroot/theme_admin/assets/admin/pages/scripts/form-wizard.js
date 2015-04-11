@@ -51,7 +51,7 @@ var FormWizard = function () {
                     fullname: {
                         required: true
                     },
-                    email: {
+                    email_id: {
                         required: true,
                         email: true
                     },

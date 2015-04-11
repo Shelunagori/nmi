@@ -376,28 +376,28 @@ class NonmovinginventoryController extends AppController
 			$conditions=array("email_id"=>$email_id);
 			$result_login=$this->Login->find('all',array('conditions'=>$conditions));
 			
-			if(sizeof($result_login)==0)
+			if(sizeof($result_login)==0 && !empty($email_id))
 			{
 				$this->loadmodel('Login');
 				$this->Login->saveAll(array('designation_id' => 2,'email_id' => $email_id,'password' => md5('hello')));
 				
-				 $getLastInsertID = $this->Login->getLastInsertID();
+				$getLastInsertID = $this->Login->getLastInsertID();
 			
 				
-			$this->loadmodel('Registration');
+				$this->loadmodel('Registration');
 			
-			$this->Registration->saveAll(array('login_id' => $getLastInsertID,'organization_name' => $organization_name,'address_for_correspondence' => $address_for_correspondence,'year_of_incorporation' => $year_of_incorporation, 'website_of_organization' => $website_of_organization, 'name_of_person' => $name_of_person,'designation' => $designation,'mobile_no' => $mobile_no, 'phone_no' => $phone_no, 'tin_no' => $tin_no,'pan_no' => $pan_no,'category_of_organization' => $category_of_organization,'type_of_organization' => $type_of_organization_data,'name_of_products' => $name_of_products, 'date_time' => date('Y-m-d h:i:s')));
+			 $this->Registration->saveAll(array('login_id' => $getLastInsertID,'organization_name' => $organization_name,'address_for_correspondence' => $address_for_correspondence,'year_of_incorporation' => $year_of_incorporation, 'website_of_organization' => $website_of_organization, 'name_of_person' => $name_of_person,'designation' => $designation,'mobile_no' => $mobile_no, 'phone_no' => $phone_no, 'tin_no' => $tin_no,'pan_no' => $pan_no,'category_of_organization' => $category_of_organization,'type_of_organization' => $type_of_organization_data,'name_of_products' => $name_of_products, 'date_time' => date('Y-m-d h:i:s')));
 			
-			$this->Session->setFlash(__('Your registration has been saved.'));
+			
 			return $this->redirect(array('action' => 'index'));
+			//$this->set('registration','Your registration is complited.');
 			
 			}
 			else
 			{
-				$this->Session->setFlash(__('This email id is allready exists.'));
-				
+				$this->set('wrongemail', 'This email id is allready exists.');
 			}
-			//exit;
+			
 		}
 	///////////////// submit register ///////////////////////
     }

@@ -1,3 +1,15 @@
+<?php
+if(!empty($wrongemail))
+{
+?>
+<div class="alert alert-danger">
+	<button class="close" data-close="alert"></button>
+	<span>
+	<?php echo $wrongemail; ?> </span>
+</div>
+<?php
+}
+?>
 <div class="row">
 					<div class="col-md-12">
 						<div class="portlet box blue" id="form_wizard_1">
@@ -123,7 +135,7 @@
 														<div class="col-md-4">
 															<input class="form-control" name="mobile_no" type="text">
 															<span class="help-block">
-															Provide your street address </span>
+															Provide your mobile no. </span>
 														</div>
 													</div>
 													<div class="form-group">
@@ -141,7 +153,7 @@
 														<div class="col-md-4">
 															<input type="text" class="form-control" rows="3" name="email_id">
                                                             <span class="help-block">
-															Provide your Landline no </span>
+															Provide your email id </span>
 														</div>
 													</div>
 												</div>
