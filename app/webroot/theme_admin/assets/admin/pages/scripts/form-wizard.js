@@ -91,11 +91,20 @@ var FormWizard = function () {
                     'payment[]': {
                         required: true,
                         minlength: 1
+                    },
+					'type_of_organization1[]': {
+                        required: true,
+                        minlength: 1,
+						 maxlength: 4
                     }
                 },
 
                 messages: { // custom messages for radio buttons and checkboxes
                     'payment[]': {
+                        required: "Please select at least one option",
+                        minlength: jQuery.validator.format("Please select at least one option")
+                    },
+					'type_of_organization[]': {
                         required: "Please select at least one option",
                         minlength: jQuery.validator.format("Please select at least one option")
                     }
@@ -128,7 +137,7 @@ var FormWizard = function () {
                 },
 
                 success: function (label) {
-                    if (label.attr("for") == "gender" || label.attr("for") == "payment[]") { // for checkboxes and radio buttons, no need to show OK icon
+                    if (label.attr("for") == "gender" || label.attr("for") == "payment[]" || label.attr("for") == "type_of_organization[]") { // for checkboxes and radio buttons, no need to show OK icon
                         label
                             .closest('.form-group').removeClass('has-error').addClass('has-success');
                         label.remove(); // remove error label here

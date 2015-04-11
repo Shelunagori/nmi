@@ -216,10 +216,12 @@ if(!empty($wrongemail))
 																<label class="checkbox-inline">
 																<input name="type_of_organization[]" value="<?php echo $id ; ?>" data-title="<?php echo $organization_type ; ?>" type="checkbox">
 																<?php echo $organization_type ; ?> </label>
+                                                                
 															<?php
 															}
 															?>
-																
+																<span class="help-block">
+															 </span>
 															</div>
 															
 														</div>
