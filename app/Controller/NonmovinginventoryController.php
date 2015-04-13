@@ -748,7 +748,6 @@ class NonmovinginventoryController extends AppController
 				$this->loadmodel('Classified_post');
 				if(!empty($sub_categories_ftc) && !empty($sub_categories_id))
 				{
-					
 					@$rst_classified_posts=$this->Classified_post->find('all', array('conditions' => array('Classified_post.sub_category_id' =>$sub_categories_ftc, 'Classified_post.status' => "1"), 'order'=>$order_by, 'limit'=>$limit));
 				
 				@$rst_classified_posts_next=$this->Classified_post->find('all', array('conditions' => array('Classified_post.sub_category_id' =>$sub_categories_ftc,'Classified_post.status' => "1"), 'order'=>$order_by, 'limit'=>1, 'offset' => $start_next));

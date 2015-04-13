@@ -56,7 +56,7 @@
              
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-cogs"></i><a style="color:#FFF" href="ads_details?post_id=<?php echo $classified_post_id ; ?>" class="search-result-title  "><?php echo @$sub_categories; ?> ( <?php echo $product_name; ?> )</a>
+                        <i class="fa fa-cogs"></i><a  style="color:#FFF" href="ads_details?post_id=<?php echo $classified_post_id ; ?>" class="search-result-title  "> <?php echo @$sub_categories; if(!empty($product_name)) { ?> ( <?php echo $product_name; ?> )<?php } ?></a>
                     </div>
                 </div>
 			
