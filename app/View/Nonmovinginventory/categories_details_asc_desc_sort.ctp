@@ -67,7 +67,7 @@
                                         <div  style="overflow:auto;margin-bottom:10px" class="col-sm-8 " >
 								 <p class="description"> <b>Price :</b> &nbsp;
                                            <?php
-											if(!empty($price))
+											if($price>0)
 											{
 												echo '<i class="fa fa-inr"></i>'.$price; 
 											}

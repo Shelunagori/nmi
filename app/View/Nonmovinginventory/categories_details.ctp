@@ -213,7 +213,7 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
                                         
                                                             <p class="description"> <b>Price :</b>&nbsp;   
                                                             <?php
-                                                            if(!empty($ftc_classified_post['Classified_post']['price']))
+                                                            if($ftc_classified_post['Classified_post']['price']>0)
                                                             {
                                                                 echo '<i class="fa fa-inr"></i>'.$ftc_classified_post['Classified_post']['price']; 
                                                             }

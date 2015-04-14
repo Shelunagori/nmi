@@ -87,7 +87,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
                     <div class="price">
                       <strong>
                       <?php
-					  if(!empty($price))
+					  if($price>0)
 					  {
 						  ?>
                       <span>&nbsp;<i class="fa fa-inr"></i></span><?php echo $price ; 
@@ -258,7 +258,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
                
                 </div>
 
-                <div class="sticker sticker-sale"></div>
+                <!--<div class="sticker sticker-sale"></div>-->
               </div>
             </div>
           </div>
