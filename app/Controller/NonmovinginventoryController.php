@@ -39,6 +39,7 @@ class NonmovinginventoryController extends AppController
 		$message_web='Name '.$name.'<br/>Email '.$email_reply.'<br/>Phone No. '.$phone_no.'<br/>Message '.$message;
 		$this->loadmodel('Enquiry');
 		$this->Enquiry->saveAll(array('name'=>$name,'email'=>$email_reply,'phone_no'=>$phone_no,'message'=>$message));
+		
 		$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
 		
         
@@ -464,7 +465,7 @@ class NonmovinginventoryController extends AppController
 				$result = $this->login->find('all',array('conditions'=>$conditions));
 				$user_id=$result[0]['login']['id'];
 				$data=base64_encode($user_id);;
-				$message_web='<a href="52.74.15.170/nonmoving/nonmovinginventory/reset_password?data='.$data.'">Click here to reset password.</a>';
+				$message_web='<a href="52.74.43.53/nmi/nonmovinginventory/reset_password?data='.$data.'">Click here to reset password.</a>';
 				//$message_web='<a href="localhost/nonmoving/nonmovinginventory/reset_password?data='.$data.'">Click here to reset password.</a>';
 				$this->smtpmailer($email_id,'Nonmoving Inventory','Reset Password',$message_web,'');
 				 echo "<script>window.close();</script>";

@@ -104,15 +104,22 @@ foreach($classified_posts_arr as $ftc_classified_post)
                       Availability: <strong>In Stock</strong>
                     </div>
                   </div>
+                  <?php
+                  if(!empty($short_description))
+					{
+						?>
                   <div class="description">
                     <p><?php echo $short_description; ?></p>
                   </div>
-                 
+                   <hr/>
+                   <?php
+					}
+					?>
                   <?php
                   if(!empty($city_name))
 					{
 						?>
-                         <hr/>
+                        
                 <div class="location">
                     <p><?php echo $city_name; ?> ( <?php echo $states; ?> )</p>
                   </div>
@@ -216,11 +223,17 @@ foreach($classified_posts_arr as $ftc_classified_post)
                           <td class="datasheet-features-type">Part No.</td>
                           <td><?php echo $part_no ; ?></td>
                         </tr>
+                         <?php
+						if(!empty($year))
+						{
+						?>
                         <tr>
                           <td class="datasheet-features-type">Year of Manufacturing</td>
                           <td><?php echo $year ; ?></td>
                         </tr>
-                       
+                       <?php
+						}
+						?>
                       </tbody></table>
                     </div>
                   <!--  <div class="tab-pane fade in active" id="Reviews">
