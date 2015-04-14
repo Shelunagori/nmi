@@ -19,9 +19,9 @@
 <div class="row">
 					<div class="col-md-12 page-404">
 						<div class="number">
-							 <span style="color:#497093">Welcome to portal</span>
+							 <span style="color:#497093">Welcome to</span>
                              <br/>
-                             <span style="color:#9C3348">Nonmoving</span> <span style="color:#14303A">Inventory</span>
+                             <span style="color:#9C3348">Nonmoving</span> <span style="color:#14303A">Inventory.com</span>
 						</div>
 						
 					</div>

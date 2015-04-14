@@ -175,7 +175,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 						<!--<img alt="" class="img-circle" src="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout2/img/avatar3_small.jpg">-->
 						<span class="username username-hide-on-mobile">
-						Php Poets </span>
+						<?php echo $organization_name; ?> </span>
 						<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">

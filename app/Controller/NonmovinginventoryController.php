@@ -212,6 +212,17 @@ class NonmovinginventoryController extends AppController
 		$this->layout='index_layout';
 		
 	}
+	public function beforeFilter()
+	{
+		@$user_id=$this->Session->read('user_id');
+		if(!empty($user_id))
+		{
+		$this->loadmodel('registration');
+		@$profile_arr=$this->registration->find('all', array('conditions' => array("registration.login_id" =>$user_id)));		
+		$organization_name=$profile_arr[0]['registration']['organization_name'];
+		$this->set('organization_name', $organization_name);
+		}
+	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function about_us() 
 	{
