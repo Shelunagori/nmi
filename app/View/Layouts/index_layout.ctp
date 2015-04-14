@@ -83,7 +83,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 		
 		<!-- BEGIN PAGE TOP -->
 		<div class="page-top">
-         <span class="title-main navbar-brand tk-adelle"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="200" alt="NON MOVING INVENTORY"></span>
+         <span class="title-main navbar-brand tk-adelle"><a href="<?php echo $this->webroot; ?>Nonmovinginventory/index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="200" alt="NON MOVING INVENTORY"></a></span>
 			<!-- BEGIN HEADER SEARCH BOX -->
 			<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
 			<form class="search-form search-form-expanded" action="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details" method="GET">
@@ -185,7 +185,8 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
           <!-- END COPYRIGHT -->
           <!-- BEGIN PAYMENTS -->
           <div class="col-md-6 col-sm-6 padding-top-10" >
-            <ul class="social-footer list-unstyled list-inline pull-right">
+          <!-- social-footer  -->
+            <ul class=" list-unstyled list-inline pull-right">
               <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/term_services" style="font-size:17px;color:#57C8EB;"> T &amp; C</a></li>
                 <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/faqs" style="font-size:17px;color:#57C8EB;">FAQ</a></li>
                 <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/about_us" style="font-size:17px;color:#57C8EB;">About Us</a></li>
