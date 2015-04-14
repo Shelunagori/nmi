@@ -21,5 +21,5 @@
 <li>CA O.P. Chaplot, Senior Tax Advisor, Udaipur</li>
 </ul>
 
-<p align="justify" style="font-size:18px;">We have developed a platform where companies can sell their unused inventory at a reasonable price. Attempt is made to bring actual genuine buyers and sellers on the same platform. We will also help in locating such buyers, who can purchase their unused inventory at a lucrative price. We will charge a nominal amount to maintain the portal for overall interest of leading entrepreneur's as well genuine buyers. Charges are given on<a href="http://nonmovinginventory.com/#SellingOptions"> click here.</a>	</p>
+<p align="justify" style="font-size:18px;">We have developed a platform where companies can sell their unused inventory at a reasonable price. Attempt is made to bring actual genuine buyers and sellers on the same platform. We will also help in locating such buyers, who can purchase their unused inventory at a lucrative price. We will charge a nominal amount to maintain the portal for overall interest of leading entrepreneur's as well genuine buyers. Charges are given on <a href="http://nonmovinginventory.com/#SellingOptions">click here.</a>	</p>
 </div><!-- END PAGE CONTENT-->
