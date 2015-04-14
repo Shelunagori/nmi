@@ -1,6 +1,6 @@
 <?php
 $submit_succ=1;
-$limit="LIMIT 10" ;
+$limit="LIMIT 10";
 ?>		
 
  <style type='text/css'>
@@ -69,7 +69,7 @@ select
             <li> <?php echo $this->Html->link($categories_nm, array('action' => 'categories_details', '?' => array('categories_id' => $categories_id_sub)), array('escape' => false)); ?>  
              <i class="fa fa-angle-right"></i>
              </li>
-            <li> <?php echo $sub_categories_nm ; ?> </li>
+            <li> <?php echo $sub_categories_nm; ?> </li>
         
             <?php
         }
@@ -99,22 +99,22 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
 
 </tr>
 <tr role="row" class="filter"><td >
-        <select class="table-group-action-input form-control input-inline input-small input-sm select_box" name="order" onChange="accending_disending(this.value,'<?php echo @$categories_id ; ?>','<?php echo @$search_by_meta; ?>','<?php echo @$sub_categories_id; ?>','1');" >
+        <select class="table-group-action-input form-control input-inline input-small input-sm select_box" name="order" onChange="accending_disending(this.value,'<?php echo @$categories_id; ?>','<?php echo @$search_by_meta; ?>','<?php echo @$sub_categories_id; ?>','1');" >
                         <option value="" >--Sorting--</option>
                         <option value="date ASC" >Ascending</option>
                         <option value="date DESC" >Descending</option>
           </select> 
     </td><td>
-       <select class="table-group-action-input form-control input-inline input-small input-sm select_box"  name="order_way" onChange="accending_disending(this.value,'<?php echo @$categories_id ; ?>','<?php echo @$search_by_meta; ?>','<?php echo @$sub_categories_id; ?>','1');">
+       <select class="table-group-action-input form-control input-inline input-small input-sm select_box"  name="order_way" onChange="accending_disending(this.value,'<?php echo @$categories_id; ?>','<?php echo @$search_by_meta; ?>','<?php echo @$sub_categories_id; ?>','1');">
                         <option value="" >--Sorting--</option>
                         <option value="price ASC" >Ascending</option>
                         <option value="price DESC" >Descending</option>
                     </select>
     </td><td>
-        <input type="text"  class="filterme  form-control input-small  text_price_box" autocomplete="off"  placeholder="Min" value="<?php  echo @$min_price ;?>" name="min_price" id="min_price"/>  
-          <input type="text"  class="filterme  form-control input-small text_price_box" required autocomplete="off" placeholder="Max" value="<?php  echo@ $max_price ;?>" name="max_price" id="max_price"/>  
+        <input type="text"  class="filterme  form-control input-small  text_price_box" autocomplete="off"  placeholder="Min" value="<?php  echo @$min_price;?>" name="min_price" id="min_price"/>  
+          <input type="text"  class="filterme  form-control input-small text_price_box" required autocomplete="off" placeholder="Max" value="<?php  echo@ $max_price;?>" name="max_price" id="max_price"/>  
           
-            <button class="btn btn-sm yellow filter-submit margin-bottom"  onclick="accending_disending('Classified_post.id DESC','<?php echo @$categories_id ; ?>','<?php echo @$search_by_meta; ?>','<?php echo @$sub_categories_id; ?>','2');"><i class="fa fa-search"></i> Search</button>
+            <button class="btn btn-sm yellow filter-submit margin-bottom"  onclick="accending_disending('Classified_post.id DESC','<?php echo @$categories_id; ?>','<?php echo @$search_by_meta; ?>','<?php echo @$sub_categories_id; ?>','2');"><i class="fa fa-search"></i> Search</button>
       
     </td>
     <td >
@@ -200,33 +200,61 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
                                              
 								 				<div class="portlet-title">
                                                     <div class="caption">
-                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id'] ; ?>" ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
+                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
                                                     </div>
                                                 </div>
 									
-												<div class="portlet-body">
-															<div class="row static-info">
-																<div class="col-md-12 value">
-                                                                
-                                               					 	<div  style="overflow:auto;margin-bottom:10px" class="col-sm-8 " >
-                                                   
-													
-                                                                        <p class="description"> <b>Price :</b>&nbsp;<i class="fa fa-inr"></i>   <?php echo $ftc_classified_post['Classified_post']['price'] ; ?> </p>
-                                                                        <p class="description"> <b>Brand :</b>   <?php echo $ftc_classified_post['Classified_post']['brand'] ; ?> </p>
-                                                                        <p class="description"> <b>Stock :</b>   <?php echo $ftc_classified_post['Classified_post']['stock'];  echo " (".$ftc_classified_post['Classified_post']['sku'].")" ; ?> </p>
-                                                                      <!--  <p class="description"> <b>Post Date :</b>   <?php echo $classified_post_date_show ; ?> </p>-->
-                                                                        <p class="description"> <b>Location :</b>   <?php echo $city_name ; ?> ( <?php echo $states ; ?> )
-                                                                         </p>
-                                                                        <span class="is_r_featured"></span>
-                                                                
-                                                                    </div>
+                                    <div class="portlet-body">
+                                                <div class="row static-info">
+                                                    <div class="col-md-12 value">
+                                                    
+                                                        <div  style="overflow:auto;margin-bottom:10px" class="col-sm-8 " >
+                                       
+                                        
+                                                            <p class="description"> <b>Price :</b>&nbsp;   
+                                                            <?php
+                                                            if(!empty($ftc_classified_post['Classified_post']['price']))
+                                                            {
+                                                                echo '<i class="fa fa-inr"></i>'.$ftc_classified_post['Classified_post']['price']; 
+                                                            }
+                                                            else
+                                                            {
+                                                                echo 'Negotiable';
+                                                            }
+                                                             ?> </p>
+                                                                 <?php
+                                                                if(!empty($ftc_classified_post['Classified_post']['brand']))
+                                                                {
+                                                                    ?>
+                                                                    <p class="description"> <b>Brand :</b>   <?php echo $ftc_classified_post['Classified_post']['brand']; ?> </p>
+                                                                    <?php
+                                                                }
+                                                                if(!empty($ftc_classified_post['Classified_post']['stock']))
+                                                                {
+                                                                    ?>
+                                                                    <p class="description"> <b>Stock :</b>   <?php echo $ftc_classified_post['Classified_post']['stock'];
+                                                                    if(!empty($ftc_classified_post['Classified_post']['unit'])) {   echo " ".$ftc_classified_post['Classified_post']['unit']; } ?> </p>
+                                                                    <?php
+                                                                }
+                                                                if(!empty($ftc_classified_post['Classified_post']['part_no']))
+                                                                {
+                                                                    ?>
+                                                                    <p class="description"> <b>Part No. :</b><?php echo $ftc_classified_post['Classified_post']['part_no']; ?> </p>
+                                                                    <?php
+                                                                }
+                                                                if(!empty($city_name))
+                                                                {
+                                                                    ?>
+                                                                     <p class="description"> <b>Location :</b>   <?php echo $city_name; ?> ( <?php echo $states; ?> )</p>
+                                                                    <?php
+                                                                }
+                                                                 ?>
+                                                        </div>
 																	<a href="#product-pop-up" class="btn btn-default fancybox-fast-view"></a>
                                                                  <div class="col-sm-2 ">
                                                                     <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn-block result-details-link">
                                                                    <div style="height:150px;width:150px"> 
-                                                                    <img style="border:1px solid #67809F; border-radius:5px 5px 5px 5px;" alt="Post Images" class="img-res" width="100%"  height="90%"  src="<?php if(empty($photo_first)){ echo $this->webroot; ?>images/image/no_pic.gif<?php } else { echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photo_first; } ?>" />  <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id'] ; ?>" class="btn blue-hoki btn-sm" style="width:100%; padding-top:3px; margin-top:1px;"><i class="fa fa-th-large"></i> <b>Details</b></a>
-                                                         
-                                                                    </div>
+                                                                    <img style="border:1px solid #67809F; border-radius:5px 5px 5px 5px;" alt="Post Images" class="img-res" width="100%"  height="90%"  src="<?php if(empty($photo_first)){ echo $this->webroot; ?>images/image/no_pic.gif<?php } else { echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photo_first; } ?>" />  <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn blue-hoki btn-sm" style="width:100%; padding-top:3px; margin-top:1px;"><i class="fa fa-th-large"></i> <b>Details</b></a></div>
                                                                     </a>
                                                                 </div>
 										

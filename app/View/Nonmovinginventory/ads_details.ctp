@@ -1,6 +1,3 @@
-
-
-
 <?php
 foreach($classified_posts_arr as $ftc_classified_post)
 		{
@@ -70,22 +67,37 @@ foreach($classified_posts_arr as $ftc_classified_post)
                   </div>
                   <div class="product-other-images">
                   <?php
-				  foreach($photo_arr as $photos)
+				  if(!empty($photo))
 				  {
-					  ?>
-					  <a href="<?php echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photos;  ?>" class="fancybox-button" rel="photos-lib"><img alt="<?php echo $sub_categories; ?> ( <?php echo $product_name; ?> )"  src="<?php if(empty($photo)){ echo $this->webroot; ?>images/image/no_pic.gif<?php } else { echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photos; } ?>" style="width:58px; height:70px;"></a>
-                      
-                      <?php
+					  foreach($photo_arr as $photos)
+					  {
+						  ?>
+						  <a href="<?php echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photos;  ?>" class="fancybox-button" rel="photos-lib"><img alt="<?php echo $sub_categories; ?> ( <?php echo $product_name; ?> )"  src="<?php if(empty($photo)){ echo $this->webroot; ?>images/image/no_pic.gif<?php } else { echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photos; } ?>" style="width:58px; height:70px;"></a>
+						  
+						  <?php
+					  }
 				  }
 				  ?>
                  
                   </div>
                 </div>
                 <div class="col-md-9 col-sm-6">
-                  <h1><?php echo $sub_categories; ?> ( <?php echo $product_name; ?> )</h1>
+                  <h1><?php echo $sub_categories; if(!empty($product_name)) {  echo "( ".$product_name." )"; } ?> </h1>
                   <div class="price-availability-block clearfix">
                     <div class="price">
-                      <strong><span>&nbsp;<i class="fa fa-inr"></i></span><?php echo $price ; ?></strong>
+                      <strong>
+                      <?php
+					  if(!empty($price))
+					  {
+						  ?>
+                      <span>&nbsp;<i class="fa fa-inr"></i></span><?php echo $price ; 
+					  }
+					  else
+					  {
+						  echo 'Negotiable';
+					  }
+					  ?>
+                      </strong>
                       
                     </div>
                     <div class="availability">
@@ -95,12 +107,20 @@ foreach($classified_posts_arr as $ftc_classified_post)
                   <div class="description">
                     <p><?php echo $short_description; ?></p>
                   </div>
-                  <hr/>
+                 
+                  <?php
+                  if(!empty($city_name))
+					{
+						?>
+                         <hr/>
                 <div class="location">
                     <p><?php echo $city_name; ?> ( <?php echo $states; ?> )</p>
                   </div>
-               
+               		
                  <hr/>
+                 <?php
+					}
+					?>
                  <!-- <div class="product-page-cart ">
                     <div class="product-quantity">
                         <div class="input-group bootstrap-touchspin input-group-sm"><span class="input-group-btn">
@@ -175,10 +195,10 @@ foreach($classified_posts_arr as $ftc_classified_post)
                   <!--  <li class="active"><a href="#Reviews" data-toggle="tab">Reviews (2)</a></li>-->
                   </ul>
                   <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade active in" id="Description">
+                    <div class="tab-pane fade active in" id="Description" style="width:50% !important;">
                       <p><?php echo $description ; ?></p>
                     </div>
-                    <div class="tab-pane fade" id="Information">
+                    <div class="tab-pane fade" id="Information"  style="width:50% !important;">
                      
                       <table class="datasheet">
                         <tbody><tr>
