@@ -28,24 +28,28 @@
                                 <thead>
                                 <tr role="row" class="heading">
                                     
-                                    <th width="11%">
-                                        Product Id
+                                    <th width="5%">
+                                        Sr. No.
                                     </th>
-                                    <th width="15%">
+                                   <!-- <th width="15%">
                                          Product&nbsp;Name
+                                    </th>-->
+                                    <th width="10%">
+                                         Part No.
                                     </th>
                                     <th width="15%">
                                          Category
+                                    </th>
+                                    <th width="15%">
+                                         Subcategory
                                     </th>
                                     <th width="10%">
                                          Price
                                     </th>
                                     <th width="10%">
-                                         Stock
+                                         Stock Unit
                                     </th>
-                                    <th width="15%">
-                                         Date&nbsp;Created
-                                    </th>
+                                   
                                     <th width="10%">
                                          Status
                                     </th>
@@ -136,7 +140,7 @@
                                 </thead>
                                 <tbody>
                                 <?php
-								
+								$srno=0;
 								foreach($arr_classified as $value)
 								{
 									 $status_id=$value['classified_post']['status'];
@@ -157,12 +161,13 @@
 									 }
 									?>
                                 <tr>
-                                <td class="sorting_1"><?php echo $value['classified_post']['id']; ?></td>
-                                <td><?php echo $value['classified_post']['product_name']; ?></td>
-                                <td><?php if(!empty($value['classified_post']['sub_category_id'])){ echo $categories_name."/".$subcategories_name; } else { echo $categories_name; } ?></td>
-                                <td><i class="fa fa-inr"></i><?php echo $value['classified_post']['price']; ?></td>
-                                <td><?php echo $value['classified_post']['stock']; ?></td>
-                                <td><?php echo date('d-m-Y', strtotime($value['classified_post']['date'])); ?></td>
+                                <td class="sorting_1"><?php echo ++$srno; ?></td>
+                               <!-- <td><?php echo $value['classified_post']['product_name']; ?></td>-->
+                                <td><?php echo $value['classified_post']['part_no']; ?></td>
+                                <td><?php echo $categories_name; ?></td>
+                                 <td><?php echo $subcategories_name; ?></td>
+                                <td><?php if(!empty($value['classified_post']['price'])){ ?> <i class="fa fa-inr"></i><?php echo $value['classified_post']['price']; } else { ?> <?php  echo 'Negotiable'; } ?></td>
+                                <td><?php echo $value['classified_post']['stock']; echo " ".$value['classified_post']['unit']; ?></td>
                                 <td><?php if($status_id=='1'){ ?><span class="label label-sm label-success"><?php } else if($status_id=='2'){ ?><span class="label label-sm label-info"><?php }  else if($status_id=='3'){ ?><span class="label label-sm label-danger"><?php }  echo $status_name; ?></span> </td>
                                 <!--<td><a href="ecommerce_products_edit?productid=<?php echo base64_encode($value['classified_post']['id']); ?>" class="btn btn-xs btn-info btn-editable"><i class="fa fa-pencil"></i> Edit</a></td>-->
                                 </tr>
