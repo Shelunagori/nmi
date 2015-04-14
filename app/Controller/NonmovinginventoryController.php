@@ -318,14 +318,24 @@ class NonmovinginventoryController extends AppController
 		$conditions=array('user_id' => $user_id, 'id' => $productid);
 		
 		$this->loadmodel('classified_post');
-		$this->set('arr_classified',$this->classified_post->find('all',array('conditions'=>$conditions)));
-		
+		$classifide_data=$this->classified_post->find('all',array('conditions'=>$conditions));
+		$this->set('arr_classified', $classifide_data);
 		
 		$this->loadmodel('categorie');
 		$this->set('arr_categories',$this->categorie->find('all'));
 		
+		$category_id=$classifide_data[0]['classified_post']['category_id'];		
+		$this->loadmodel('sub_categorie');
+		$conditions=array('sub_categorie.categories_id' => $category_id);
+		$result3=$this->sub_categorie->find('all',array('conditions'=>$conditions));
+		$this->set('sub_categories_ARR',$result3);
+		
+		
 		$this->loadmodel('state');
 		$this->set('arr_states',$this->state->find('all'));
+		
+		$this->loadmodel('status');
+		$this->set('arr_status',$this->status->find('all'));
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public	function fetch_sub_category_ajax() 

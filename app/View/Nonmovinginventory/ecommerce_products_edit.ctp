@@ -99,7 +99,40 @@ foreach($arr_classified as $value)
                                                 </select>
                                             </div>
                                     </div>
-                                    <span id="sub_category_ajax"> </span>
+                                   
+                                     <?php
+									  if(!empty($sub_categories_ARR))
+									  {
+										  ?>
+								 <span id="sub_category_ajax">     
+								<div class="form-group">
+									<label class="col-md-2 control-label">Sub Category: <span class="required">
+									* </span>
+									</label>
+									<div class="col-md-10">
+										<select class="table-group-action-input form-control input-medium"  id="sub_categories_id"  name="sub_category_id" >
+											<option   value="">---Select Subcategory---</option>
+											<?php
+											foreach($sub_categories_ARR as $value)
+											{
+												$sub_categories=$value['sub_categorie']['sub_categories'];
+												$sub_categories_id=$value['sub_categorie']['id'];
+												?>
+												<option   value="<?php echo $sub_categories_id; ?>"  <?php if($sub_categories_id==$sub_category_id_fetch){ ?> selected="selected" <?php } ?> >&nbsp;&nbsp;&nbsp;<?php echo $sub_categories ; ?></option>
+												<?php
+												
+											}
+											?>
+										</select>
+									</div>
+								</div></span>
+								<?php
+									  }
+									  else
+									  {
+										  ?> <span id="sub_category_ajax"> </span> <?php
+									  }
+								?>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Product Name: <span class="required"> * </span>
                                         </label>
@@ -196,10 +229,10 @@ foreach($arr_classified as $value)
                                         </label>
                                         <div class="col-md-10">
                                             <div class="input-group input-large date-picker input-daterange" data-date="2012/10/11" data-date-format="yyyy/mm/dd">
-                                                <input class="form-control" name="available_from" type="text" value="<?php echo $available_from_fetch; ?>">
+                                                <input class="form-control" name="available_from" type="text" value="<?php if($available_from_fetch != '0000-00-00'){ echo $available_from_fetch; } ?>">
                                                 <span class="input-group-addon">
                                                 to </span>
-                                                <input class="form-control" name="available_to" type="text"  value="<?php echo $available_to_fetch; ?>">
+                                                <input class="form-control" name="available_to" type="text"  value="<?php if($available_to_fetch != '0000-00-00'){ echo $available_to_fetch; } ?>">
                                             </div>
                                             <span class="help-block">
                                             availability daterange. </span>
@@ -242,7 +275,7 @@ foreach($arr_classified as $value)
 												foreach($arr_status as $value)
                                                 { 
 												?>
-                                                <option value="<?php echo $value['status']['id']; ?>" <?php if($$value['status']['id']==$status_fetch){ ?> selected="selected" <?php } ?> >&nbsp;&nbsp;&nbsp;<?php echo $value['status']['status_name']; ?></option>
+                                                <option value="<?php echo $value['status']['id']; ?>" <?php if($value['status']['id']==$status_fetch){ ?> selected="selected" <?php } ?> >&nbsp;&nbsp;&nbsp;<?php echo $value['status']['status_name']; ?></option>
                                                 <?php
 												}
 												?>

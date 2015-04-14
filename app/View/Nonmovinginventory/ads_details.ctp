@@ -109,7 +109,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
 					{
 						?>
                   <div class="description">
-                     <p><h4>Brand - <?php echo $brand; ?></h4></p>
+                     <p><strong style="font-size:16px;">Brand -</strong><span style="font-size:14px;"> <?php echo $brand; ?></span></p>
                   </div>
                    <hr/>
                    <?php
@@ -120,7 +120,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
 					{
 						?>
                   <div class="description">
-                    <p><h4>Stock - <?php echo $stock; ?></h4></p>
+                    <p><strong style="font-size:16px;">Stock - </strong><span style="font-size:14px;"><?php echo $stock; ?></span></p>
                   </div>
                    <hr/>
                    <?php
@@ -131,7 +131,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
 						{
 							?>
 					  <div class="description">
-						<p><h4>Part No. - <?php echo $part_no; ?></h4></p>
+						<p><strong style="font-size:16px;">Part No. - </strong><span style="font-size:14px;"><?php echo $part_no; ?></span></p>
 					  </div>
 					   <hr/>
 					   <?php
@@ -142,19 +142,32 @@ foreach($classified_posts_arr as $ftc_classified_post)
 						{
 							?>
 					  <div class="description">
-						<p><h4>Year of Manufacturing - <?php echo $year; ?></h4></p>
+						<p><strong style="font-size:16px;">Year of Manufacturing - </strong><span style="font-size:14px;"><?php echo $year; ?></span></p>
 					  </div>
 					   <hr/>
 					   <?php
 						}
 						?>
-                        <?php
+                         <?php
                   if(!empty($city_name))
 					{
 						?>
                         
                 <div class="location">
-                    <p><h4><?php echo $city_name; ?> ( <?php echo $states; ?> )</h4></p>
+                    <p><strong style="font-size:16px;">City - </strong><span style="font-size:14px;"><?php echo $city_name; ?> ( <?php echo $states; ?> )</span></p>
+                  </div>
+               		
+                 <hr/>
+                 <?php
+					}
+					?>
+                        <?php
+                  if(!empty($location))
+					{
+						?>
+                        
+                <div class="location">
+                    <p><strong style="font-size:16px;">Address - </strong><span style="font-size:14px;"><?php echo $location_address; ?></span></p>
                   </div>
                		
                  <hr/>
@@ -165,8 +178,8 @@ foreach($classified_posts_arr as $ftc_classified_post)
                   if(!empty($description))
 					{
 						?>
-                  <div class="description">
-                    <p><?php echo $description; ?></p>
+                  <div class="location">
+                    <p><strong style="font-size:16px;">Description - </strong><span style="font-size:14px;"><?php echo $description; ?></span></p>
                   </div>
                    <hr/>
                    <?php

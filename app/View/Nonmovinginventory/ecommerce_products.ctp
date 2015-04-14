@@ -53,9 +53,9 @@
                                     <th width="10%">
                                          Status
                                     </th>
-                                  <!--  <th width="10%">
+                                    <th width="10%">
                                          Actions
-                                    </th>-->
+                                    </th>	
                                 </tr>
                                <!-- <tr role="row" class="filter">
                                    
@@ -169,7 +169,7 @@
                                 <td><?php if(!empty($value['classified_post']['price'])){ ?> <i class="fa fa-inr"></i><?php echo $value['classified_post']['price']; } else { ?> <?php  echo 'Negotiable'; } ?></td>
                                 <td><?php echo $value['classified_post']['stock']; echo " ".$value['classified_post']['unit']; ?></td>
                                 <td><?php if($status_id=='1'){ ?><span class="label label-sm label-success"><?php } else if($status_id=='2'){ ?><span class="label label-sm label-info"><?php }  else if($status_id=='3'){ ?><span class="label label-sm label-danger"><?php }  echo $status_name; ?></span> </td>
-                                <!--<td><a href="ecommerce_products_edit?productid=<?php echo base64_encode($value['classified_post']['id']); ?>" class="btn btn-xs btn-info btn-editable"><i class="fa fa-pencil"></i> Edit</a></td>-->
+                                <td><a href="ecommerce_products_edit?productid=<?php echo base64_encode($value['classified_post']['id']); ?>" class="btn btn-xs btn-info btn-editable"><i class="fa fa-pencil"></i> Edit</a></td>
                                 </tr>
                                 <?php
 								}
