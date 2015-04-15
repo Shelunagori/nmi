@@ -97,7 +97,18 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 			<!-- END HEADER SEARCH BOX -->
 			
 			<!-- BEGIN TOP NAVIGATION MENU -->
-			
+			<div class="hor-menu">
+				<ul class="header-navigation" style="padding-right:22px;">
+					<!-- BEGIN NOTIFICATION DROPDOWN -->
+                     <li>
+                     <a href="<?php echo $this->webroot; ?>Nonmovinginventory/login" style="font-size:17px;">Sign In</a>
+                    </li>
+					<!-- END TODO DROPDOWN -->
+					<!-- BEGIN USER LOGIN DROPDOWN -->
+					
+					<!-- END USER LOGIN DROPDOWN -->
+				</ul>
+			</div>
 			<!-- END TOP NAVIGATION MENU -->
 		</div>
 		<!-- END PAGE TOP -->
@@ -144,13 +155,13 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						<span class="selected"></span>
 						</a>
 					</li>
-                    <li class="">
+                   <!-- <li class="">
 						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/login">
 						<i class="fa fa-key"></i>
 						<span class="title">Sign In</span>
 						<span class="selected"></span>
 						</a>
-					</li>
+					</li>-->
 				</ul>
 				<!-- END SIDEBAR MENU -->
 			</div>

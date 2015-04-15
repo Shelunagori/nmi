@@ -23,6 +23,9 @@ echo $this->fetch('meta');
 <link href="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
 <link href="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+<?php
+//$this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'ajax_function'), array());
+?>
 </head>
 <body class="login" >
 <!-- --------------------------------start  menu  header--------------------------------------------- -->

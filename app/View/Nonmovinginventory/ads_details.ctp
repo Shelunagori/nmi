@@ -56,7 +56,11 @@ foreach($classified_posts_arr as $ftc_classified_post)
 </style>
  <div  class="row">
 	<div class="col-md-12">
+    
+
             <div class="product-page">
+             <a href="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details?sub_categories_id=<?php echo $sub_categories_id; ?>" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> Back</a>
+             <br/><br/>
               <div class="row">
                 <div class="col-md-3 col-sm-6">
                   <div style="position: relative; overflow: hidden;" class="product-main-image">
@@ -261,5 +265,139 @@ foreach($classified_posts_arr as $ftc_classified_post)
                 <!--<div class="sticker sticker-sale"></div>-->
               </div>
             </div>
+       
+       
+       <!--- Start Releted Post  -->
+       
+            
+          <div class="row">
+			  <div class="col-md-12">  
+             
+                    <div class="portlet light">
+                        <div class="portlet-body">
+                         <span style="font-size:18px">Releted post...</span>
+                         <br/>
+                            <div id="sorting_ase_desc" >  
+                           <?php
+							 $row_count=2;
+							 $ads_detail=0;
+							 foreach($classified_posts_arr_related as $ftc_classified_post)
+							{
+								$post_id=$ftc_classified_post['Classified_post']['id'];
+								if($post_id!=$classified_post_id && $ads_detail !=4)
+								{
+									$ads_detail++;
+								$classified_post_date_show=date("d-M-Y",strtotime($ftc_classified_post['Classified_post']['date']));
+								
+								$photo_arr=explode(',', $ftc_classified_post['Classified_post']['photo']);
+								$photo_first=$photo_arr[0];
+								
+								$return_array=$this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'find_city_states_sub_category'),array('pass'=>array($ftc_classified_post['Classified_post']['city_id'],$ftc_classified_post['Classified_post']['sub_category_id'])));
+								
+								$city_name=$return_array[0];
+								$states=$return_array[1];
+								$sub_categories=$return_array[2];
+								if($row_count%2==0)
+								{
+									?>
+                                    <div class="row">
+									<?php
+								}
+								
+								?>
+                                 	
+                                  		<div class="col-md-6 col-sm-12">
+                                       		 <div class="portlet blue-hoki box">
+                                             
+								 				<div class="portlet-title">
+                                                    <div class="caption">
+                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
+                                                    </div>
+                                                </div>
+									
+                                    <div class="portlet-body">
+                                                <div class="row static-info">
+                                                    <div class="col-md-12 value">
+                                                    
+                                                        <div  style="overflow:auto;margin-bottom:10px" class="col-sm-8 " >
+                                       
+                                        
+                                                            <p class="description"> <b>Price :</b>&nbsp;   
+                                                            <?php
+                                                            if($ftc_classified_post['Classified_post']['price']>0)
+                                                            {
+                                                                echo '<i class="fa fa-inr"></i>'.$ftc_classified_post['Classified_post']['price']; 
+                                                            }
+                                                            else
+                                                            {
+                                                                echo 'Negotiable';
+                                                            }
+                                                             ?> </p>
+                                                                 <?php
+                                                                if(!empty($ftc_classified_post['Classified_post']['brand']))
+                                                                {
+                                                                    ?>
+                                                                    <p class="description"> <b>Brand :</b>   <?php echo $ftc_classified_post['Classified_post']['brand']; ?> </p>
+                                                                    <?php
+                                                                }
+                                                                if(!empty($ftc_classified_post['Classified_post']['stock']))
+                                                                {
+                                                                    ?>
+                                                                    <p class="description"> <b>Stock :</b>   <?php echo $ftc_classified_post['Classified_post']['stock'];
+                                                                    if(!empty($ftc_classified_post['Classified_post']['unit'])) {   echo " ".$ftc_classified_post['Classified_post']['unit']; } ?> </p>
+                                                                    <?php
+                                                                }
+                                                                if(!empty($ftc_classified_post['Classified_post']['part_no']))
+                                                                {
+                                                                    ?>
+                                                                    <p class="description"> <b>Part No. :</b><?php echo $ftc_classified_post['Classified_post']['part_no']; ?> </p>
+                                                                    <?php
+                                                                }
+                                                                if(!empty($city_name))
+                                                                {
+                                                                    ?>
+                                                                     <p class="description"> <b>Location :</b>   <?php echo $city_name; ?> ( <?php echo $states; ?> )</p>
+                                                                    <?php
+                                                                }
+                                                                 ?>
+                                                        </div>
+																	<a href="#product-pop-up" class="btn btn-default fancybox-fast-view"></a>
+                                                                 <div class="col-sm-2 ">
+                                                                    <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn-block result-details-link">
+                                                                   <div style="height:150px;width:150px"> 
+                                                                    <img style="border:1px solid #67809F; border-radius:5px 5px 5px 5px;" alt="Post Images" class="img-res" width="100%"  height="90%"  src="<?php if(empty($photo_first)){ echo $this->webroot; ?>images/image/no_pic.gif<?php } else { echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photo_first; } ?>" />  <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn blue-hoki btn-sm" style="width:100%; padding-top:3px; margin-top:1px;"><i class="fa fa-th-large"></i> <b>Details</b></a></div>
+                                                                    </a>
+                                                                </div>
+										
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                               			 </div>
+									</div> 
+                                    <?php
+                                    if($row_count%2!=0)
+									{
+										
+										?>
+										</div>
+										<?php
+									
+									}
+									$row_count++;
+								}
+							}
+							?>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+            
+            
+            
+            
+            <!--- End Releted Post  -->
+            
+            
           </div>
       </div>
+  

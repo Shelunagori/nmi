@@ -23,9 +23,13 @@ $submit_succ=1;
 {
 	font-size:20px;
 }
+.item
+{
+	margin:1px 0px 1px 1px !important;
+}
 .kk
 {
-	position: absolute; top: 50%; margin-top: -40.5px; width: 100%; height: 81px; 
+	position: absolute; top: 50%; margin-top: -40.5px; width: 100%; height: 81px;
 }
 .portfolio-block .item > a:hover {
   text-decoration: none;
@@ -83,6 +87,11 @@ $submit_succ=1;
 	   }
 
     }
+	@media (min-width:992px) {
+	.col-md-2 {
+    width: 16.5% !important;
+}
+	}
 	</style>
 				<!-- END PAGE HEADER-->
 		<?php  if($submit_succ==2)
@@ -102,7 +111,7 @@ $submit_succ=1;
                     $i++;
                    
 				 ?>
-                      <div class="item col-md-2">
+                      <div class="item col-md-2" style="width: 16.5% !important">
                         <img src="<?php echo $this->webroot; ?>images/icon_category/<?php echo $categories_ftc['Categorie']['icon']; ?>" alt="NAME" style="height:170px; width:100%;" class="img-responsive">
                         <a href="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details?categories_id=<?php echo $categories_ftc['Categorie']['id']; ?>" class="zoom valign-center">
                           <div class="valign-center-elem" >

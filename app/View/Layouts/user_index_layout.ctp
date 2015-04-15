@@ -1,3 +1,6 @@
+<?php
+$this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'authentication'), array());
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -49,7 +52,7 @@ echo $this->fetch('meta'); ?>
 
 #hoverlog:hover
 {
-	background-color:#F1F1F1;
+	background-color:#F9FAFC;
 }
 .mycolour
 {
@@ -179,6 +182,10 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+								<a href="<?php echo $this->webroot; ?>Nonmovinginventory/change_password">
+								<i class="fa fa-exchange "></i> Change Password </a>
+							</li>
 						<!--	<li>
 								<a href="<?php echo $this->webroot; ?>Nonmovinginventory/user_profile">
 								<i class="icon-user"></i> My Profile </a>

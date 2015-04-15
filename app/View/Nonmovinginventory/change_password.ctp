@@ -1,15 +1,12 @@
-<?php
-if($reset_password=='true')
-{
-	
-	?>
+
     <div class="logo">
-	<img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="250" alt="NON MOVING INVENTORY">
+	<a href="<?php echo $this->webroot; ?>Nonmovinginventory/user_index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="250" alt="NON MOVING INVENTORY"></a>
+</div>
 </div>
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
 	<form novalidate="novalidate" class="login-form"  method="post">
-		<h3 class="form-title">Reset Password</h3>
+		<h3 class="form-title">Change Password</h3>
 		
          <?php
 		if(!empty($wrong))
@@ -45,6 +42,4 @@ if($reset_password=='true')
 	
 	
 </div>
-    <?php
-}
-?>
+   

@@ -9,7 +9,15 @@ class NonmovinginventoryController extends AppController
     'Paginator',
     'Session','Cookie'
  	);
-	
+	public function authentication()
+	{
+		$user_id=$this->Session->read('user_id');
+		if(empty($user_id))
+		{
+			$this->Session->destroy();
+			$this->redirect(array('action' => 'index'));
+		}
+	}
 	public function index()
 	{
 		if(!empty($this->request->data['logout']))
@@ -433,10 +441,10 @@ class NonmovinginventoryController extends AppController
 	{
 		$this->layout='login_layout';
 		///////////////// submit login ///////////////////////
-		if (isset($this->request->data['login_submit']))
+		
+		if (isset($this->request->data['login_submit']) || isset($this->request->data["login_submit_text"]))
 		{
-			if($this->request->is('post')) 
-			{
+			
 				$email_id=htmlentities($this->request->data["email_id"]);
 				$password=htmlentities($this->request->data["password"]);
 				
@@ -471,11 +479,11 @@ class NonmovinginventoryController extends AppController
 						$this->set('wrong', 'Username and Password are Incorrect');
 					}	
 				}
-			}
+			
 		}
 	///////////////// submit login ///////////////////////
 	///////////////// reset password ///////////////////////
-		if (isset($this->request->data['reset_password']))
+		if (isset($this->request->data['reset_password']) || isset($this->request->data["reset_submit_text"]))
 		{
 			if($this->request->is('post')) 
 			{
@@ -486,8 +494,8 @@ class NonmovinginventoryController extends AppController
 				$result = $this->login->find('all',array('conditions'=>$conditions));
 				$user_id=$result[0]['login']['id'];
 				$data=base64_encode($user_id);;
-				$message_web='<a href="52.74.43.53/nmi/nonmovinginventory/reset_password?data='.$data.'">Click here to reset password.</a>';
-				//$message_web='<a href="localhost/nonmoving/nonmovinginventory/reset_password?data='.$data.'">Click here to reset password.</a>';
+				$message_web='<a href="http://app.nonmovinginventory.com/nonmovinginventory/reset_password?data='.$data.'">Click here to reset password.</a>';
+				//$message_web='<a href="localhost/nmi/nonmovinginventory/reset_password?data='.$data.'">Click here to reset password.</a>';
 				$this->smtpmailer($email_id,'Nonmoving Inventory','Reset Password',$message_web,'');
 				 echo "<script>window.close();</script>";
 			}
@@ -497,12 +505,11 @@ class NonmovinginventoryController extends AppController
 	public function reset_password() 
 	{
 		$this->layout='login_layout';
-		$this->Session->read('reset_password', 'true');
+		$reset_session=$this->Session->read('reset_password');
+		$this->set('reset_password', $reset_session);
 		
 		if (isset($this->request->data['confirm_submit']))
 		{
-			if($this->request->is('post')) 
-			{
 				$new_password=htmlentities($this->data["new_password"]);
 				$retype_password=htmlentities($this->data["retype_password"]);
 				
@@ -516,7 +523,7 @@ class NonmovinginventoryController extends AppController
 					$conditions=array('id' => $login_id);
 					$result = $this->login->find('all', array('conditions'=>$conditions));
 					$designation_id=$result[0]['login']['designation_id'];
-					
+					$this->Session->delete('reset_password');
 					$this->Session->write('user_id', $login_id);
 					$this->Session->write('designation_id', $designation_id);
 					$this->redirect(array('action' => 'user_index'));
@@ -525,10 +532,37 @@ class NonmovinginventoryController extends AppController
 				{
 					$this->set('wrong', 'Enter re-type correct password.');
 				}
-			}
+			
 		}
 	}
-	function categories_details_asc_desc_sort()
+	public function change_password() 
+	{
+		$this->authentication();
+		$this->layout='login_layout';
+		$user_id=$this->Session->read('user_id');
+		if (isset($this->request->data['confirm_submit']))
+		{
+				$new_password=htmlentities($this->data["new_password"]);
+				$retype_password=htmlentities($this->data["retype_password"]);
+				
+				if(($new_password==$retype_password) && (!empty($new_password)))
+				{
+					$password=md5($new_password);
+					$login_id=$user_id;
+					$this->loadmodel('login');
+					$this->login->updateAll(array('password'=>"'$password'"), array('id'=>$login_id));
+					
+					$conditions=array('id' => $login_id);
+					$this->redirect(array('action' => 'user_index'));
+				}
+				else
+				{
+					$this->set('wrong', 'Enter re-type correct password.');
+				}
+			
+		}
+	}
+	public function categories_details_asc_desc_sort()
 	{
 		$this->layout='ajax_layout';
 	
@@ -1155,7 +1189,63 @@ $this->set('new_page_id',$new_page_id);
 		$this->set('click_cnt_new',$click_cnt_new);	
 		$this->set('classified_posts_arr',$rst_classified_posts);		
 		
+			
+		$fetch_result=$this->Classified_post->findById($post_id);
+		 $sub_categories_id=$fetch_result['Classified_post']['sub_category_id'];
 		
+		if(isset($sub_categories_id))
+		{
+			
+			$order_by='id DESC';
+		
+			$this->loadmodel('Sub_categorie');
+			$sub_categories_ftc=$this->Sub_categorie->findById($sub_categories_id);
+			$categories_id=$sub_categories_ftc['Sub_categorie']['categories_id'];
+			$sub_categories_nm=$sub_categories_ftc['Sub_categorie']['sub_categories'];
+			
+			
+			$result_sub_categories= $this->Sub_categorie->find('all', array('conditions' => array('Sub_categorie.categories_id' => $categories_id)));
+			$this->set('sub_categories_arr',$result_sub_categories);
+			foreach($result_sub_categories as $res_values)
+			{
+				$sub_categories_ftc[]=$res_values['Sub_categorie']['id'];	
+			}
+					
+	
+			$this->loadmodel('Categorie');
+			$result_sub_categories=$this->Categorie->findById($categories_id);
+			$categories_nm=$result_sub_categories['Categorie']['categories'];
+			
+			$categories_id_blank="";
+			$this->set('categories_nm',$categories_nm);
+			$this->set('categories_id',$categories_id_blank);
+			$this->set('categories_id_sub',$categories_id);
+			$this->set('sub_categories_nm',$sub_categories_nm);
+			$this->set('sub_categories_id',$sub_categories_id);
+			$this->set('order_by',$order_by);
+			
+			$this->loadmodel('Classified_post');
+			@$rst_classified_posts=$this->Classified_post->find('all', array(
+			'conditions' => array(
+			'Classified_post.sub_category_id' =>$sub_categories_id,
+			'Classified_post.status' => "1"
+			),
+			'order'=>$order_by,
+			'limit'=>$limit,
+			));
+			
+			@$rst_classified_posts_next=$this->Classified_post->find('all', array(
+			'conditions' => array(
+			'Classified_post.sub_category_id' =>$sub_categories_id,
+			'Classified_post.status' => "1"
+			),
+			'order'=>$order_by,
+			'limit'=>1,
+			'offset' => $start_next,
+			));
+		}
+        
+        @$this->set('classified_posts_arr_related',$rst_classified_posts);
 	}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1248,6 +1338,7 @@ public function ajax_function()
 	<script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
   
 	<script>
+	
     $( document ).ready(function() {
 		$('#configreset').click(function(){
             $('#uploadimage')[0].reset();

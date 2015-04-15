@@ -21,7 +21,7 @@
 						<div class="number">
 							 <span style="color:#497093">Welcome to</span>
                              <br/>
-                             <span style="color:#9C3348">Nonmoving</span> <span style="color:#14303A">Inventory.com</span>
+                             <span style="color:#9C3348">Nonmoving</span> <span style="color:#14303A">Inventory</span><span style="color:#F08143">.com</span>
 						</div>
 						
 					</div>
