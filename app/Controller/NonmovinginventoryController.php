@@ -2,6 +2,8 @@
 App::uses('AppController', 'Controller');
 App::uses('Folder', 'Utility');
 App::uses('File', 'Utility');
+	CakePlugin::routes();
+require CAKE . 'Config' . DS . 'routes.php';
 class NonmovinginventoryController extends AppController
 {
 	 var $helpers = array('Html', 'Form');
@@ -18,12 +20,14 @@ class NonmovinginventoryController extends AppController
 			$this->redirect(array('action' => 'index'));
 		}
 	}
+	public function logout()
+	{
+		$this->Session->destroy();
+		$this->redirect(array('action' => 'index'));
+	}
 	public function index()
 	{
-		if(!empty($this->request->data['logout']))
-		{
-			$this->Session->destroy();
-		}
+		
 		$this->layout='index_layout';
 		$this->loadmodel('Categorie');
 		$this->set('categories_arr', $this->Categorie->find('all'));
@@ -1343,6 +1347,9 @@ public function ajax_function()
 		$('#configreset').click(function(){
             $('#uploadimage')[0].reset();
 		 });
+		 
+		
+		 
         $("#notific8_show").live('click',function(e){
         
             var name=$("#name").val();

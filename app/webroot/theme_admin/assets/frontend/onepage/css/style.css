@@ -1,6 +1,6 @@
 /* General body settings */
 body { 
- font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+ font-family: "Open Sans",sans-serif;
 font-size: 14px;
 line-height: 1.42857;
 color: #333;
@@ -436,7 +436,7 @@ a:hover {
   list-style: none;
   padding: 19px 0 0;
   margin: 0;
-  font: 400 18px "PT Sans Narrow", Arial, sans-serif;
+  font: 400 18px "Open Sans",sans-serif;
   text-transform: uppercase;
 }
 .header-navigation li {

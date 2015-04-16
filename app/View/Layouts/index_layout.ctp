@@ -50,16 +50,68 @@ echo $this->fetch('meta'); ?>
 /*.page-sidebar-closed .page-content-wrapper .page-content {
     margin-left: 0px !important;
 }*/
+
+@media (max-width: 1300px) 
+{
+  .header-navigation > li > a
+  {  
+  color:#85878E;
+	
+  }
+   .displayshow
+  {  
+  display:none !important;
+	
+  }
+
+}
+@media (max-width: 992px) 
+{
+  .header-navigation > li > a
+  {  
+  color:#85878E;
+	
+  }
+   .displayshow
+  {  
+  display:none !important;
+	
+  }
+
+}
 @media (max-width: 480px) 
 {
-  .navbar-brand > img
+  .navbar-brand > a > img
   {  
  	height:50px;
 	width:160px;
-	margin-right:10px;
+	
+  }
+
+.navbar-brand
+  {  
+ 	
+	width:180px;
 	
   }
 }
+
+@media (max-width: 425px) 
+{
+  .hor-menu
+  {  
+  
+  display:none;
+	
+  }
+  .displayshow
+  {  
+  
+  	display:block !important;
+	
+  }
+}
+
 </style>
   
         <!-- ---------------------------------------------start  java script  header ---------------------------------------------   -->
@@ -83,7 +135,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 		
 		<!-- BEGIN PAGE TOP -->
 		<div class="page-top">
-         <span class="title-main navbar-brand tk-adelle"><a href="<?php echo $this->webroot; ?>Nonmovinginventory/index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="200" alt="NON MOVING INVENTORY"></a></span>
+         <span class="title-main navbar-brand tk-adelle"><a href="<?php echo $this->webroot; ?>Nonmovinginventory/index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="200" height="51"  alt="NON MOVING INVENTORY"></a></span>
 			<!-- BEGIN HEADER SEARCH BOX -->
 			<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
 			<form class="search-form search-form-expanded" action="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details" method="GET">
@@ -101,7 +153,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 				<ul class="header-navigation" style="padding-right:22px;">
 					<!-- BEGIN NOTIFICATION DROPDOWN -->
                      <li>
-                     <a href="<?php echo $this->webroot; ?>Nonmovinginventory/login" style="font-size:17px;">Sign In</a>
+                     <a href="<?php echo $this->webroot; ?>Nonmovinginventory/login" style="font-size:17px;"> <i class="fa fa-key"></i> Sign In</a>
                     </li>
 					<!-- END TODO DROPDOWN -->
 					<!-- BEGIN USER LOGIN DROPDOWN -->
@@ -151,17 +203,17 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
                     <li class="">
 						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/register">
 						<i class="icon-user"></i>
-						<span class="title">Register</span>
+						<span class="title">Registeration</span>
 						<span class="selected"></span>
 						</a>
 					</li>
-                   <!-- <li class="">
+                   <li class="displayshow">
 						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/login">
 						<i class="fa fa-key"></i>
 						<span class="title">Sign In</span>
 						<span class="selected"></span>
 						</a>
-					</li>-->
+					</li>
 				</ul>
 				<!-- END SIDEBAR MENU -->
 			</div>

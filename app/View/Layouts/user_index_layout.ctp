@@ -50,21 +50,68 @@ echo $this->fetch('meta'); ?>
 <link rel="shortcut icon" href="<?php echo $this->webroot; ?>theme_admin/images/shortcut_icon/non-moving-logo.png"/>
 <style>
 
-#hoverlog:hover
-{
-	background-color:#F9FAFC;
-}
+
 .mycolour
 {
 	color:#C2C1C1;
 }
+@media (max-width: 1300px) 
+{
+  .header-navigation > li > a
+  {  
+  color:#85878E;
+	
+  }
+   .displayshow
+  {  
+  display:none !important;
+	
+  }
+
+}
+@media (max-width: 992px) 
+{
+  .header-navigation > li > a
+  {  
+  color:#85878E;
+	
+  }
+   .displayshow
+  {  
+  display:none !important;
+	
+  }
+
+}
 @media (max-width: 480px) 
 {
-  .navbar-brand > img
+  .navbar-brand > a > img
   {  
  	height:50px;
 	width:160px;
-	margin-right:10px;
+	
+  }
+
+.navbar-brand
+  {  
+ 	
+	width:170px;
+	
+  }
+}
+
+@media (max-width: 425px) 
+{
+  .top-menu
+  {  
+  
+  display:none;
+	
+  }
+  .displayshow
+  {  
+  
+  	display:block !important;
 	
   }
 }
@@ -191,14 +238,8 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 								<i class="icon-user"></i> My Profile </a>
 							</li>-->
 							
-							
-							
 							<li>
-                          
-								<form id="form1" action="<?php echo $this->webroot; ?>Nonmovinginventory/index" method="post">
-                               <input type="hidden" value="logout" name="logout">
-                                <a id="hoverlog" style="color: #555; padding: 8px 14px; text-decoration: none; display: block; clear: both; line-height: 18px; white-space: nowrap; " href="#" onclick="document.getElementById('form1').submit();"><i class="icon-key"></i>&nbsp;&nbsp; Logout </a>
-                            	</form>
+                                <a href="<?php echo $this->webroot; ?>Nonmovinginventory/logout"><i class="icon-key"></i> Logout </a>
 							</li>
 						</ul>
 					</li>
@@ -267,7 +308,28 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						</ul>
 					</li>
                   
-					
+					<li class="displayshow active open">
+						<a href="javascript:;">
+						<i class="icon-user"></i>
+						<span class="title">User</span>
+						
+						
+						</a>
+						<ul class="sub-menu">
+							<li>
+                                <a href="<?php echo $this->webroot; ?>Nonmovinginventory/ecommerce_new_post">
+                                <i class="fa fa-exchang"></i>
+                                <span class="title">Change Password</span>
+                                <span class="selected"></span>
+                                </a>
+                            </li>
+                         <li>
+                                <a href="<?php echo $this->webroot; ?>Nonmovinginventory/logout"><i class="icon-key"></i> Logout </a>
+							</li>
+							 
+                              
+						</ul>
+					</li>
 				</ul>
 				<!-- END SIDEBAR MENU -->
 			</div>
