@@ -231,7 +231,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						<ul class="dropdown-menu dropdown-menu-default">
                         <li>
 								<a href="<?php echo $this->webroot; ?>Nonmovinginventory/change_password">
-								<i class="fa fa-exchange "></i> Change Password </a>
+								<i class="icon-hourglass "></i> Change Password </a>
 							</li>
 						<!--	<li>
 								<a href="<?php echo $this->webroot; ?>Nonmovinginventory/user_profile">
@@ -318,7 +318,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						<ul class="sub-menu">
 							<li>
                                 <a href="<?php echo $this->webroot; ?>Nonmovinginventory/ecommerce_new_post">
-                                <i class="fa fa-exchang"></i>
+                                <i class="icon-hourglass "></i>
                                 <span class="title">Change Password</span>
                                 <span class="selected"></span>
                                 </a>
