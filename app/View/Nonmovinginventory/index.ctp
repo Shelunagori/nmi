@@ -42,7 +42,11 @@ $submit_succ=1;
 .col-md-2 {
 		padding-right:0px !important;
 		}
-
+@media (min-width:992px) {
+	.col-md-2 {
+    width: 16.5% !important;
+}
+	}
 @media (max-width:1199px) {
     .col-md-2 {
 		float:left;
@@ -87,11 +91,7 @@ $submit_succ=1;
 	   }
 
     }
-	@media (min-width:992px) {
-	.col-md-2 {
-    width: 16.5% !important;
-}
-	}
+	
 	</style>
 				<!-- END PAGE HEADER-->
 		<?php  if($submit_succ==2)
@@ -111,7 +111,7 @@ $submit_succ=1;
                     $i++;
                    
 				 ?>
-                      <div class="item col-md-2" style="width: 16.5% !important">
+                      <div class="item col-md-2">
                         <img src="<?php echo $this->webroot; ?>images/icon_category/<?php echo $categories_ftc['Categorie']['icon']; ?>" alt="NAME" style="height:170px; width:100%;" class="img-responsive">
                         <a href="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details?categories_id=<?php echo $categories_ftc['Categorie']['id']; ?>" class="zoom valign-center">
                           <div class="valign-center-elem" >
