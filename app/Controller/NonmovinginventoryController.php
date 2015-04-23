@@ -28,9 +28,9 @@ class NonmovinginventoryController extends AppController
 	public function index()
 	{
 		
-		$this->layout='index_layout';
-		$this->loadmodel('Categorie');
-		$this->set('categories_arr', $this->Categorie->find('all'));
+	//	$this->layout='index_layout';
+	//	$this->loadmodel('Categorie');
+	//	$this->set('categories_arr', $this->Categorie->find('all'));
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function user_index()
