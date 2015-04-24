@@ -1355,7 +1355,7 @@ public function ajax_function()
             $('#uploadimage')[0].reset();
 		 });
 		 
-		
+	
 		 
         $("#notific8_show").live('click',function(e){
         

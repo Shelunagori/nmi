@@ -412,18 +412,25 @@ var Layout = function() {
         });
 
         // handle hor menu search form on enter press
-        $('.page-header').on('keypress', '.hor-menu .search-form .form-control', function(e) {
+        $('.page-header').on('keypress', '.search-form .form-control', function(e) {
             if (e.which == 13) {
-                $(this).closest('.search-form').submit();
-                return false;
+				e.preventDefault();
+                if ($.trim($("#search_by_meta").val()) != "")
+				{
+					 $(this).closest('.search-form').submit();
+					 return false;
+				}
+               
             }
         });
 
         // handle header search button click
         $('.page-header').on('mousedown', '.search-form.open .submit', function(e) {
             e.preventDefault();
-            e.stopPropagation();
-            $(this).closest('.search-form').submit();
+            if ($.trim($("#search_by_meta").val()) != "")
+			{
+				 $(this).closest('.search-form').submit();
+			}
         });
     };
 

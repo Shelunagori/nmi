@@ -138,9 +138,9 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
          <span class="title-main navbar-brand tk-adelle"><a href="<?php echo $this->webroot; ?>Nonmovinginventory/index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="200" height="51"  alt="NON MOVING INVENTORY"></a></span>
 			<!-- BEGIN HEADER SEARCH BOX -->
 			<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-			<form class="search-form search-form-expanded" action="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details" method="GET">
+			<form class="search-form search-form-expanded"  action="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details" method="GET">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search..." name="search_by_meta">
+					<input type="text" class="form-control" id="search_by_meta" placeholder="Search..." name="search_by_meta">
 					<span class="input-group-btn">
 					<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
 					</span>

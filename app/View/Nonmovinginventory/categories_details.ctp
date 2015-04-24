@@ -174,6 +174,7 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
                                 <input id="max_price" type="hidden" class="form-control" value="<?php echo @$max_price;  ?>">
                              <?php
 							 $row_count=2;
+							 
 							 foreach($classified_posts_arr as $ftc_classified_post)
 							{
 								$classified_post_date_show=date("d-M-Y",strtotime($ftc_classified_post['Classified_post']['date']));
