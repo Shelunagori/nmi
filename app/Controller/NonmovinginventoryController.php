@@ -279,7 +279,7 @@ class NonmovinginventoryController extends AppController
 		$user_id=$this->Session->read('user_id');
 		$conditions=array('user_id' => $user_id);
 		$this->loadmodel('classified_post');
-		$this->set('arr_classified',$this->classified_post->find('all',array('conditions'=>$conditions, 'limit'=>10)));
+		$this->set('arr_classified',$this->classified_post->find('all',array('conditions'=>$conditions)));
 		
 		$this->loadmodel('status');
 		$this->set('arr_status',$this->status->find('all'));
