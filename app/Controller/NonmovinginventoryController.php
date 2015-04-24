@@ -2,8 +2,8 @@
 App::uses('AppController', 'Controller');
 App::uses('Folder', 'Utility');
 App::uses('File', 'Utility');
-	CakePlugin::routes();
-require CAKE . 'Config' . DS . 'routes.php';
+ini_set('memory_limit', '256M');
+set_time_limit(0);
 class NonmovinginventoryController extends AppController
 {
 	 var $helpers = array('Html', 'Form');
