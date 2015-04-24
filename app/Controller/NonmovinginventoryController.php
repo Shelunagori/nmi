@@ -462,10 +462,17 @@ class NonmovinginventoryController extends AppController
 				{
 					$user_id=$result[0]['login']['id'];
 					$designation_id=$result[0]['login']['designation_id'];
-					
-					$this->Session->write('user_id', $user_id);
-					$this->Session->write('designation_id', $designation_id);
-					$this->redirect(array('action' => 'user_index'));
+					$approval_status=$result[0]['login']['approval_status'];
+					if($approval_status==1)
+					{
+						$this->Session->write('user_id', $user_id);
+						$this->Session->write('designation_id', $designation_id);
+						$this->redirect(array('action' => 'user_index'));
+					}
+					else
+					{
+						$this->set('wrong', 'Your signup request is pending.');
+					}
 				}
 				else
 				{
