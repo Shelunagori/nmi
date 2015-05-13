@@ -572,7 +572,6 @@ var ComponentsFormTools = function () {
         init: function () {
             handleTwitterTypeahead();
             handleTwitterTypeaheadModal();
-
             handleBootstrapSwitch();
             handleBootstrapTouchSpin();
             handleBootstrapMaxlength();

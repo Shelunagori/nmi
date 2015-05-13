@@ -59,7 +59,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
     
 
             <div class="product-page">
-             <a href="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details?sub_categories_id=<?php echo $sub_categories_id; ?>" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> Back</a>
+             <a href="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details?sub_categories_id=<?php echo $sub_categories_id; ?>" class="btn btn-info" rel="tab"><i class="fa fa-arrow-circle-left"></i> Back</a>
              <br/><br/>
               <div class="row">
                 <div class="col-md-3 col-sm-6">
@@ -311,7 +311,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
                                              
 								 				<div class="portlet-title">
                                                     <div class="caption">
-                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
+                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" rel='tab' ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
                                                     </div>
                                                 </div>
 									
@@ -363,9 +363,9 @@ foreach($classified_posts_arr as $ftc_classified_post)
                                                         </div>
 																	<a href="#product-pop-up" class="btn btn-default fancybox-fast-view"></a>
                                                                  <div class="col-sm-2 ">
-                                                                    <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn-block result-details-link">
+                                                                    <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn-block result-details-link" rel='tab'>
                                                                    <div style="height:150px;width:150px"> 
-                                                                    <img style="border:1px solid #67809F; border-radius:5px 5px 5px 5px;" alt="Post Images" class="img-res" width="100%"  height="90%"  src="<?php if(empty($photo_first)){ echo $this->webroot; ?>images/image/no_pic.gif<?php } else { echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photo_first; } ?>" />  <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn blue-hoki btn-sm" style="width:100%; padding-top:3px; margin-top:1px;"><i class="fa fa-th-large"></i> <b>Details</b></a></div>
+                                                                    <img style="border:1px solid #67809F; border-radius:5px 5px 5px 5px;" alt="Post Images" class="img-res" width="100%"  height="90%"  src="<?php if(empty($photo_first)){ echo $this->webroot; ?>images/image/no_pic.gif<?php } else { echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photo_first; } ?>" />  <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn blue-hoki btn-sm" style="width:100%; padding-top:3px; margin-top:1px;" rel='tab'><i class="fa fa-th-large"></i> <b>Details</b></a></div>
                                                                     </a>
                                                                 </div>
 										

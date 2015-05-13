@@ -6,10 +6,10 @@ App::uses('File', 'Utility');
 //set_time_limit(0);
 class NonmovinginventoryController extends AppController
 {
-	 var $helpers = array('Html', 'Form');
+	 var $helpers = array('Html', 'Form', 'Js');
 	 public $components = array(
     'Paginator',
-    'Session','Cookie'
+    'Session','Cookie','RequestHandler'
  	);
 	public function authentication()
 	{
@@ -28,14 +28,29 @@ class NonmovinginventoryController extends AppController
 	public function index()
 	{
 		
-		$this->layout='index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
 		$this->loadmodel('Categorie');
 		$this->set('categories_arr', $this->Categorie->find('all'));
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function user_index()
 	{
-		$this->layout='user_index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='user_index_layout';
+		}
+		
 		$this->loadmodel('Categorie');
 		$this->set('categories_arr', $this->Categorie->find('all'));
 	}
@@ -52,11 +67,11 @@ class NonmovinginventoryController extends AppController
 		$this->loadmodel('Enquiry');
 		$this->Enquiry->saveAll(array('name'=>$name,'email'=>$email_reply,'phone_no'=>$phone_no,'message'=>$message));
 		
-		$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
-		
-        
+		//$sms='New Helpdesk ticket '.$ticket_no.' - '.$category_name.' raised+by '.$user_name.' - '.$wing_flat.' Please log into HousingMatters for further action.';
+//$sms1=str_replace(' ', '+', $sms);
+//$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey='.$working_key.'&sender='.$sms_sender.'&to='.$mobile.'&message='.$sms1.'');
 
-		
+		$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function ajax_php_file() 
@@ -118,8 +133,9 @@ class NonmovinginventoryController extends AppController
 					$exist = is_dir($target);
 					if(!$exist) 
 					{
+						
 						$folder = new Folder();
-						$folder->create('images_post' . DS . $user_id . DS . $classified_post_id . DS);
+						$folder->create(WWW_ROOT . 'images_post' . DS . $user_id . DS . $classified_post_id . DS);
 					}
 					
 					$target=@$target."/".$user_id.$classified_post_id.$trCount.".jpg";
@@ -145,7 +161,7 @@ class NonmovinginventoryController extends AppController
 					if(!$exist) 
 					{
 						$folder = new Folder();
-						$folder->create('images_post' . DS . $user_id . DS . $update_id . DS);
+						$folder->create(WWW_ROOT . 'images_post' . DS . $user_id . DS . $update_id . DS);
 					}
 					
 					$img_name=$user_id.$update_id.$trCount.".jpg";
@@ -221,7 +237,14 @@ class NonmovinginventoryController extends AppController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function contact_us() 
 	{
-		$this->layout='index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
 		
 	}
 	public function beforeFilter()
@@ -238,17 +261,38 @@ class NonmovinginventoryController extends AppController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function about_us() 
 	{
-		$this->layout='index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function term_services() 
 	{
-		$this->layout='index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function faqs() 
 	{
-		$this->layout='index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
 	
 		$this->loadmodel('Faq');
 		$this->set('ftc_faq', $this->Faq->find('all'));
@@ -258,7 +302,14 @@ class NonmovinginventoryController extends AppController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function term_and_condition() 
 	{
-		$this->layout='index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	function find_city_arr($states_id) 
@@ -275,7 +326,14 @@ class NonmovinginventoryController extends AppController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function ecommerce_products() 
 	{
-		$this->layout='user_index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='user_index_layout';
+		}
 		$user_id=$this->Session->read('user_id');
 		$conditions=array('user_id' => $user_id);
 		$this->loadmodel('classified_post');
@@ -318,7 +376,14 @@ class NonmovinginventoryController extends AppController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function ecommerce_new_post() 
 	{
-		$this->layout='user_index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='user_index_layout';
+		}
 		$user_id=$this->Session->read('user_id');
 		$this->loadmodel('categorie');
 		$this->set('arr_categories',$this->categorie->find('all'));
@@ -332,7 +397,14 @@ class NonmovinginventoryController extends AppController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function ecommerce_products_edit() 
 	{
-		$this->layout='user_index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='user_index_layout';
+		}
 		$user_id=$this->Session->read('user_id');
 		
 		$productid=base64_decode($this->request->query('productid'));
@@ -373,7 +445,14 @@ class NonmovinginventoryController extends AppController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function register() 
 	{
-		$this->layout='index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
 		$this->loadmodel('category_of_organization');
 		$this->set('result_category_of_organization',$this->category_of_organization->find('all')); 
 		
@@ -579,7 +658,7 @@ class NonmovinginventoryController extends AppController
 	
 		$limit=10;	
 		$order_by=$this->request->query('sort_status');		
-		 $categories_id=$this->request->query('categories_id');
+		$categories_id=$this->request->query('categories_id');
 		$min_price=$this->request->query('min_price');		
 		$max_price=$this->request->query('max_price');		
 		$search_by_meta=$this->request->query('search_by_meta');		
@@ -765,7 +844,14 @@ class NonmovinginventoryController extends AppController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function categories_details() 
 	{
-		$this->layout='index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
 
  		$limit=10;	
  		$start_next=$limit+1;	
@@ -776,23 +862,41 @@ class NonmovinginventoryController extends AppController
 		
 		if(!empty($search_by_meta ))
 		{
-			 $search_by_meta=$this->request->query('search_by_meta');
-			 $order_by='id DESC';
+			$search_by_meta=$this->request->query('search_by_meta');
+			$order_by='id DESC';
 			$this->set('search_by_meta',$search_by_meta);
-		
-						$this->loadmodel('Classified_post');
+			
+			$this->loadmodel('Categorie');
+			$result_categories= $this->Categorie->find('all');
+			$this->set('categories_arr',$result_categories);
 				
-						$conditions =array ('Classified_post.status' => "1",
-                            'OR' => array(
-								array('Classified_post.short_description LIKE' => "%$search_by_meta%"),
-            					array('Classified_post.description LIKE' => "%$search_by_meta%"),
-                            ),
-                        );
-				
+			$this->loadmodel('Classified_post');
+			
+			$conditions =array ('Classified_post.status' => "1",
+				'OR' => array(
+					array('Classified_post.short_description LIKE' => "%$search_by_meta%"),
+					array('Classified_post.description LIKE' => "%$search_by_meta%"),
+				),
+			);
+				$this->set('categories_id',$categories_id);
 				$rst_classified_posts=$this->Classified_post->find('all', array('conditions' => $conditions, 'order'=>$order_by,'limit'=>$limit));
 				
+				//$categories_id=$rst_classified_posts[0]['Classified_post']['category_id'];
+				//$this->set('categories_id',$categories_id);
+				//pr($rst_classified_posts);
+				
 				$rst_classified_posts_next=$this->Classified_post->find('all', array('conditions' => $conditions, 'order'=>$order_by,'limit'=>1,'offset' => $start_next));
-			
+				//pr($rst_classified_posts_next);
+				$categories_id=$rst_classified_posts_next[0]['Classified_post']['category_id'];
+				$this->set('categories_id',$categories_id);
+				
+				$this->loadmodel('Sub_categorie');
+				$result_sub_categories= $this->Sub_categorie->find('all', array('conditions' => array('Sub_categorie.categories_id' => $categories_id)));
+				$this->set('sub_categories_arr',$result_sub_categories);
+				foreach($result_sub_categories as $res_values)
+				{
+					$sub_categories_ftc=$res_values['Sub_categorie']['id'];	
+				}
 		
 		}
 		else if(!empty($categories_id))
@@ -804,7 +908,11 @@ class NonmovinginventoryController extends AppController
 				$this->set('categories_nm', $this->Categorie->findById($categories_id));
 				$this->set('categories_id',$categories_id);
 				$this->set('order_by',$order_by);
-			
+				
+				$result_categories= $this->Categorie->find('all');
+				$this->set('categories_arr',$result_categories);
+				
+				
 				$this->loadmodel('Sub_categorie');
 				$result_sub_categories= $this->Sub_categorie->find('all', array('conditions' => array('Sub_categorie.categories_id' => $categories_id)));
 				$this->set('sub_categories_arr',$result_sub_categories);
@@ -832,14 +940,15 @@ class NonmovinginventoryController extends AppController
 		{
 			$sub_categories_id=$this->request->query('sub_categories_id');
 			$order_by='id DESC';
-		
+			
+			
+			
+			
 			$this->loadmodel('Sub_categorie');
 			$sub_categories_ftc=$this->Sub_categorie->findById($sub_categories_id);
 			$categories_id=$sub_categories_ftc['Sub_categorie']['categories_id'];
 			$sub_categories_nm=$sub_categories_ftc['Sub_categorie']['sub_categories'];
 			
-			
-				
 			$result_sub_categories= $this->Sub_categorie->find('all', array('conditions' => array('Sub_categorie.categories_id' => $categories_id)));
 			$this->set('sub_categories_arr',$result_sub_categories);
 			foreach($result_sub_categories as $res_values)
@@ -851,6 +960,9 @@ class NonmovinginventoryController extends AppController
 			$this->loadmodel('Categorie');
 			$result_sub_categories=$this->Categorie->findById($categories_id);
 			$categories_nm=$result_sub_categories['Categorie']['categories'];
+			//$this->set('categories_id',$categories_id);
+			$result_categories= $this->Categorie->find('all');
+			$this->set('categories_arr',$result_categories);
 			
 			$categories_id_blank="";
 			$this->set('categories_nm',$categories_nm);
@@ -1164,7 +1276,14 @@ $this->set('new_page_id',$new_page_id);
 	function ads_details() 
 	{
 		date_default_timezone_set('Asia/kolkata'); 	
-		$this->layout='index_layout';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
 		$post_id=$this->request->query('post_id');
 		
 		$this->loadmodel('Classified_post');
@@ -1383,10 +1502,10 @@ public function ajax_function()
    				{
 					 e.preventDefault();
 					 $('#upload_image').attr('disabled', 'disabled');
-					// $('html,body').html('<div class="modal-backdrop fade in"></div>');
-					// $('#message').html('<center><img src="<?PHP echo $this->webroot; ?>images/ajax-loaders/ajax-loader-1.gif" ></center>');
+					
 					 var update = $("#update_table").val();
 					 var rowCount = $('#tab_images_uploader_filelist tr').length;
+					
 					$(".e-clicked").removeClass("e-clicked");
 					$("#message").empty();
 					$.ajax({
@@ -1401,10 +1520,7 @@ public function ajax_function()
 						 $('#upload_image').removeAttr('disabled');
 						$("#message").html(data);
 						$('.modal-backdrop').remove();
-						/*$('.fileinput-filename').empty();
-						$('.fa-file').css('display', 'none');
-						$('span .fileinput-exists').text('Select file');
-						$('a[data-dismiss="fileinput"]').hide();*/
+						
 						$('.alert-notification').fadeTo(4000,500).slideUp(1000, function()
 						{
 							$(this).alert('close'); 
@@ -1480,8 +1596,7 @@ public function ajax_function()
    				{
 					e.preventDefault();
 					var name=$(this).find(".e-clicked").attr("name");
-				//	var rowCount = $('#tab_images_uploader_filelist tr').length;
-				////	$('html,body').append('<div class="modal-backdrop fade in"></div>');
+			
 					$('#message').html('<center><img src="<?PHP echo $this->webroot; ?>images/ajax-loaders/ajax-loader-1.gif" ></center>');
 					$(".e-clicked").removeClass("e-clicked");
 					var update = $("#update_table").val();
@@ -1562,9 +1677,9 @@ public function ajax_function()
          }
          else
          {
-    var query="?sort_status=" + encodeURIComponent(sort_status) +"&categories_id=" + encodeURIComponent(categories_id) +"&min_price=" + encodeURIComponent(min_price) + "&max_price=" +  encodeURIComponent(max_price) +"&search_by_meta=" + encodeURIComponent(search_by_meta) + "&sub_categories_id=" + encodeURIComponent(sub_categories_id); 
-    
-   $("#sorting_ase_desc").html('<center><img src="<?PHP echo $this->webroot; ?>images/ajax-loaders/loading_windows.gif" width="70px" ></center>').load('categories_details_asc_desc_sort'+query);
+			var query="?sort_status=" + encodeURIComponent(sort_status) +"&categories_id=" + encodeURIComponent(categories_id) +"&min_price=" + encodeURIComponent(min_price) + "&max_price=" +  encodeURIComponent(max_price) +"&search_by_meta=" + encodeURIComponent(search_by_meta) + "&sub_categories_id=" + encodeURIComponent(sub_categories_id); 
+			
+		   $("#sorting_ase_desc").html('<center><img src="<?PHP echo $this->webroot; ?>images/ajax-loaders/loading_windows.gif" width="70px" ></center>').load('categories_details_asc_desc_sort'+query);
          }
      
     }	 

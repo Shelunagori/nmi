@@ -48,6 +48,31 @@ echo $this->fetch('meta'); ?>
 <link href="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css" id="style_color"/>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="<?php echo $this->webroot; ?>theme_admin/images/shortcut_icon/non-moving-logo.png"/>
+<link rel="shortcut icon" href="<?php echo $this->webroot; ?>theme_admin/images/shortcut_icon/non-moving-logo.png"/>
+ <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script><script>
+jQuery(document).ready(function(){
+
+   $("a[rel='tab']").live('click',function(e){
+		e.preventDefault();
+		$(".page-spinner-bar").removeClass("hide"); //show loading
+		pageurl=$(this).attr('href');
+		window.history.pushState({path:pageurl},'',pageurl);
+		$.ajax({
+			url:pageurl,
+		}).done(function(responce){
+			$(".page-spinner-bar").addClass(" hide"); //hide loading
+			 
+			$(".page-content").html(responce);
+			$("html, body").animate({
+				scrollTop:0
+			},"slow");
+		});
+		
+		});
+
+		
+});
+</script>
 <style>
 
 
@@ -138,7 +163,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 		
 		<!-- BEGIN PAGE TOP -->
 		<div class="page-top">
-         <span class="title-main navbar-brand tk-adelle"><a href="<?php echo $this->webroot; ?>Nonmovinginventory/user_index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="200" alt="NON MOVING INVENTORY"></a></span>
+         <span class="title-main navbar-brand tk-adelle"><a href="<?php echo $this->webroot; ?>Nonmovinginventory/user_index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="200" alt="NON MOVING INVENTORY" rel='tab'></a></span>
       	  <div class="page-actions">
 		<!--	<div class="btn-group">
 				<button type="button" class="btn btn-circle red-pink dropdown-toggle" data-toggle="dropdown">
@@ -230,9 +255,9 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
                         <li>
-								<a href="<?php echo $this->webroot; ?>Nonmovinginventory/change_password">
-								<i class="icon-hourglass "></i> Change Password </a>
-							</li>
+                            <a href="<?php echo $this->webroot; ?>Nonmovinginventory/change_password" >
+                            <i class="icon-hourglass "></i> Change Password </a>
+                        </li>
 						<!--	<li>
 								<a href="<?php echo $this->webroot; ?>Nonmovinginventory/user_profile">
 								<i class="icon-user"></i> My Profile </a>
@@ -263,7 +288,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
        		 <div class="page-sidebar navbar-collapse collapse">
 				<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu page-sidebar-menu-closed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 					<li class="start active ">
-						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/user_index">
+						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/user_index"  rel='tab'>
 						<i class="icon-home"></i>
 						<span class="title">Dashboard</span>
 						<span class="selected"></span>
@@ -278,14 +303,14 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						</a>
 						<ul class="sub-menu">
 							<li>
-                                <a href="<?php echo $this->webroot; ?>Nonmovinginventory/ecommerce_new_post">
+                                <a href="<?php echo $this->webroot; ?>Nonmovinginventory/ecommerce_new_post"   rel='tab'>
                                 <i class="icon-docs"></i>
                                 <span class="title">New Post</span>
                                 <span class="selected"></span>
                                 </a>
                             </li>
                           <li>
-								<a href="<?php echo $this->webroot; ?>Nonmovinginventory/ecommerce_products">
+								<a href="<?php echo $this->webroot; ?>Nonmovinginventory/ecommerce_products"  rel='tab'>
 								<i class="icon-handbag"></i>
 								Products</a>
 							</li>
@@ -317,7 +342,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						</a>
 						<ul class="sub-menu">
 							<li>
-                                <a href="<?php echo $this->webroot; ?>Nonmovinginventory/ecommerce_new_post">
+                                <a href="<?php echo $this->webroot; ?>Nonmovinginventory/change_password">
                                 <i class="icon-hourglass "></i>
                                 <span class="title">Change Password</span>
                                 <span class="selected"></span>
@@ -341,6 +366,11 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 <!-- --------------------------------end  menu  header--------------------------------------------- -->
 <!-- BEGIN CONTENT -->
                         <div class="page-content-wrapper">
+                        <div ng-spinner-bar="" class="page-spinner-bar hide">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
                             <div class="page-content">
                             <!-- BEGIN PAGE HEADER-->
                                 <?php echo $this->fetch('content'); ?>
@@ -364,11 +394,11 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
           <!-- END COPYRIGHT -->
           <!-- BEGIN PAYMENTS -->
           <div class="col-md-6 col-sm-6 padding-top-10" >
-            <ul class="social-footer list-unstyled list-inline pull-right">
-              <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/term_services" style="font-size:17px;color:#57C8EB;"> T &amp; C</a></li>
-                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/faqs" style="font-size:17px;color:#57C8EB;">FAQ</a></li>
-                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/about_us" style="font-size:17px;color:#57C8EB;">About Us</a></li>
-                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/contact_us" style="font-size:17px;color:#57C8EB;">Contact Us</a></li>
+            <ul class="list-unstyled list-inline pull-right">
+              <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/term_services" style="font-size:17px;color:#57C8EB;"  rel='tab'> T &amp; C</a></li>
+                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/faqs" style="font-size:17px;color:#57C8EB;"  rel='tab'>FAQ</a></li>
+                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/about_us" style="font-size:17px;color:#57C8EB;"  rel='tab'>About Us</a></li>
+                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/contact_us" style="font-size:17px;color:#57C8EB;"  rel='tab'>Contact Us</a></li>
             </ul>  
           </div>
           <!-- END PAYMENTS -->

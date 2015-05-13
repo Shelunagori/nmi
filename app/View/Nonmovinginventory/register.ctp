@@ -1,3 +1,10 @@
+<!--<script>
+  $('.wysihtml5').wysihtml5();
+   handleWysihtml5();
+            handleValidation1();
+            handleValidation2();
+            handleValidation3();
+</script>-->
 <?php
 if(!empty($wrongemail))
 {

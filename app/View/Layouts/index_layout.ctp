@@ -41,6 +41,31 @@ echo $this->fetch('meta'); ?>
 <link href="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css" id="style_color"/>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="<?php echo $this->webroot; ?>theme_admin/images/shortcut_icon/non-moving-logo.png"/>
+ <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script><script>
+jQuery(document).ready(function(){
+
+   $("a[rel='tab']").live('click',function(e){
+		e.preventDefault();
+		$(".page-spinner-bar").removeClass("hide"); //show loading
+		pageurl=$(this).attr('href');
+		window.history.pushState({path:pageurl},'',pageurl);
+		$.ajax({
+			url:pageurl,
+		}).done(function(responce){
+			$(".page-spinner-bar").addClass(" hide"); //hide loading
+			 
+			$(".page-content").html(responce);
+			$("html, body").animate({
+				scrollTop:0
+			},"slow");
+		});
+		
+		});
+
+		
+});
+</script>
+
 <style>
 
 .mycolour
@@ -135,7 +160,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 		
 		<!-- BEGIN PAGE TOP -->
 		<div class="page-top">
-         <span class="title-main navbar-brand tk-adelle"><a href="<?php echo $this->webroot; ?>Nonmovinginventory/index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="200" height="51"  alt="NON MOVING INVENTORY"></a></span>
+         <span class="title-main navbar-brand tk-adelle"><a href="<?php echo $this->webroot; ?>Nonmovinginventory/index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="200" height="51"  alt="NON MOVING INVENTORY"  rel='tab'></a></span>
 			<!-- BEGIN HEADER SEARCH BOX -->
 			<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
 			<form class="search-form search-form-expanded"  action="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details" method="GET">
@@ -187,21 +212,21 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 				<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 				<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu page-sidebar-menu-closed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 					<li class="start active ">
-						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/index">
+						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/index" rel='tab'>
 						<i class="icon-home"></i>
-						<span class="title">Dashboard</span>
+						<span class="title" >Dashboard</span>
 						<span class="selected"></span>
 						</a>
 					</li>
                     <li class="">
-						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/about_us">
+						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/about_us" rel='tab'>
 						<i class="icon-users"></i>
 						<span class="title">About Us</span>
 						<span class="selected"></span>
 						</a>
 					</li>
                     <li class="">
-						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/register">
+						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/register" rel='tab'>
 						<i class="icon-user"></i>
 						<span class="title">Registeration</span>
 						<span class="selected"></span>
@@ -219,13 +244,17 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 			</div>
 		</div>
 		<!-- END SIDEBAR -->
-<?php    
-//$this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'menu_header'), array());
-?>
+
 <!-- --------------------------------end  menu  header--------------------------------------------- -->
 <!-- BEGIN CONTENT -->
                         <div class="page-content-wrapper">
+                        	<div ng-spinner-bar="" class="page-spinner-bar hide">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
                             <div class="page-content">
+                            
                             <!-- BEGIN PAGE HEADER-->
                                 <?php echo $this->fetch('content'); ?>
                             </div>
@@ -250,11 +279,11 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
           <div class="col-md-6 col-sm-6 padding-top-10" >
           <!-- social-footer  -->
             <ul class=" list-unstyled list-inline pull-right">
-              <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/term_services" style="font-size:17px;color:#57C8EB;"> T &amp; C</a></li>
-                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/faqs" style="font-size:17px;color:#57C8EB;">FAQ</a></li>
-                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/about_us" style="font-size:17px;color:#57C8EB;">About Us</a></li>
-                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/contact_us" style="font-size:17px;color:#57C8EB;">Contact Us</a></li>
-                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/register" style="font-size:17px;color:#57C8EB;">Register </a></li>
+              <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/term_services" style="font-size:17px;color:#57C8EB;" rel='tab'> T &amp; C</a></li>
+                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/faqs" style="font-size:17px;color:#57C8EB;" rel='tab'>FAQ</a></li>
+                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/about_us" style="font-size:17px;color:#57C8EB;" rel='tab'>About Us</a></li>
+                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/contact_us" style="font-size:17px;color:#57C8EB;" rel='tab'>Contact Us</a></li>
+                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/register" style="font-size:17px;color:#57C8EB;" rel='tab'>Register </a></li>
                 <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/login" style="font-size:17px;color:#57C8EB;">Sign In </a></li>
             </ul>  
           </div>
@@ -323,7 +352,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/scripts/metronic.js" type="text/javascript"></script>
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout2/scripts/layout.js" type="text/javascript"></script>
-<script src="../../assets/admin/layout2/scripts/demo.js" type="text/javascript"></script>
+<script src="<?php echo $this->webroot; ?>assets/admin/layout2/scripts/demo.js" type="text/javascript"></script>
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/admin/pages/scripts/components-form-tools.js"></script>
 <script id="_webengage_script_tag" type="text/javascript">
   var _weq = _weq || {};
@@ -340,15 +369,14 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
     _sNode.parentNode.insertBefore(_we, _sNode);
   })(document);
 </script>
+
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
-jQuery(document).ready(function() {    
+jQuery(document).ready(function() {  
 	Metronic.init(); // init metronic core componets
 	Layout.init(); // init layout
 	FormWizard.init();
 	UINotific8.init();
-	
-	
 	Layout.initOWL();
 	Demo.init();  // init layout
 	ComponentsFormTools.init();

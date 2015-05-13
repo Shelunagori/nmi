@@ -2,7 +2,31 @@
 $submit_succ=1;
 $limit="LIMIT 10";
 ?>		
+ <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script><script>
+jQuery(document).ready(function(){
 
+$("select[rel='tab']").bind('change',function(){
+		//ee.preventDefault();
+		$(".page-spinner-bar").removeClass("hide"); //show loading]
+		var pageurl = $(this).val();
+		
+		window.history.pushState({path:pageurl},'',pageurl);
+		$.ajax({
+			url:pageurl,
+		}).done(function(responce){
+			$(".page-spinner-bar").addClass(" hide"); //hide loading
+			 
+			$(".page-content").html(responce);
+			$("html, body").animate({
+				scrollTop:0
+			},"slow");
+		});
+		
+		});
+
+		
+});
+</script>
  <style type='text/css'>
  .page-bar .page-breadcrumb > li > a, .page-bar .page-breadcrumb > li  
  {
@@ -60,6 +84,7 @@ select
         }
         else if(!empty($sub_categories_id))
         {
+			$categories_id=$categories_id_sub;
                 ?>
                <li>
             <i class="fa fa-home"></i>
@@ -88,15 +113,15 @@ select
 
 if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_id))
 {
-?>
+	?>
 <table r class="table table-striped table-bordered table-hover dataTable no-footer">
 <thead>
 <tr role="row" class="heading">
 <th colspan="1" rowspan="1" tabindex="0" >Date&nbsp;Sorting </th>
 <th colspan="1" rowspan="1" tabindex="0">Price&nbsp;Sorting</th>
 <th colspan="1" rowspan="1" tabindex="0"  >Price&nbsp;Range</th>
+<th colspan="1" rowspan="1" tabindex="0" >Categories</th>
 <th colspan="1" rowspan="1" tabindex="0" >Sub&nbsp;Categories</th>
-
 </tr>
 <tr role="row" class="filter"><td >
         <select class="table-group-action-input form-control input-inline input-small input-sm select_box" name="order" onChange="accending_disending(this.value,'<?php echo @$categories_id; ?>','<?php echo @$search_by_meta; ?>','<?php echo @$sub_categories_id; ?>','1');" >
@@ -118,12 +143,32 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
       
     </td>
     <td >
-       <select class="table-group-action-input form-control input-inline input-small input-sm divider" onchange="location = this.options[this.selectedIndex].value;">
+       <select class="table-group-action-input form-control input-inline input-small input-sm divider" rel='tab'>
+       <option value=""> --Select--</option>
+           <?php $i=0;
+		   	
+			foreach ($categories_arr as $categories_ftc) 
+			{ 
+				if($categories_ftc['Categorie']['id']==@$categories_id)
+				{
+					$selected='selected=selected';
+				}
+				else
+				{
+					$selected='';
+				}
+				?> 
+			<?php echo  '<option class="c" value="categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" '.$selected.'>'.$categories_ftc['Categorie']['categories'].'</option>'; ?> 
+			<?php } ?>
+            </select>
+    </td>
+    <td >
+       <select class="table-group-action-input form-control input-inline input-small input-sm divider" rel='tab'>
        <option value=""> --Select--</option>
            <?php $i=0;
 			foreach ($sub_categories_arr as $sub_categories_ftc) 
 			{ 
-				if($sub_categories_ftc['Sub_categorie']['id']==$sub_categories_id)
+				if($sub_categories_ftc['Sub_categorie']['id']==@$sub_categories_id)
 				{
 					$selected='selected=selected';
 				}
@@ -201,7 +246,7 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
                                              
 								 				<div class="portlet-title">
                                                     <div class="caption">
-                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
+                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" rel='tab' ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
                                                     </div>
                                                 </div>
 									
@@ -253,9 +298,9 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
                                                         </div>
 																	<a href="#product-pop-up" class="btn btn-default fancybox-fast-view"></a>
                                                                  <div class="col-sm-2 ">
-                                                                    <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn-block result-details-link">
+                                                                    <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn-block result-details-link" rel='tab'>
                                                                    <div style="height:150px;width:150px"> 
-                                                                    <img style="border:1px solid #67809F; border-radius:5px 5px 5px 5px;" alt="Post Images" class="img-res" width="100%"  height="90%"  src="<?php if(empty($photo_first)){ echo $this->webroot; ?>images/image/no_pic.gif<?php } else { echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photo_first; } ?>" />  <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn blue-hoki btn-sm" style="width:100%; padding-top:3px; margin-top:1px;"><i class="fa fa-th-large"></i> <b>Details</b></a></div>
+                                                                    <img style="border:1px solid #67809F; border-radius:5px 5px 5px 5px;" alt="Post Images" class="img-res" width="100%"  height="90%"  src="<?php if(empty($photo_first)){ echo $this->webroot; ?>images/image/no_pic.gif<?php } else { echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photo_first; } ?>" />  <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn blue-hoki btn-sm" style="width:100%; padding-top:3px; margin-top:1px;" rel="tab"><i class="fa fa-th-large"></i> <b>Details</b></a></div>
                                                                     </a>
                                                                 </div>
 										

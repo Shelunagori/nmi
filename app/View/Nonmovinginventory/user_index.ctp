@@ -1,6 +1,5 @@
-
-			<style>
-			.page-404 .number {
+<style>
+.page-404 .number {
     position: relative;
     top: 100%;
     display: inline-block;
@@ -14,15 +13,15 @@
     text-align: center;
 	margin-left:30%;
 }
-			</style>	
+</style>	
 <!-- BEGIN PAGE CONTENT-->
 <div class="row">
-					<div class="col-md-12 page-404">
-						<div class="number">
-							 <span style="color:#497093">Welcome to</span>
-                             <br/>
-                             <span style="color:#9C3348">Nonmoving</span> <span style="color:#14303A">Inventory</span><span style="color:#F08143">.com</span>
-						</div>
-						
-					</div>
-				</div><!-- END PAGE CONTENT-->
+    <div class="col-md-12 page-404">
+        <div class="number">
+             <span style="color:#497093">Welcome to</span>
+             <br/>
+             <span style="color:#9C3348">Nonmoving</span> <span style="color:#14303A">Inventory</span><span style="color:#F08143">.com</span>
+        </div>
+        
+    </div>
+</div><!-- END PAGE CONTENT-->

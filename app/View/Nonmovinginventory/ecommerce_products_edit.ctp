@@ -14,6 +14,7 @@ select
 foreach($arr_classified as $value)
 {
 	$category_id_fetch=$value['classified_post']['category_id'];
+	$user_id=$value['classified_post']['user_id'];
 	$sub_category_id_fetch=$value['classified_post']['sub_category_id'];
 	$price_fetch=$value['classified_post']['price'];
 	$year_of_manufacture_fetch=$value['classified_post']['year_of_manufacture'];
@@ -348,30 +349,31 @@ foreach($arr_classified as $value)
                                 </tr>
                                 </thead>
                                 <tbody>
-                               <!-- <tr>
-                                    <td>
-                                        <a href="<?php echo $this->webroot; ?>theme_admin/assets/admin/pages/media/works/img1.jpg" class="fancybox-button" data-rel="fancybox-button">
-                                        <img class="img-responsive" src="<?php echo $this->webroot; ?>theme_admin/assets/admin/pages/media/works/img1.jpg" alt="" >
-                                        </a>
-                                    </td>
-                                   
-                                    <td>
-                                        <label>
-                                        <input type="radio" name="product_1" id="product_1" value="1">
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                        <input type="radio" name="product_1_1" id="product_1_1" value="2">
-                                        </label>
-                                    </td>
-                                   
-                                    <td>
-                                        <a href="javascript:;" class="btn red btn-sm">
-                                        <i class="fa fa-times"></i> Remove </a>
-                                    </td>
-                                </tr>
-                                -->
+                                <?php
+								$combine_data=$user_id.$productid;
+								$target = "images_post/".$user_id."/".$productid;
+								$photo_data=explode(',', $photo_fetch);
+								$rowCount=0;
+								foreach($photo_data as $photo)
+								{
+									$target=@$target."/".$photo;
+									$img_data=explode('.', $photo);
+									$img_name=$img_data[0];
+									$rowCount=substr($img_name,strlen($combine_data));
+									?>
+									<tr id="<?php echo $rowCount; ?>">
+										<td>
+											<a href="<?php echo $this->webroot; echo $target; ?>" class="fancybox-button" data-rel="fancybox-button">
+											<img class="img-responsive" src="<?php echo $this->webroot;  echo $target; ?>" style="height:120px;" alt="">
+											</a>
+										</td>
+									   <td>
+										<button name="<?php echo $rowCount; ?>" class="btn red btn-sm addclass_function" removeclass="removeclass"><i class="fa fa-times"></i> Remove </button>
+									   </td>
+									</tr>
+								   <?php
+								}
+								?>
                                 
                                 </tbody>
                                 </table></center>
