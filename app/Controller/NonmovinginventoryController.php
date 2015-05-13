@@ -66,12 +66,18 @@ class NonmovinginventoryController extends AppController
 		$message_web='Name '.$name.'<br/>Email '.$email_reply.'<br/>Phone No. '.$phone_no.'<br/>Message '.$message;
 		$this->loadmodel('Enquiry');
 		$this->Enquiry->saveAll(array('name'=>$name,'email'=>$email_reply,'phone_no'=>$phone_no,'message'=>$message));
-		
-		//$sms='New Helpdesk ticket '.$ticket_no.' - '.$category_name.' raised+by '.$user_name.' - '.$wing_flat.' Please log into HousingMatters for further action.';
-//$sms1=str_replace(' ', '+', $sms);
-//$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey='.$working_key.'&sender='.$sms_sender.'&to='.$mobile.'&message='.$sms1.'');
-
-		$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
+		$working_key='Ac47f5663efae985cc42d0081ef8e95b7';
+		$sms_sender='NMINVT';
+		if(!empty($phone_no))
+		{
+			$sms='Hello';
+			$sms1=str_replace(' ', '+', $sms);
+			$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey='.$working_key.'&sender='.$sms_sender.'&to='.$phone_no.'&message='.$sms1.'');
+		}
+		if(!empty($message) || !empty($phone_no))
+		{
+			$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
+		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function ajax_php_file() 
