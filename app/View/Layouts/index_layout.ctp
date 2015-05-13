@@ -226,9 +226,9 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
 						</a>
 					</li>
                     <li class="">
-						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/register" rel='tab'>
+						<a href="<?php echo $this->webroot; ?>Nonmovinginventory/register">
 						<i class="icon-user"></i>
-						<span class="title">Registeration</span>
+						<span class="title">Registration</span>
 						<span class="selected"></span>
 						</a>
 					</li>
@@ -283,7 +283,7 @@ $this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'aj
                 <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/faqs" style="font-size:17px;color:#57C8EB;" rel='tab'>FAQ</a></li>
                 <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/about_us" style="font-size:17px;color:#57C8EB;" rel='tab'>About Us</a></li>
                 <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/contact_us" style="font-size:17px;color:#57C8EB;" rel='tab'>Contact Us</a></li>
-                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/register" style="font-size:17px;color:#57C8EB;" rel='tab'>Register </a></li>
+                <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/register" style="font-size:17px;color:#57C8EB;">Register </a></li>
                 <li><a href="<?php echo $this->webroot; ?>Nonmovinginventory/login" style="font-size:17px;color:#57C8EB;">Sign In </a></li>
             </ul>  
           </div>
