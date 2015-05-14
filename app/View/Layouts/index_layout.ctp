@@ -44,7 +44,7 @@ echo $this->fetch('meta'); ?>
  <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 var key = 3;
-(function(a) {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://52.74.43.53/growth-heacker/feed.js?key='+key;var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);}(window, document))
+(function(a) {var gaa = document.createElement('script'); gaa.type = 'text/javascript'; gaa.async = true; gaa.src = 'http://52.74.43.53/growth-heacker/feed.js?key='+key;var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gaa, s);}(window, document))
 </script>
 <script>
 jQuery(document).ready(function(){
