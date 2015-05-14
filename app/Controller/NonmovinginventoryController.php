@@ -11,6 +11,11 @@ class NonmovinginventoryController extends AppController
     'Paginator',
     'Session','Cookie','RequestHandler'
  	);
+	
+	public function send_message(){
+		$this->layout=null;
+	echo $payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey=Ac47f5663efae985cc42d0081ef8e95b7&sender=NMINVT&to=9636653883&message=hello');
+	}
 	public function authentication()
 	{
 		$user_id=$this->Session->read('user_id');

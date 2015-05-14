@@ -4,7 +4,6 @@ $limit="LIMIT 10";
 ?>		
  <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script><script>
 jQuery(document).ready(function(){
-
 $("select[rel='tab']").bind('change',function(){
 		//ee.preventDefault();
 		$(".page-spinner-bar").removeClass("hide"); //show loading]
@@ -23,8 +22,6 @@ $("select[rel='tab']").bind('change',function(){
 		});
 		
 		});
-
-		
 });
 </script>
  <style type='text/css'>
