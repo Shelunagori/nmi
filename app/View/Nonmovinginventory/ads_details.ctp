@@ -267,7 +267,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
             </div>
        
        
-       <!--- Start Releted Post  -->
+       <!--- Start Related Post  -->
        
             
           <div class="row">
@@ -275,7 +275,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
              
                     <div class="portlet light">
                         <div class="portlet-body">
-                         <span style="font-size:18px">Releted post...</span>
+                         <span style="font-size:18px">Related post...</span>
                          <br/>
                             <div id="sorting_ase_desc" >  
                            <?php
