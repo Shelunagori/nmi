@@ -14,7 +14,9 @@ class NonmovinginventoryController extends AppController
 	
 	public function send_message(){
 		$this->layout=null;
-	echo $payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey=A1d987e6da856f0d2de06aa0456dcb04b&sender=NMINVT&to=9636653883&message=hello');
+		$m="You one Product is liked by some one. Kindly login into the portal for more details.";
+		$sms1=str_replace(' ', '+', $m);
+	echo $payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey=A1d987e6da856f0d2de06aa0456dcb04b&sender=NMINVT&to=9636653883&message='.$sms1);
 	}
 	public function authentication()
 	{
@@ -1486,7 +1488,6 @@ public function ajax_function()
 		 });
 		 
 	
-		 
         $("#notific8_show").live('click',function(e){
         
             var name=$("#name").val();

