@@ -184,7 +184,7 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
 
     <?php 
 	
-	if(!empty($categories_id))
+	/*if(!empty($categories_id))
 	{
 		$sub_categories_id="";
 	}
@@ -192,7 +192,8 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
 	{
 		$categories_id="";
 		$categories_id=$categories_id_sub;
-	}
+		$sub_categories_id=$sub_categories_id;
+	}*/
 	
 }
 

@@ -741,9 +741,17 @@ class NonmovinginventoryController extends AppController
 				$this->loadmodel('Sub_categorie');
 				$result_sub_categories= $this->Sub_categorie->find('all', array('conditions' => array('Sub_categorie.categories_id' => $categories_id)));
 				$this->set('sub_categories_arr',$result_sub_categories);
-				foreach($result_sub_categories as $res_values)
+				if(!empty($sub_categories_id))
 				{
-					$sub_categories_ftc[]=$res_values['Sub_categorie']['id'];	
+					$sub_categories_ftc[]=$sub_categories_id;
+					$this->set('sub_categories_id',$sub_categories_id);
+				}
+				else
+				{
+					foreach($result_sub_categories as $res_values)
+					{
+						$sub_categories_ftc[]=$res_values['Sub_categorie']['id'];	
+					}
 				}
 				
 			
@@ -800,7 +808,7 @@ class NonmovinginventoryController extends AppController
 				}
 			$this->set('classified_posts_arr',$rst_classified_posts);
 		}
-		else if(isset($sub_categories_id))
+		/*else if(isset($sub_categories_id))
 		{
 		$sub_categories_id=$this->request->query('sub_categories_id');
 		$order_by=$this->request->query('sort_status');
@@ -856,7 +864,7 @@ class NonmovinginventoryController extends AppController
 			$this->set('classified_posts_arr',$rst_classified_posts);
 			
 			
-		}
+		}*/
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function categories_details() 
@@ -1095,10 +1103,16 @@ class NonmovinginventoryController extends AppController
 			$result_sub_categories= $this->Sub_categorie->find('all', array('conditions' => array('Sub_categorie.categories_id' => $categoriesid)));
 			//@$result_sub_categories=$this->Sub_categorie->query("select id from `sub_categories` where categories_id='$categories_id' ");
 			$this->set('sub_categories_arr',$result_sub_categories);
-	
-			foreach($result_sub_categories as $res_values)
+			if(!empty($sub_categories_id))
 			{
-				$sub_categories_ftc[]=$res_values['Sub_categorie']['id'];	
+				$sub_categories_ftc[]=$sub_categories_id;
+			}
+			else
+			{
+				foreach($result_sub_categories as $res_values)
+				{
+					$sub_categories_ftc[]=$res_values['Sub_categorie']['id'];	
+				}
 			}
 			
 			$this->loadmodel('Classified_post');
@@ -1159,7 +1173,7 @@ class NonmovinginventoryController extends AppController
 					
 		}
 		
-		else if(!empty($sub_categories_id))	
+		/*else if(!empty($sub_categories_id))	
 		{
 			
 				
@@ -1234,7 +1248,7 @@ class NonmovinginventoryController extends AppController
 				$this->set('classified_posts_arr_ajax',$rst_classified_posts);
 				
 			
-		}	
+		}	*/
 		else if(!empty($search_by_meta))	
 		{
 			
@@ -1675,7 +1689,7 @@ public function ajax_function()
             var categorie_id=$("#categories_id").val();
             var sub_categories_id=$("#sub_categories_id").val();
             var search_by_meta=$("#search_by_meta").val();
-        
+        	
             var query="?page_id=" + encodeURIComponent(page_id) + "&order_by=" + encodeURIComponent(order_by) + "&categorieid=" + categorie_id + "&sub_categories_id=" + encodeURIComponent(sub_categories_id) + "&min_price=" + encodeURIComponent(min_price) + "&max_price=" + encodeURIComponent(max_price) + "&search_by_meta=" + encodeURIComponent(search_by_meta);
             
             $("#lode_more_" + page_id).html('<center><img src="<?PHP echo $this->webroot; ?>images/ajax-loaders/ajax-loader-5.gif" ></center>').load('caregories_details_scroll'+query);
