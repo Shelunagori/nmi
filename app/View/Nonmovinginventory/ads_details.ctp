@@ -361,7 +361,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
                                                                 }
                                                                  ?>
                                                         </div>
-																	<a href="#product-pop-up" class="btn btn-default fancybox-fast-view"></a>
+																	
                                                                  <div class="col-sm-2 ">
                                                                     <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn-block result-details-link" rel='tab'>
                                                                    <div style="height:150px;width:150px"> 
