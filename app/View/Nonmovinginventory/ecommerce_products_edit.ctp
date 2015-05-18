@@ -350,28 +350,32 @@ foreach($arr_classified as $value)
                                 </thead>
                                 <tbody>
                                 <?php
-								$combine_data=$user_id.$productid;
-								$target = "images_post/".$user_id."/".$productid;
-								$photo_data=explode(',', $photo_fetch);
-								$rowCount=0;
-								foreach($photo_data as $photo)
+								
+								if(!empty($photo_fetch))
 								{
-									$target=@$target."/".$photo;
-									$img_data=explode('.', $photo);
-									$img_name=$img_data[0];
-									$rowCount=substr($img_name,strlen($combine_data));
-									?>
-									<tr id="<?php echo $rowCount; ?>">
-										<td>
-											<a href="<?php echo $this->webroot; echo $target; ?>" class="fancybox-button" data-rel="fancybox-button">
-											<img class="img-responsive" src="<?php echo $this->webroot;  echo $target; ?>" style="height:120px;" alt="">
-											</a>
-										</td>
-									   <td>
-										<button name="<?php echo $rowCount; ?>" class="btn red btn-sm addclass_function" removeclass="removeclass"><i class="fa fa-times"></i> Remove </button>
-									   </td>
-									</tr>
-								   <?php
+									$combine_data=$user_id.$productid;
+									$target = "images_post/".$user_id."/".$productid;
+									$photo_data=explode(',', $photo_fetch);
+									$rowCount=0;
+									foreach($photo_data as $photo)
+									{
+										$target=@$target."/".$photo;
+										$img_data=explode('.', $photo);
+										$img_name=$img_data[0];
+										$rowCount=substr($img_name,strlen($combine_data));
+										?>
+										<tr id="<?php echo $rowCount; ?>">
+											<td>
+												<a href="<?php echo $this->webroot; echo $target; ?>" class="fancybox-button" data-rel="fancybox-button">
+												<img class="img-responsive" src="<?php echo $this->webroot;  echo $target; ?>" style="height:120px;" alt="">
+												</a>
+											</td>
+										   <td>
+											<button name="<?php echo $rowCount; ?>" class="btn red btn-sm addclass_function" removeclass="removeclass"><i class="fa fa-times"></i> Remove </button>
+										   </td>
+										</tr>
+									   <?php
+									}
 								}
 								?>
                                 

@@ -185,8 +185,12 @@ class NonmovinginventoryController extends AppController
 					$result_categories= $this->classified_post->find('all', array('conditions' => array('classified_post.id' => $update_id)));
 					foreach($result_categories as $res_values)
 					{
-						$photo[]=$res_values['classified_post']['photo'];	
+						if(!empty($res_values['classified_post']['photo']))
+						{
+							$photo[]=$res_values['classified_post']['photo'];	
+						}
 					}
+					
 					$photo[]=$img_name;
 					$photos=implode(',', $photo);
 					$this->classified_post->updateAll(array('classified_post.photo'=>"'$photos'"), array('classified_post.id'=>$update_id));
