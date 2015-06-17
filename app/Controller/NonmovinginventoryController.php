@@ -12,12 +12,12 @@ class NonmovinginventoryController extends AppController
     'Session','Cookie','RequestHandler'
  	);
 	
-	public function send_message(){
+	/*public function send_message(){
 		$this->layout=null;
 		$m="You one Product is liked by some one. Kindly login into the portal for more details.";
 		$sms1=str_replace(' ', '+', $m);
-		$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey=A1d987e6da856f0d2de06aa0456dcb04b&sender=NMINVT&to=9636653883&message='.$sms1);
-	}
+		$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey=A1d987e6da856f0d2de06aa0456dcb04b&sender=BULKSMS&to=9636653883&message='.$sms1);
+	}*/
 	public function authentication()
 	{
 		$user_id=$this->Session->read('user_id');
@@ -73,8 +73,8 @@ class NonmovinginventoryController extends AppController
 		$message_web='Name '.$name.'<br/>Email '.$email_reply.'<br/>Phone No. '.$phone_no.'<br/>Message '.$message;
 		$this->loadmodel('Enquiry');
 		$this->Enquiry->saveAll(array('name'=>$name,'email'=>$email_reply,'phone_no'=>$phone_no,'message'=>$message));
-		$working_key='Ac47f5663efae985cc42d0081ef8e95b7';
-		$sms_sender='NMINVT';
+		$working_key='A7a76ea72525fc05bbe9963267b48dd96';
+		$sms_sender='BULKSMS';
 		if(!empty($phone_no))
 		{
 			$sms='Hello';
@@ -354,7 +354,7 @@ class NonmovinginventoryController extends AppController
 		$user_id=$this->Session->read('user_id');
 		$conditions=array('user_id' => $user_id);
 		$this->loadmodel('classified_post');
-		$this->set('arr_classified',$this->classified_post->find('all',array('conditions'=>$conditions)));
+		$this->set('arr_classified',$this->classified_post->find('all',array('conditions'=>$conditions, 'fields'=>array('status','category_id','sub_category_id','product_name','part_no','price','stock','unit','id'))));
 		
 		$this->loadmodel('status');
 		$this->set('arr_status',$this->status->find('all'));

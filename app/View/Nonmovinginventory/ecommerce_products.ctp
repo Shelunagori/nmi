@@ -69,28 +69,28 @@
                                         <select name="product_category" class="form-control form-filter input-sm">
                                             <option value="">Select...</option>
                                             <?php
-											foreach($arr_categories as $value)
+											/*foreach($arr_categories as $value)
 											{ 
 												$categories=$value ['categorie']['categories'];
 												$categories_id=$value['categorie']['id'];
 												?>
 												<option  value="<?php echo $categories_id; ?>" ><?php echo $categories ; ?></option>
 												 <?php
-											}
+											}*/
 											?>
                                         </select>
                                         
                                         <select name="product_subcategory" class="form-control form-filter input-sm" style="margin-top:5px;">
                                             <option value="">Select...</option>
                                             <?php
-											foreach($arr_subcategories as $value)
+											/*foreach($arr_subcategories as $value)
 											{ 
 												$sub_categories=$value ['sub_categorie']['sub_categories'];
 												$sub_categories_id=$value ['sub_categorie']['id'];
 												?>
 												<option  value="<?php echo $sub_categories_id; ?>" ><?php echo $sub_categories ; ?></option>
 												 <?php
-											}
+											}*/
 											?>
                                         </select>
                                     </td>
@@ -124,12 +124,12 @@
                                         <select name="product_status" class="form-control form-filter input-sm">
                                             <option value="">Select...</option>
                                             <?php
-											foreach($arr_status as $value)
+										/*	foreach($arr_status as $value)
 											{ 
 											?>
 											<option value="<?php echo $value['status']['id']; ?>"><?php echo $value['status']['status_name']; ?></option>
 											<?php
-											}
+											}*/
 											?>
                                         </select>
                                     </td>

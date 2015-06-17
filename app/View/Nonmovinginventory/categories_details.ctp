@@ -25,6 +25,22 @@ $("select[rel='tab']").bind('change',function(){
 });
 </script>
  <style type='text/css'>
+@media (max-width: 770px) 
+{
+	.flip-scroll th, td
+	{
+		text-align: left;
+		border-width: 0px 0px 0px 0px !important;
+	}
+	.table-bordered > tbody > tr > td, .table-bordered > thead > tr > th
+	{
+		line-height: 2.4;
+	}
+	.table-condensed > tbody > tr > td, .table-condensed > thead > tr > th {
+		padding: 0px;
+	}
+
+}
  .page-bar .page-breadcrumb > li > a, .page-bar .page-breadcrumb > li  
  {
     color: #888;
@@ -104,23 +120,25 @@ select
 <!-- END PAGE HEADER-->
 
 
-
 <!-- ******************************* ******* content start side bar ***********************************************  -->
 <?php
 
 if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_id))
 {
 	?>
-<table r class="table table-striped table-bordered table-hover dataTable no-footer">
-<thead>
-<tr role="row" class="heading">
-<th colspan="1" rowspan="1" tabindex="0" >Date&nbsp;Sorting </th>
-<th colspan="1" rowspan="1" tabindex="0">Price&nbsp;Sorting</th>
-<th colspan="1" rowspan="1" tabindex="0"  >Price&nbsp;Range</th>
-<th colspan="1" rowspan="1" tabindex="0" >Categories</th>
-<th colspan="1" rowspan="1" tabindex="0" >Sub&nbsp;Categories</th>
+    <div class="portlet-body flip-scroll">
+<table class="table table-bordered table-condensed flip-content">
+<thead class="flip-content">
+<tr class="heading" >
+<th style="width:20%">Date Sorting </th>
+<th>Price Sorting</th>
+<th>Price Range</th>
+<th>Categories</th>
+<th>Sub Categories</th>
 </tr>
-<tr role="row" class="filter"><td >
+</thead>
+<tbody>
+<tr><td>
         <select class="table-group-action-input form-control input-inline input-small input-sm select_box" name="order" onChange="accending_disending(this.value,'<?php echo @$categories_id; ?>','<?php echo @$search_by_meta; ?>','<?php echo @$sub_categories_id; ?>','1');" >
                         <option value="" >--Sorting--</option>
                         <option value="date ASC" >Ascending</option>
@@ -179,9 +197,10 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
             </select>
     </td>
   </tr>
-</thead>
-</table>
+  </tbody>
 
+</table>
+</div>
     <?php 
 	
 	/*if(!empty($categories_id))

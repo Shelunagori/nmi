@@ -75,7 +75,22 @@ jQuery(document).ready(function(){
 </script>
 
 <style>
+@media (max-width: 770px) 
+{
+	.flip-scroll th, td
+	{
+		text-align: left;
+		border-width: 0px 0px 0px 0px !important;
+	}
+	.table-bordered > tbody > tr > td, .table-bordered > thead > tr > th
+	{
+		line-height: 2.4;
+	}
+	.table-condensed > tbody > tr > td, .table-condensed > thead > tr > th {
+		padding: 0px;
+	}
 
+}
 .mycolour
 {
 	color:#C2C1C1;
