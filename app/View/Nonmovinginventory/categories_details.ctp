@@ -376,7 +376,6 @@ $(document).scroll(function(e){
 
     if(scrollPercent >50) {
 	
-	
      doSomething();
     }
 });

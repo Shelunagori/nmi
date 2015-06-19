@@ -18,11 +18,11 @@ foreach($classified_posts_arr_ajax as $ftc_classified_post)
 	$date=$ftc_classified_post['Classified_post']['date'];	
 	
 	$stock=$ftc_classified_post['Classified_post']['stock'];	
-		//		$sub_categories=$ftc_classified_post['sub_categories'];
-				$classified_post_date_show=date("d-M-Y",strtotime($date));
-				
-				$photo_arr=explode(',', $photo);
-			   $photo_first=$photo_arr[0];
+	//$sub_categories=$ftc_classified_post['sub_categories'];
+	$classified_post_date_show=date("d-M-Y",strtotime($date));
+	
+	$photo_arr=explode(',', $photo);
+	$photo_first=$photo_arr[0];
 	
 	$return_array=$this->requestAction(array('controller' => 'Nonmovinginventory', 'action' => 'find_city_states_sub_category'),array('pass'=>array($city_id,$sub_category_id)));
 	

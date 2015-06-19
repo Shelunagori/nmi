@@ -83,7 +83,7 @@ class NonmovinginventoryController extends AppController
 		}
 		if(!empty($message) || !empty($phone_no))
 		{
-			$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
+			//$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
 		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -351,12 +351,14 @@ class NonmovinginventoryController extends AppController
 		{
 			$this->layout='user_index_layout';
 		}
+		//$limit=100;	
+ 		//$start_next=$limit+1;
 		$user_id=$this->Session->read('user_id');
 		$conditions=array('user_id' => $user_id);
 		$this->loadmodel('classified_post');
+		//$this->set('arr_classified',$this->classified_post->find('all',array('conditions'=>$conditions, 'limit'=>$limit, 'fields'=>array('status','category_id','sub_category_id','product_name','part_no','price','stock','unit','id'))));
 		$this->set('arr_classified',$this->classified_post->find('all',array('conditions'=>$conditions, 'fields'=>array('status','category_id','sub_category_id','product_name','part_no','price','stock','unit','id'))));
-		
-		$this->loadmodel('status');
+	/*	$this->loadmodel('status');
 		$this->set('arr_status',$this->status->find('all'));
 		
 		$this->loadmodel('categorie');
@@ -364,7 +366,7 @@ class NonmovinginventoryController extends AppController
 		
 		$this->loadmodel('sub_categorie');
 		$this->set('arr_subcategories',$this->sub_categorie->find('all'));
-		
+		*/
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function find_status($status_id)
@@ -1076,6 +1078,20 @@ class NonmovinginventoryController extends AppController
  		$xxx=array(@$city_name,@$states,@$sub_categoriess,@$categories,@$categories_id);
 		return $xxx;
 	}
+	function ecommerce_product_scroll() 
+	{
+		$this->layout='ajax_layout';
+		$this->loadmodel('classified_post');
+  		$page_id=$this->request->query('page_id');
+		$limit=100;
+		$new_page_id=$page_id+1;
+		$start = ($new_page_id-1)*100;
+		$this->set('new_page_id',$new_page_id);
+		$user_id=$this->Session->read('user_id');
+		$conditions=array('user_id' => $user_id);
+		
+		$this->set('arr_classified',$this->classified_post->find('all',array('conditions'=>$conditions, 'limit'=> $limit, 'offset' => $start, 'fields'=>array('status','category_id','sub_category_id','product_name','part_no','price','stock','unit','id'))));
+	}
 	function caregories_details_scroll() 
 	{
 		$this->layout='ajax_layout';
@@ -1694,6 +1710,19 @@ public function ajax_function()
             
             $("#lode_more_" + page_id).html('<center><img src="<?PHP echo $this->webroot; ?>images/ajax-loaders/ajax-loader-5.gif" ></center>').load('caregories_details_scroll'+query);
         }
+    }
+	
+	function ecommerce_product_scroll()
+    { 
+		var content;
+        var page_id=$("#page").val();
+				
+		var query="?page_id=" + encodeURIComponent(page_id);
+		$("#lode_more_" + page_id).html('<center><img src="<?PHP echo $this->webroot; ?>images/ajax-loaders/ajax-loader-5.gif" ></center>');
+		$("#datatable_products").html('').load('ecommerce_product_scroll'+query , function(){ 
+		$("#lode_more_" + page_id).remove(); 
+		});
+			
     }
     
     function accending_disending(sort_status,categories_id,search_by_meta,sub_categories_id,search_type)

@@ -171,11 +171,14 @@
                                 <td><?php if($status_id=='1'){ ?><span class="label label-sm label-success"><?php } else if($status_id=='2'){ ?><span class="label label-sm label-info"><?php }  else if($status_id=='3'){ ?><span class="label label-sm label-danger"><?php }  echo $status_name; ?></span> </td>
                               <td><a href="ecommerce_products_edit?productid=<?php echo base64_encode($value['classified_post']['id']); ?>" class="btn btn-xs btn-info btn-editable"><i class="fa fa-pencil"></i> Edit</a></td>
                                 </tr>
+                                
                                 <?php
 								}
+								
 								?>
                                 </tbody>
                                 </table>
+                                <div style="width:100%"  id="lode_more_1"><input name="page"  class="form-control" id="page" type="hidden" value="1"></div>
                             </div>
                         </div>
                     </div>
@@ -189,4 +192,25 @@
     
 </div>
 <!-- END CONTAINER -->
-	
+
+<script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+
+<script>
+/*
+$(document).scroll(function(e){
+
+    // grab the scroll amount and the window height
+    var scrollAmount = $(window).scrollTop();
+    var documentHeight = $(document).height();
+	// alert(documentHeight);
+    // calculate the percentage the user has scrolled down the page
+    var scrollPercent = (scrollAmount / documentHeight) * 100;
+
+    if(scrollPercent >50) 
+	{
+     	ecommerce_product_scroll();
+    }
+});
+
+*/
+</script>
