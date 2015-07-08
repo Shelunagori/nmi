@@ -1475,16 +1475,13 @@ public function category_setup()
 ////////////////// Mailer ////////////////////////////////
 function mailchimp($template_name, $message, $template_content)
 {
-	echo $template_name;
-	pr($message);
-	pr($template_content);
-	/*App::import('Vendor', 'mailchimp_mandrill', array('file' => 'mailchimp_mandrill' . DS . 'src' . DS . 'Mandrill.php')); 
+	App::import('Vendor', 'mailchimp_mandrill', array('file' => 'mailchimp_mandrill' . DS . 'src' . DS . 'Mandrill.php')); 
 	$mandrill = new Mandrill('fEa-Q9Q1NHhKE-BsvG8LpA'); 
 	$publish = true;
 
 	$mandrill->templates->add($template_name);
 	$mandrill->templates->publish($template_name);
-	$mandrill->messages->sendTemplate($template_name, $template_content, $message);*/
+	$mandrill->messages->sendTemplate($template_name, $template_content, $message);
 }
 
 function smtpmailer($to, $from_name, $subject, $message_web,$reply, $is_gmail=true)
