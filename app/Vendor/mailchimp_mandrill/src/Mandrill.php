@@ -61,7 +61,7 @@ class Mandrill {
         if(!$apikey) $apikey = $this->readConfigs();
         if(!$apikey) throw new Mandrill_Error('You must provide a Mandrill API key');
         $this->apikey = $apikey;
-		
+		 phpinfo();
         $this->ch = curl_init();
         curl_setopt($this->ch, CURLOPT_USERAGENT, 'Mandrill-PHP/1.0.54');
         curl_setopt($this->ch, CURLOPT_POST, true);
