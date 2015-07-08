@@ -105,7 +105,7 @@ class NonmovinginventoryController extends AppController
 		}
 		if(!empty($message) || !empty($phone_no))
 		{
-			//$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
+			$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
 		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1475,11 +1475,13 @@ public function category_setup()
 ////////////////// Mailer ////////////////////////////////
 function mailchimp($template_name, $message, $template_content)
 {
+	echo $template_name;
+	pr($message);
+	pr($template_content);
 	App::import('Vendor', 'mailchimp_mandrill', array('file' => 'mailchimp_mandrill' . DS . 'src' . DS . 'Mandrill.php')); 
 	$mandrill = new Mandrill('fEa-Q9Q1NHhKE-BsvG8LpA'); 
 	$publish = true;
 
-	
 	$mandrill->templates->add($template_name);
 	$mandrill->templates->publish($template_name);
 	$mandrill->messages->sendTemplate($template_name, $template_content, $message);
