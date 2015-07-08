@@ -27,6 +27,28 @@ class NonmovinginventoryController extends AppController
 			$this->redirect(array('action' => 'index'));
 		}
 	}
+	public function news_letter()
+	{
+		$message = array(
+			'subject' => 'Test message',
+			'from_email' => 'ashishbohara1008@gmail.com',
+			'html' => '<img src="http://glorysunshinetrading.com/mailchimp_mandrill/src/Jeans.jpg"><p>this is a test message with Mandrill\'s PHP wrapper!.</p>',
+			'to' => array(array('email' => 'ashishbohara1008@gmail.com', 'name' => 'Recipient 1')),
+			);
+		
+		$template_name = 'Image1';
+		
+		$template_content = array(
+			array(
+				'name' => 'main',
+				'content' => 'Hi FIRSTNAME LASTNAME , thanks for signing up.'),
+			array(
+				'name' => 'footer',
+				'content' => 'Copyright 2012.')
+		
+		);
+		$this->mailchimp($template_name, $message, $template_content);
+	}
 	public function logout()
 	{
 		$this->Session->destroy();
@@ -1451,6 +1473,17 @@ public function category_setup()
 }
 
 ////////////////// Mailer ////////////////////////////////
+function mailchimp($template_name, $message, $template_content)
+{
+	App::import('Vendor', 'mailchimp_mandrill', array('file' => 'mailchimp_mandrill' . DS . 'src' . DS . 'Mandrill.php')); 
+	$mandrill = new Mandrill('fEa-Q9Q1NHhKE-BsvG8LpA'); 
+	$publish = true;
+
+	
+	$mandrill->templates->add($template_name);
+	$mandrill->templates->publish($template_name);
+	$mandrill->messages->sendTemplate($template_name, $template_content, $message);
+}
 
 function smtpmailer($to, $from_name, $subject, $message_web,$reply, $is_gmail=true)
 {

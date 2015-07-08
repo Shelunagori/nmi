@@ -1,0 +1,49 @@
+[03-Jul-2015 02:08:19 America/Chicago] PHP Fatal error:  Uncaught exception 'Mandrill_Unknown_Template' with message 'No such template "Stationary"' in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php:159
+Stack trace:
+#0 /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php(138): Mandrill->castError(Array)
+#1 /home/glory/public_html/mailchimp_mandrill/src/Mandrill/Messages.php(161): Mandrill->call('messages/send-t...', Array)
+#2 /home/glory/public_html/mailchimp_mandrill/src/1.php(26): Mandrill_Messages->sendTemplate('Stationary', Array, Array)
+#3 {main}
+  thrown in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php on line 159
+[03-Jul-2015 06:42:14 America/Chicago] PHP Fatal error:  Uncaught exception 'Mandrill_Unknown_Template' with message 'No such template "Stationary"' in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php:159
+Stack trace:
+#0 /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php(138): Mandrill->castError(Array)
+#1 /home/glory/public_html/mailchimp_mandrill/src/Mandrill/Messages.php(161): Mandrill->call('messages/send-t...', Array)
+#2 /home/glory/public_html/mailchimp_mandrill/src/1.php(26): Mandrill_Messages->sendTemplate('Stationary', Array, Array)
+#3 {main}
+  thrown in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php on line 159
+[04-Jul-2015 04:08:01 America/Chicago] PHP Fatal error:  Uncaught exception 'Mandrill_Unknown_Template' with message 'No such template "Stationary"' in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php:159
+Stack trace:
+#0 /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php(138): Mandrill->castError(Array)
+#1 /home/glory/public_html/mailchimp_mandrill/src/Mandrill/Messages.php(161): Mandrill->call('messages/send-t...', Array)
+#2 /home/glory/public_html/mailchimp_mandrill/src/1.php(26): Mandrill_Messages->sendTemplate('Stationary', Array, Array)
+#3 {main}
+  thrown in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php on line 159
+[04-Jul-2015 04:52:47 America/Chicago] PHP Fatal error:  Uncaught exception 'Mandrill_Unknown_Template' with message 'No such template "Stationary"' in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php:159
+Stack trace:
+#0 /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php(138): Mandrill->castError(Array)
+#1 /home/glory/public_html/mailchimp_mandrill/src/Mandrill/Templates.php(133): Mandrill->call('templates/publi...', Array)
+#2 /home/glory/public_html/mailchimp_mandrill/src/1.php(25): Mandrill_Templates->publish('Stationary')
+#3 {main}
+  thrown in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php on line 159
+[04-Jul-2015 04:53:39 America/Chicago] PHP Fatal error:  Uncaught exception 'Mandrill_Unknown_Template' with message 'No such template "Stationary"' in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php:159
+Stack trace:
+#0 /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php(138): Mandrill->castError(Array)
+#1 /home/glory/public_html/mailchimp_mandrill/src/Mandrill/Templates.php(133): Mandrill->call('templates/publi...', Array)
+#2 /home/glory/public_html/mailchimp_mandrill/src/1.php(25): Mandrill_Templates->publish('Stationary')
+#3 {main}
+  thrown in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php on line 159
+[04-Jul-2015 04:53:56 America/Chicago] PHP Fatal error:  Uncaught exception 'Mandrill_Unknown_Template' with message 'No such template "Stationary"' in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php:159
+Stack trace:
+#0 /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php(138): Mandrill->castError(Array)
+#1 /home/glory/public_html/mailchimp_mandrill/src/Mandrill/Templates.php(133): Mandrill->call('templates/publi...', Array)
+#2 /home/glory/public_html/mailchimp_mandrill/src/1.php(25): Mandrill_Templates->publish('Stationary')
+#3 {main}
+  thrown in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php on line 159
+[04-Jul-2015 05:50:24 America/Chicago] PHP Fatal error:  Uncaught exception 'Mandrill_Invalid_Template' with message 'A template with name "Image" already exists' in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php:159
+Stack trace:
+#0 /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php(138): Mandrill->castError(Array)
+#1 /home/glory/public_html/mailchimp_mandrill/src/Mandrill/Templates.php(41): Mandrill->call('templates/add', Array)
+#2 /home/glory/public_html/mailchimp_mandrill/src/1.php(25): Mandrill_Templates->add('Image')
+#3 {main}
+  thrown in /home/glory/public_html/mailchimp_mandrill/src/Mandrill.php on line 159
