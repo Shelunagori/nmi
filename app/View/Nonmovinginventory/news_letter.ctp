@@ -110,7 +110,7 @@ $(document).ready(function()
 			type: "POST",         
 			success: function(data)
 			{
-				
+				alert(data);
 			}
 		});
 	}));

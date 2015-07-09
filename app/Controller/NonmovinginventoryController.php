@@ -134,6 +134,7 @@ class NonmovinginventoryController extends AppController
 			
 			);
 			$this->mailchimp($template_name, $message, $template_content);
+			exit;
 		}
 		if($this->request->query('save_edit')==1)
 		{ 
