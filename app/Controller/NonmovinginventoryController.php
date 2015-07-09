@@ -29,25 +29,20 @@ class NonmovinginventoryController extends AppController
 	}
 	public function news_letter()
 	{
-		$message = array(
-			'subject' => 'Test message',
-			'from_email' => 'ashishbohara1008@gmail.com',
-			'html' => '<img src="http://glorysunshinetrading.com/mailchimp_mandrill/src/Jeans.jpg"><p>this is a test message with Mandrill\'s PHP wrapper!.</p>',
-			'to' => array(array('email' => 'ashishbohara1008@gmail.com', 'name' => 'Recipient 1')),
-			);
 		
-		$template_name = 'Image1';
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
+		$this->loadmodel('Categorie');
+		$this->set('categories_arr', $this->Categorie->find('all'));
 		
-		$template_content = array(
-			array(
-				'name' => 'main',
-				'content' => 'Hi FIRSTNAME LASTNAME , thanks for signing up.'),
-			array(
-				'name' => 'footer',
-				'content' => 'Copyright 2012.')
 		
-		);
-		$this->mailchimp($template_name, $message, $template_content);
+		
 	}
 	public function logout()
 	{
@@ -112,16 +107,42 @@ class NonmovinginventoryController extends AppController
 	public function ajax_php_file() 
 	{
 		$this->layout='ajax_layout';
-		$save_edit=$this->request->query('save_edit');
-	 	$upload_image=$this->request->query('upload_image');
-		$removeclass=$this->request->query('removeclass');
-		$user_id=$this->Session->read('user_id');
-		$date=date('Y-m-d');
-		$time=date('h:i:s A');
-		$update_id=$this->request->query('update');
-		$this->loadmodel('classified_post');
-		if($save_edit==1)
+		if($this->request->query('send_template')==1)
+		{
+			$q=$this->request->query("q");
+            $q=json_decode($q);
+             $template_name=$q[0];
+			 $to=$q[1];
+			 $message_body=$q[2];
+			$message = array(
+			'subject' => 'Test message',
+			'from_email' => 'ashishbohara1008@gmail.com',
+			'html' => $message_body,
+			'to' => array(array('email' => $to, 'name' => 'Recipient 1')),
+			);
+		
+			//$template_name = 'Image1';
+			
+			/*$template_content = array(
+				array(
+					'name' => 'main',
+					'content' => 'Hi FIRSTNAME LASTNAME , thanks for signing up.'),
+				array(
+					'name' => 'footer',
+					'content' => 'Copyright 2012.')
+			
+			);*/
+			$this->mailchimp($template_name, $message, $template_content);
+		}
+		if($this->request->query('save_edit')==1)
 		{ 
+			$save_edit=$this->request->query('save_edit');
+			
+			$user_id=$this->Session->read('user_id');
+			$date=date('Y-m-d');
+			$time=date('h:i:s A');
+			$update_id=$this->request->query('update');
+			$this->loadmodel('classified_post');
 			if(!empty($this->data['sub_category_id']))
 			{
 				 $sub_category_id=$this->data['sub_category_id'];
@@ -152,8 +173,16 @@ class NonmovinginventoryController extends AppController
 										<p>Form Submited Successfully...!!</p></div>";
 			}
 		}
-		if($upload_image==1)
+		if($this->request->query('upload_image')==1)
 		{
+			
+			
+		
+			$user_id=$this->Session->read('user_id');
+			$date=date('Y-m-d');
+			$time=date('h:i:s A');
+			$update_id=$this->request->query('update');
+			$this->loadmodel('classified_post');
 			if($this->request->form['file']['name'])
 			{
 				@$trCount=$this->request->query('trCount');
@@ -239,8 +268,15 @@ class NonmovinginventoryController extends AppController
 					</script>
                     <?php
 		}
-		if($removeclass=='removeclass')
+		if($this->request->query('removeclass')=='removeclass')
 		{
+			$removeclass=$this->request->query('removeclass');
+			$user_id=$this->Session->read('user_id');
+			$date=date('Y-m-d');
+			$time=date('h:i:s A');
+			$update_id=$this->request->query('update');
+			$this->loadmodel('classified_post');
+		
 			@$name=$this->request->query('name');
 			$target = "images_post/".$user_id."/".$update_id;
 			$target=@$target."/".$user_id.$update_id.$name.".jpg";
@@ -1478,7 +1514,6 @@ function mailchimp($template_name, $message, $template_content)
 	App::import('Vendor', 'mailchimp_mandrill', array('file' => 'mailchimp_mandrill' . DS . 'src' . DS . 'Mandrill.php')); 
 	$mandrill = new Mandrill('fEa-Q9Q1NHhKE-BsvG8LpA'); 
 	$publish = true;
-
 	
 	$mandrill->templates->add($template_name);
 	$mandrill->templates->publish($template_name);

