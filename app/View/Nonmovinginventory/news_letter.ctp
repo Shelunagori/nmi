@@ -104,7 +104,7 @@ $(document).ready(function()
 		ar.push(template_name,email_id,massege);
 		
 		var myJsonString = JSON.stringify(ar);
-		
+		alert(myJsonString);
 		$.ajax({
 			url: "ajax_php_file?send_template=1&q="+myJsonString,
 			type: "POST",         
