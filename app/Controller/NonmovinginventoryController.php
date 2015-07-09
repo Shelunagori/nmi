@@ -123,7 +123,7 @@ class NonmovinginventoryController extends AppController
 		
 			//$template_name = 'Image1';
 			
-			/*$template_content = array(
+			$template_content = array(
 				array(
 					'name' => 'main',
 					'content' => 'Hi FIRSTNAME LASTNAME , thanks for signing up.'),
@@ -131,7 +131,7 @@ class NonmovinginventoryController extends AppController
 					'name' => 'footer',
 					'content' => 'Copyright 2012.')
 			
-			);*/
+			);
 			$this->mailchimp($template_name, $message, $template_content);
 		}
 		if($this->request->query('save_edit')==1)
