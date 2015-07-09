@@ -40,9 +40,33 @@ class NonmovinginventoryController extends AppController
 		}
 		$this->loadmodel('Categorie');
 		$this->set('categories_arr', $this->Categorie->find('all'));
+		if($this->request->is('post'))
+		{
 		
+		 $template_name=$this->request->data('template_name');
+			 $to=$this->request->data('email_id');
+			 $message_body=$this->request->data('massege');
+			$message = array(
+			'subject' => 'Test message',
+			'from_email' => 'ashishbohara1008@gmail.com',
+			'html' => $message_body,
+			'to' => array(array('email' => $to, 'name' => 'Recipient 1')),
+			);
 		
+			//$template_name = 'Image1';
+			
+			$template_content = array(
+				array(
+					'name' => 'main',
+					'content' => 'Hi FIRSTNAME LASTNAME , thanks for signing up.'),
+				array(
+					'name' => 'footer',
+					'content' => 'Copyright 2012.')
+			
+			);
+			$this->mailchimp($template_name, $message, $template_content);
 		
+		}
 	}
 	public function logout()
 	{
@@ -107,19 +131,23 @@ class NonmovinginventoryController extends AppController
 	public function ajax_php_file() 
 	{
 		$this->layout='ajax_layout';
-		pr($this->request);
+		
 		if($this->request->query('send_template')==1)
 		{
-			$q=$this->request->query("q");
-            $q=json_decode($q);
+			
+			
+			$q1=$this->request->query("q");
+			$q2=urldecode($q1);
+            $q=json_decode($q2);
+			//pr($q);
              $template_name=$q[0];
 			 $to=$q[1];
 			 $message_body=$q[2];
 			$message = array(
 			'subject' => 'Test message',
 			'from_email' => 'ashishbohara1008@gmail.com',
-			'html' => $message_body,
-			'to' => array(array('email' => $to, 'name' => 'Recipient 1')),
+			'html' => '<p>this is a test message with Mandrill\'s PHP wrapper!.</p>',
+			'to' => array(array('email' => 'ashishbohara1008@gmail.com', 'name' => 'Recipient 1')),
 			);
 		
 			//$template_name = 'Image1';
@@ -1513,6 +1541,9 @@ public function category_setup()
 ////////////////// Mailer ////////////////////////////////
 function mailchimp($template_name, $message, $template_content)
 {
+	pr($template_name);
+	pr($message);
+	pr($template_content);
 	App::import('Vendor', 'mailchimp_mandrill', array('file' => 'mailchimp_mandrill' . DS . 'src' . DS . 'Mandrill.php')); 
 	$mandrill = new Mandrill('fEa-Q9Q1NHhKE-BsvG8LpA'); 
 	$publish = true;

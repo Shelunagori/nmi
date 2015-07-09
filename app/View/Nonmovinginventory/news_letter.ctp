@@ -29,7 +29,7 @@ body , .item
                                                 <input id="template_name" name="template_name" class="form-control  input-medium" value="" type="text">
                                                 <label class="control-label">Email Id</label>
                                                 <input id="email_id" name="email_id" class="form-control  input-medium" value="" type="text">
-												<button  name="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
+												<button type="submit"  name="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
 											</center>
 										</div>
                                         
@@ -85,8 +85,9 @@ $message_body='<div id="massege"><div style="width:600px;margin:auto;padding:5px
 </div></div>';
 echo $message_body;
 ?>
+<textarea name="massege"><?php echo $message_body; ?></textarea>
 </form>
-
+<!--
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script>
 $(document).ready(function()
@@ -103,11 +104,12 @@ $(document).ready(function()
 		var massege=$('#massege').html();
 		ar.push(template_name,email_id,massege);
 		
-		var myJsonString = JSON.stringify(ar);
-		alert(myJsonString);
+		var myJsonString1 = JSON.stringify(ar);
+		var myJsonString =encodeURI(myJsonString1);
 		$.ajax({
 			url: "ajax_php_file?send_template=1&q="+myJsonString,
-			type: "POST",         
+			type: "POST",
+			dataType: "json",         
 			success: function(data)
 			{
 				alert(data);
@@ -116,3 +118,5 @@ $(document).ready(function()
 	}));
 });
 </script>
+
+-->
