@@ -107,6 +107,7 @@ class NonmovinginventoryController extends AppController
 	public function ajax_php_file() 
 	{
 		$this->layout='ajax_layout';
+		pr($this->request);
 		if($this->request->query('send_template')==1)
 		{
 			$q=$this->request->query("q");
