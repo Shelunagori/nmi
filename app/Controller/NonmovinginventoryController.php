@@ -1541,9 +1541,7 @@ public function category_setup()
 ////////////////// Mailer ////////////////////////////////
 function mailchimp($template_name, $message, $template_content)
 {
-	pr($template_name);
-	pr($message);
-	pr($template_content);
+	
 	App::import('Vendor', 'mailchimp_mandrill', array('file' => 'mailchimp_mandrill' . DS . 'src' . DS . 'Mandrill.php')); 
 	$mandrill = new Mandrill('fEa-Q9Q1NHhKE-BsvG8LpA'); 
 	$publish = true;
