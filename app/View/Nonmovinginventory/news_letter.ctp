@@ -4,19 +4,8 @@ body , .item
 {
 	font-family:"Open Sans",sans-serif,latto;
 }
-.footer
-{
-	color:#FFF;
-	background-color:#9C3348;
-}
-.footer >a
-{
-	color:#FFF;
-}
- .col-md-2 {
-		float:left;
-        width:33%;
-		}
+
+
 		.form-control{
 		display:inline !important;
 		}
@@ -37,12 +26,12 @@ body , .item
 <br/>
 <?php
 $show_img="http://app.nonmovinginventory.com";
-$message_body='<div id="massege"><div style="width:600px;margin:auto;padding:5px;border:solid 1px; overflow:auto">
+$message_body='<div id="massege"><div style="width:600px;margin:auto;padding:5px;border:solid 1px; overflow:auto; font-family:"Open Sans",sans-serif,latto;">
 	<table width="100%">
     <tr>
     <td><a href="index.php"><img src="'.$show_img.$this->webroot.'images/project_logo/non-moving-logo.png" /></a></td>
-    <td style="text-align:right"><span class="test" style="margin-left:5px;"><a href="https://www.facebook.com/HousingMatters.co.in" target="_blank" ><img src="'.$show_img.$this->webroot.'images/social icon/fb.png"/></a></span>
-<a href="#" target="_blank"><img src="'.$show_img.$this->webroot.'images/social icon/tw.png"/></a><a href"#"><img src="'.$show_img.$this->webroot.'images/social icon/ln.png"/ class="test" style="margin-left:5px;"></a></span></td>
+    <td style="text-align:right"><span class="test" style="margin-left:5px;"><a href="https://www.facebook.com/HousingMatters.co.in" target="_blank" ><img src="'.$show_img.$this->webroot.'images/socialicon/fb.png"/></a></span>
+<span class="test" style="margin-left:5px;"><a href="#" target="_blank"><img src="'.$show_img.$this->webroot.'images/socialicon/tw.png"/></a></span><span class="test" style="margin-left:5px;"><a href"#"><img src="'.$show_img.$this->webroot.'images/socialicon/ln.png"/></a></span></td>
     </tr>
     <tr><td><p>
 <a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top">Send Mail</a>
@@ -58,7 +47,7 @@ $message_body='<div id="massege"><div style="width:600px;margin:auto;padding:5px
                     $i++;
                    
 				 
-                      $message_body.='<div class="item col-md-2" style="padding-top:4px">
+                      $message_body.='<div class="item col-md-2" style="padding-top:4px; float:left; width:33%; font-family:"Open Sans",sans-serif,latto;">
                         <img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="height:170px; width:100%;" class="img-responsive">
                         <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" class="zoom valign-center"  rel="tab">
                           <div class="valign-center-elem" style="color:#FFF" >
@@ -76,12 +65,12 @@ $message_body='<div id="massege"><div style="width:600px;margin:auto;padding:5px
                 }
                 		
   
-   
+
   $message_body.='</div>
-<div class="footer" style=" margin-top:10px; width:588px; float:left">
+<div class="footer" style=" margin-top:10px; width:588px; float:left; color:#FFF; background-color:#9C3348;">
 <span style="padding:5px">
     NON MOVING INVENTORY (Support Team)</span><br/>
-    <a  style="padding:5px" href="http://app.nonmovinginventory.com/" target="_blank">App.nonmovinginventory.com</a>
+    <a  style="padding:5px; color:#FFF;" href="http://app.nonmovinginventory.com/" target="_blank">App.nonmovinginventory.com</a>
 </div>
 </div></div>';
 echo $message_body;
