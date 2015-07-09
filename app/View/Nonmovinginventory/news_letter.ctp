@@ -36,7 +36,7 @@ body , .item
 
 <br/>
 <?php
-$show_img="http://app.nonmovinginventory.com/Nonmovinginventory";
+$show_img="http://app.nonmovinginventory.com";
 $message_body='<div id="massege"><div style="width:600px;margin:auto;padding:5px;border:solid 1px; overflow:auto">
 	<table width="100%">
     <tr>
