@@ -50,9 +50,9 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
                     $i++;
                    
 				 
-                      $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%;">
+                      $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%; height:170px;">
                         
-                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="max-height:170px !important; width:100%;" class="img-responsive">
+                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="height:100%; width:100%;" class="img-responsive">
                           <div class="" style="color:#FFF" >
                             <strong style="font-size:12px">'.$categories_ftc['Categorie']['categories'].'</strong>
                             
