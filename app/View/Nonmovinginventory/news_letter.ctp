@@ -26,7 +26,7 @@ body , .item
 <br/>
 <?php
 $show_img="http://app.nonmovinginventory.com";
-$message_body='<div id="massege"><div style="width:600px;margin:auto;padding:5px;border:solid 1px; overflow:auto; font-family:"Open Sans",sans-serif,latto;">
+$message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5px; border:solid 1px; overflow:auto; font-family:Arial, Helvetica, sans-serif">
 	<table width="100%">
     <tr>
     <td><a href="index.php"><img src="'.$show_img.$this->webroot.'images/project_logo/non-moving-logo.png" /></a></td>
@@ -49,8 +49,8 @@ $message_body='<div id="massege"><div style="width:600px;margin:auto;padding:5px
 				 
                       $message_body.='<div class="item " style="padding-top:4px; float:left; width:33%;">
                         <img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="height:170px; width:100%;" class="img-responsive">
-                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" class="zoom valign-center"  rel="tab">
-                          <div class="valign-center-elem" style="color:#FFF" >
+                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;">
+                          <div class="" style="color:#FFF" >
                             <strong style="font-size:14px">'.$categories_ftc['Categorie']['categories'].'</strong>
                             
                           </div>
@@ -67,7 +67,7 @@ $message_body='<div id="massege"><div style="width:600px;margin:auto;padding:5px
   
 
   $message_body.='</div>
-<div class="footer" style=" margin-top:10px; width:588px; float:left; color:#FFF; background-color:#9C3348;">
+<div  style=" margin-top:10px; width:588px; float:left; color:#FFF; background-color:#9C3348; padding: 15px 0px; font-size: 12px;">
 <span style="padding:5px">
     NON MOVING INVENTORY (Support Team)</span><br/>
     <a  style="padding:5px; color:#FFF;" href="http://app.nonmovinginventory.com/" target="_blank">App.nonmovinginventory.com</a>
