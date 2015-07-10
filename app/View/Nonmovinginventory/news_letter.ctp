@@ -47,7 +47,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
                     $i++;
                    
 				 
-                      $message_body.='<div class="item " style="padding:1%; float:left; width:31.5%;">
+                      $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%;">
                         
                         <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="height:170px; width:100%;" class="img-responsive">
                           <div class="" style="color:#FFF" >
