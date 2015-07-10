@@ -38,7 +38,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
 </p></td><td style="text-align:right">Contact No. +91954999335</td></tr>
 <tr><td colspan="2">B2B marketplace for industries to sell  Non Moving or Slow Inventory. </td></tr>
     </table>
-   <div class="" style="  width:595px; float:left; background-color:#4CA0B7; text-align:center; padding-top:4px;">';
+   <div  style="  width:100%; float:left; background-color:#4CA0B7; text-align:center; padding-top:4px;">';
    
           
                 $i=0;
@@ -47,7 +47,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
                     $i++;
                    
 				 
-                      $message_body.='<div class="item " style="padding:1px; float:left; width:33%;">
+                      $message_body.='<div class="item " style="padding:1%; float:left; width:32%;">
                         
                         <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="height:170px; width:100%;" class="img-responsive">
                           <div class="" style="color:#FFF" >
@@ -67,7 +67,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
   
 
   $message_body.='</div>
-<div  style=" margin-top:10px; width:588px; float:left; color:#FFF; background-color:#9C3348; padding: 15px 0px; font-size: 12px;">
+<div  style=" margin-top:10px; width:100%; float:left; color:#FFF; background-color:#9C3348; padding: 15px 0px; font-size: 12px;">
 <span style="padding:5px">
     NON MOVING INVENTORY (Support Team)</span><br/>
     <a  style="padding:5px; color:#FFF;" href="http://app.nonmovinginventory.com/" target="_blank">App.nonmovinginventory.com</a>
