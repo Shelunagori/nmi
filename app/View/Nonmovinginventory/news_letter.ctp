@@ -1,4 +1,5 @@
-
+<html>
+<head>
 <style>
 body , .item
 {
@@ -10,6 +11,8 @@ body , .item
 		display:inline !important;
 		}
 </style>
+</head>
+<body>
 <form class="form-horizontal"  method="post"  name="send_template"  id="send_template">
 <div class="form-group">
 <center>
@@ -49,7 +52,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
 				 
                       $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%;">
                         
-                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="height:170px !important; width:100%;" class="img-responsive">
+                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="max-height:170px !important; width:100%;" class="img-responsive">
                           <div class="" style="color:#FFF" >
                             <strong style="font-size:12px">'.$categories_ftc['Categorie']['categories'].'</strong>
                             
@@ -79,6 +82,8 @@ echo $message_body;
 <?php echo $message_body; ?>
 </textarea>
 </form>
+</body>
+</html>
 <!--
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script>

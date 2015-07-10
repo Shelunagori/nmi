@@ -29,15 +29,15 @@ class NonmovinginventoryController extends AppController
 	}
 	public function news_letter()
 	{
-		
-		if($this->RequestHandler->isAjax())
+		$this->layout='ajax_layout';
+		/*if($this->RequestHandler->isAjax())
 		{
 			$this->layout='ajax_layout';
 		}
 		else
 		{
 			$this->layout='index_layout';
-		}
+		}*/
 		$this->loadmodel('Categorie');
 		$this->set('categories_arr', $this->Categorie->find('all'));
 		if($this->request->is('post'))
