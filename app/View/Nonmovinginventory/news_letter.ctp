@@ -75,7 +75,30 @@ $message_body='<div id="massege"><div style="width:600px;margin:auto;padding:5px
 </div></div>';
 echo $message_body;
 ?>
-<textarea name="massege"><?php echo $message_body; ?></textarea>
+<textarea name="massege">
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/css/fonts/font.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/plugins/jquery-notific8/jquery.notific8.min.css"/>
+  <link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+     <link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/frontend/onepage/css/style.css" rel="stylesheet">
+  <link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/frontend/onepage/css/themes/blue.css" rel="stylesheet">
+  <link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" type="text/css" href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
+
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/admin/layout2/css/layout.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo $show_img.$this->webroot; ?>theme_admin/assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css" id="style_color"/>
+<?php echo $message_body; ?></textarea>
 </form>
 <!--
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
