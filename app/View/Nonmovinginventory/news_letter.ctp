@@ -53,9 +53,9 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
                       $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%; height:170px; position: relative;">
                         
                         <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;  text-transform: uppercase;  color: #FFF; background: rgba(100, 174, 217, 0.85) none repeat scroll 0% 0%;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="max-height:170px; width:98%; position: absolute; left: 0px; " class="img-responsive">
-                         <div style="font-size:12px; z-index: 100; position: absolute; color:#FFF; left:0%; bottom:6px; width:98%;  background: rgba(100, 174, 217, 0.85) none repeat scroll 0% 0%;">
-                            <p style="margin-top:6px;"><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>
-                            </div>
+                        
+                            <p style="margin-top:6px; font-size:12px; z-index: 100; position: absolute; color:#FFF; left:0%; bottom:6px; width:98%;  background: rgba(100, 174, 217, 0.85) none repeat scroll 0% 0%;""><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>
+                            
                          
                         </a>
                       </div>';
