@@ -54,7 +54,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
                         
                         <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;  text-transform: uppercase;  color: #FFF; background: rgba(100, 174, 217, 0.85) none repeat scroll 0% 0%;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="height:90%; width:100%; position: absolute; left: 0px; " class="img-responsive">
                          <div style="font-size:12px; z-index: 100; position: absolute; color:#000; left:0%; bottom:6%; width:100%;  background: rgba(100, 174, 217, 0.85) none repeat scroll 0% 0%;">
-                            <p ><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>
+                            <p style="margin-top:3%;"><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>
                             </div>
                          
                         </a>
