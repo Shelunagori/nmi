@@ -37,8 +37,8 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
 <a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top">Send Mail</a>
 </p></td><td style="text-align:right">Contact No. +91954999335</td></tr>
 <tr style="background-color:#3894B1; color:white;"><td colspan="2">
-<p style="text-align:justify">M/s PHP Poets have developed a portal under the guidance of Indian Institute of Materials Management, Udaipur Branch.</p>
-<pstyle="text-align:justify">In an industry, usually huge funds are blocked in non-moving inventory. This non-moving inventory if disposed off, is converted to cash and improves company'."'".'s cash flow. This portal will bring genuine buyers and sellers on the same platform and enabling the industries to buy/sell their unused inventory at a fair price.</p>
+<p style="text-align:justify;  padding: 5px">M/s PHP Poets have developed a portal under the guidance of Indian Institute of Materials Management, Udaipur Branch.</p>
+<p style="text-align:justify; padding: 5px;">In an industry, usually huge funds are blocked in non-moving inventory. This non-moving inventory if disposed off, is converted to cash and improves company'."'".'s cash flow. This portal will bring genuine buyers and sellers on the same platform and enabling the industries to buy/sell their unused inventory at a fair price.</p>
 </td></tr>
     </table>
    <div  style="  width:100%; float:left;  text-align:center;">';
@@ -53,7 +53,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
                       $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%; height:170px;">
                         
                         <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="height:90%; width:100%;" class="img-responsive">
-                          <div class="" style="color:#FFF" >
+                          <div class="" style="color:#000" >
                             <strong style="font-size:12px">'.$categories_ftc['Categorie']['categories'].'</strong>
                             
                           </div>
