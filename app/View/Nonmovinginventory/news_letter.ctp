@@ -52,11 +52,11 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
 				 
                       $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%; height:170px; position: relative;">
                         
-                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;  text-transform: uppercase;  color: #FFF;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="height:90%; width:100%; position: absolute; left: 0px; z-index: 100;" class="img-responsive">
-                          <div class="" style="color:#000" >
-                            <strong style="font-size:12px">'.$categories_ftc['Categorie']['categories'].'</strong>
+                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;  text-transform: uppercase;  color: #FFF;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="height:90%; width:100%; position: absolute; left: 0px; " class="img-responsive">
+                         
+                            <p style="font-size:12px; z-index: 100; position: absolute; color:#000;"><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>
                             
-                          </div>
+                         
                         </a>
                       </div>';
                      
