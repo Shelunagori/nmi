@@ -1,10 +1,7 @@
 <html>
 <head>
 <style>
-body , .item
-{
-	font-family:"Open Sans",sans-serif,latto;
-}
+
 
 
 		.form-control{
@@ -29,7 +26,7 @@ body , .item
 <br/>
 <?php
 $show_img="http://app.nonmovinginventory.com";
-$message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5px; border:solid 1px; overflow:auto; font-family:Arial, Helvetica, sans-serif">
+$message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5px; border:solid 1px; overflow:auto; font-family:lato, sans-serif">
 	<table width="100%">
     <tr>
     <td><a href="index.php"><img src="'.$show_img.$this->webroot.'images/project_logo/non-moving-logo.png" /></a></td>
@@ -39,9 +36,12 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
     <tr><td><p>
 <a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top">Send Mail</a>
 </p></td><td style="text-align:right">Contact No. +91954999335</td></tr>
-<tr><td colspan="2">B2B marketplace for industries to sell  Non Moving or Slow Inventory. </td></tr>
+<tr style="background-color:#3894B1; color:white;"><td colspan="2">
+<p style="text-align:justify">M/s PHP Poets have developed a portal under the guidance of Indian Institute of Materials Management, Udaipur Branch.</p>
+<pstyle="text-align:justify">In an industry, usually huge funds are blocked in non-moving inventory. This non-moving inventory if disposed off, is converted to cash and improves company'."'".'s cash flow. This portal will bring genuine buyers and sellers on the same platform and enabling the industries to buy/sell their unused inventory at a fair price.</p>
+</td></tr>
     </table>
-   <div  style="  width:100%; float:left; background-color:#4CA0B7; text-align:center;">';
+   <div  style="  width:100%; float:left;  text-align:center;">';
    
           
                 $i=0;
@@ -71,9 +71,13 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
 
   $message_body.='</div>
 <div  style=" margin-top:10px; width:100%; float:left; color:#FFF; background-color:#9C3348; padding: 15px 0px; font-size: 12px;">
-<span style="padding:5px">
-    NON MOVING INVENTORY (Support Team)</span><br/>
-    <a  style="padding:5px; color:#FFF;" href="http://app.nonmovinginventory.com/" target="_blank">App.nonmovinginventory.com</a>
+<div style="float:left;">
+<span style="padding:5px;">
+    NON MOVING INVENTORY (Support Team)</span>
+	</div>
+	<div style="float:right;">
+    <a  style="padding:5px; color:#FFF; text-decoration:none;" href="http://app.nonmovinginventory.com/">Go to the App Now</a>
+	</div>
 </div>
 </div></div>';
 echo $message_body;
