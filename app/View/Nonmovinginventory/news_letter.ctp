@@ -36,7 +36,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
     <tr><td><p>
 <a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top">Send Mail</a>
 </p></td><td style="text-align:right">Contact No. +91954999335</td></tr>
-<tr style="background-color:#3894B1; color:white;"><td colspan="2">
+<tr style="background-color:#497093; color:white;"><td colspan="2">
 <p style="text-align:justify;  padding: 5px">M/s PHP Poets have developed a portal under the guidance of Indian Institute of Materials Management, Udaipur Branch.</p>
 <p style="text-align:justify; padding: 5px;">In an industry, usually huge funds are blocked in non-moving inventory. This non-moving inventory if disposed off, is converted to cash and improves company'."'".'s cash flow. This portal will bring genuine buyers and sellers on the same platform and enabling the industries to buy/sell their unused inventory at a fair price.</p>
 </td></tr>
@@ -50,10 +50,10 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
                     $i++;
                    
 				 
-                      $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%; height:170px; position: relative;">
+                      $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%; height:170px;">
                         
                         <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;  text-transform: uppercase;  color: #FFF; background: rgba(100, 174, 217, 0.85) none repeat scroll 0% 0%;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="min-height:170px; max-height:170px; width:98%; position: absolute; left: 0px; " class="img-responsive">
-                         <div style="font-size:12px; position: absolute; color:#FFF; left:0%; bottom:6px; width:98%;  background: rgba(100, 174, 217, 0.85) none repeat scroll 0% 0%;">
+                         <div style="font-size:12px; color:#000;  width:98%;">
                             <p style="margin-top:6px;"><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>
                             </div>
                          
