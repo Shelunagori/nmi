@@ -53,7 +53,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
                       $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%; height:170px;">
                         
                         <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;  text-transform: uppercase;  color: #000;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="min-height:160px; max-height:160px; width:98%;  left: 0px; " class="img-responsive">
-                         <div style="font-size:12px; color:#000; left:0%; bottom:6px; width:98%;">
+                         <div style="font-size:12px; color:#000; left:0%; width:98%;">
                             <p style="margin-top:0px;"><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>
                             </div>
                          
@@ -70,7 +70,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
   
 
   $message_body.='</div>
-<div  style=" margin-top:10px; width:100%; float:left; color:#FFF; background-color:#9C3348; padding: 15px 0px; font-size: 12px;">
+<div  style=" margin-top:20px; width:100%; float:left; color:#FFF; background-color:#9C3348; padding: 15px 0px; font-size: 12px;">
 <div style="float:left;">
 <span style="padding:5px;">
     NON MOVING INVENTORY (Support Team)</span>
