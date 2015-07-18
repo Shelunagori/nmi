@@ -41,7 +41,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
 <p style="text-align:justify; padding: 5px;">In an industry, usually huge funds are blocked in non-moving inventory. This non-moving inventory if disposed off, is converted to cash and improves company'."'".'s cash flow. This portal will bring genuine buyers and sellers on the same platform and enabling the industries to buy/sell their unused inventory at a nominal price.</p>
 </td></tr>
     </table>
-   <div  style="  width:100%; float:left;  text-align:center;">';
+   <div  style="  width:100%; float:left;  text-align:center; height:auto;">';
    
           
                 $i=0;
@@ -50,12 +50,12 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
                     $i++;
                    
 				 
-                      $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%; height:170px;">
+                      $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%; height:auto;">
                         
-                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;  text-transform: uppercase;  color: #000;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" style="min-height:160px; max-height:160px; width:98%;  left: 0px; " class="img-responsive">
-                         <div style="font-size:12px; color:#000; left:0%; width:98%;">
-                            <p style="margin-top:0px;"><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>
-                            </div>
+                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;  text-transform: uppercase;  color: #000;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" height="160" width="180"  class="img-responsive">
+                         
+                            <p  height="200" style="margin-top:0px; font-size:13px; color:#000;"><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>
+                           
                          
                         </a>
                       </div>';
@@ -70,15 +70,19 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
   
 
   $message_body.='</div>
-<div  style=" margin-top:20px; width:100%; float:left; color:#FFF; background-color:#9C3348; padding: 15px 0px; font-size: 12px;">
-<div style="float:left;">
-<span style="padding:5px;">
+<div  style=" width:100%; float:left; color:#FFF; background-color:#9C3348; padding: 15px 0px; font-size: 12px;">
+<table style="width:100%">
+<tr>
+<td>
+<span style="padding:5px; text-align:left">
     NON MOVING INVENTORY (Support Team)</span>
-	</div>
-	<div style="float:right;">
+	</td>
+	<td style="text-align:right">
+
     <a  style="padding:5px; color:#FFF; text-decoration:none;" href="http://app.nonmovinginventory.com/">Go to the App Now</a>
-	</div>
-</div>
+</td>
+</tr>
+</table>
 </div></div>';
 echo $message_body;
 ?>
