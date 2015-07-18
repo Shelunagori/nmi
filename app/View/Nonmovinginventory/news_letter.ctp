@@ -33,7 +33,8 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
     <td style="text-align:right"><span class="test" style="margin-left:5px;"><a href="https://www.facebook.com/HousingMatters.co.in" target="_blank" ><img src="'.$show_img.$this->webroot.'images/socialicon/fb.png"/></a></span>
 <span class="test" style="margin-left:5px;"><a href="#" target="_blank"><img src="'.$show_img.$this->webroot.'images/socialicon/tw.png"/></a></span><span class="test" style="margin-left:5px;"><a href"#"><img src="'.$show_img.$this->webroot.'images/socialicon/ln.png"/></a></span></td>
     </tr>
-   
+	</table>
+   <table width="100%" style="margin-top:5px">
 <tr style="background-color:#497093; color:white;"><td colspan="2">
 <p style="text-align:justify;  padding: 5px">Under the guidance of <strong>Indian Institute of Materials Management, Udaipur Branch</strong>, PHP Poets have developed a B2B marketplace for industries to sell their Non Moving or Slow Inventory.</p>
 <p style="text-align:justify; padding: 5px;">In an industry, usually huge funds are blocked in non-moving inventory. This non-moving inventory if disposed off, is converted to cash and improves company'."'".'s cash flow. This portal will bring genuine buyers and sellers on the same platform and enabling the industries to buy/sell their unused inventory at a nominal price.</p>
@@ -70,19 +71,24 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
   $message_body.='</div>
 <div  style=" width:100%; float:left; color:#FFF; background-color:#9C3348; ">
 <table style="width:100%; line-height: 2;padding:5px; font-size: 17px;">
-<tr>
-<td>
-<span style=" text-align:left; color:#FFF;">
-    NON MOVING INVENTORY (Support Team)</span>
-	</td>
-	<td style="text-align:right; font-size: 17px;">
 
-    <a  style="border-radius: 40px; background-color: #7B54E0; border-color: #7B54E0; padding:5px; color:#FFF; text-decoration:none;" href="http://app.nonmovinginventory.com/">Go to the App Now</a>
+ <tr><td><p>
+<a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top" style=" text-decoration:none; color:#FFF;">Mail us at nonmoving@phppoets.com</a>
+</p></td><td style="text-align:right; color:#FFF;">Contact No. +91954999335</td></tr>
+<tr>
+
+	<td style="text-align:center; font-size: 20px;" colspan="2">
+
+    <a  style="
+	font-weight: bold;
+	padding: 17px;
+	line-height: 26px;
+	box-sizing: border-box;
+	height: 62px;
+	margin: 0px 0px 16px;
+border-radius: 4px; background-color: #F78E11; border-color: #F78E11; padding:5px; color:#FFF; text-decoration:none;" href="http://app.nonmovinginventory.com/">Go to the App Now</a>
 </td>
 </tr>
- <tr><td><p>
-<a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top" style=" text-decoration:none; color:#FFF;">Send Mail</a>
-</p></td><td style="text-align:right; color:#FFF;">Contact No. +91954999335</td></tr>
 </table>
 </div></div>';
 echo $message_body;
