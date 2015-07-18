@@ -33,15 +33,13 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
     <td style="text-align:right"><span class="test" style="margin-left:5px;"><a href="https://www.facebook.com/HousingMatters.co.in" target="_blank" ><img src="'.$show_img.$this->webroot.'images/socialicon/fb.png"/></a></span>
 <span class="test" style="margin-left:5px;"><a href="#" target="_blank"><img src="'.$show_img.$this->webroot.'images/socialicon/tw.png"/></a></span><span class="test" style="margin-left:5px;"><a href"#"><img src="'.$show_img.$this->webroot.'images/socialicon/ln.png"/></a></span></td>
     </tr>
-    <tr><td><p>
-<a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top">Send Mail</a>
-</p></td><td style="text-align:right">Contact No. +91954999335</td></tr>
+   
 <tr style="background-color:#497093; color:white;"><td colspan="2">
 <p style="text-align:justify;  padding: 5px">Under the guidance of <strong>Indian Institute of Materials Management, Udaipur Branch</strong>, PHP Poets have developed a B2B marketplace for industries to sell their Non Moving or Slow Inventory.</p>
 <p style="text-align:justify; padding: 5px;">In an industry, usually huge funds are blocked in non-moving inventory. This non-moving inventory if disposed off, is converted to cash and improves company'."'".'s cash flow. This portal will bring genuine buyers and sellers on the same platform and enabling the industries to buy/sell their unused inventory at a nominal price.</p>
 </td></tr>
     </table>
-   <div  style="  width:100%; float:left;  text-align:center; height:auto;">';
+   <div  style=" margin-top:10px; width:100%; float:left;  text-align:center; height:auto;">';
    
           
                 $i=0;
@@ -50,9 +48,9 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
                     $i++;
                    
 				 
-                      $message_body.='<div class="item " style="padding:1%; float:left; width:31.33%; height:auto;">
+                      $message_body.='<div class="item " style="float:left; width:33%; height:auto;">
                         
-                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;  text-transform: uppercase;  color: #000;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" alt="NAME" height="160" width="180"  class="img-responsive">
+                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" style="text-decoration:none;  text-transform: uppercase;  color: #000;"><img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" height="160" width="180"  class="img-responsive">
                          
                             <p  height="200" style="margin-top:0px; font-size:13px; color:#000;"><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>
                            
@@ -70,18 +68,21 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
   
 
   $message_body.='</div>
-<div  style=" width:100%; float:left; color:#FFF; background-color:#9C3348; padding: 15px 0px; font-size: 12px;">
-<table style="width:100%">
+<div  style=" width:100%; float:left; color:#FFF; background-color:#9C3348; ">
+<table style="width:100%; line-height: 2;padding:5px; font-size: 17px;">
 <tr>
 <td>
-<span style="padding:5px; text-align:left">
+<span style=" text-align:left; color:#FFF;">
     NON MOVING INVENTORY (Support Team)</span>
 	</td>
-	<td style="text-align:right">
+	<td style="text-align:right; font-size: 17px;">
 
-    <a  style="padding:5px; color:#FFF; text-decoration:none;" href="http://app.nonmovinginventory.com/">Go to the App Now</a>
+    <a  style="border-radius: 40px; background-color: #7B54E0; border-color: #7B54E0; padding:5px; color:#FFF; text-decoration:none;" href="http://app.nonmovinginventory.com/">Go to the App Now</a>
 </td>
 </tr>
+ <tr><td><p>
+<a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top" style=" text-decoration:none; color:#FFF;">Send Mail</a>
+</p></td><td style="text-align:right; color:#FFF;">Contact No. +91954999335</td></tr>
 </table>
 </div></div>';
 echo $message_body;
