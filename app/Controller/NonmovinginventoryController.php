@@ -45,8 +45,7 @@ class NonmovinginventoryController extends AppController
 		
 		 $template_name=$this->request->data('template_name');
 			 $to=$this->request->data('email_id');
-			 echo $to;
-			 exit;
+			
 			 $message_body=$this->request->data('massege');
 			$message = array(
 			'subject' => 'Test message',
@@ -54,7 +53,8 @@ class NonmovinginventoryController extends AppController
 			'html' => $message_body,
 			'to' => array(array('email' => $to, 'name' => 'Recipient 1')),
 			);
-		
+		 pr($message);
+			 exit;
 			//$template_name = 'Image1';
 			
 			$template_content = array(
@@ -1550,7 +1550,9 @@ function mailchimp($template_name, $message, $template_content)
 	
 	$mandrill->templates->add($template_name);
 	$mandrill->templates->publish($template_name);
+	exit;
 	$mandrill->messages->sendTemplate($template_name, $template_content, $message);
+	$mandrill->templates->delete($template_name);
 }
 
 function smtpmailer($to, $from_name, $subject, $message_web,$reply, $is_gmail=true)
