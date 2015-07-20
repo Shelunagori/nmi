@@ -43,18 +43,23 @@ class NonmovinginventoryController extends AppController
 		if($this->request->is('post'))
 		{
 		
-		 $template_name=$this->request->data('template_name');
-			 $to=$this->request->data('email_id');
+		 	$template_name=$this->request->data('template_name');
+			$to=$this->request->data('email_id');
+			$toemail=explode(',', $to);
 			
-			 $message_body=$this->request->data('massege');
+			foreach($toemail as $to_data)
+			{
+				$to_array[]=array('email' => $to_data, 'name' => 'Recipient 1');
+			}
+			
+			$message_body=$this->request->data('massege');
 			$message = array(
 			'subject' => 'Test message',
 			'from_email' => 'ashishbohara1008@gmail.com',
 			'html' => $message_body,
-			'to' => array(array('email' => $to, 'name' => 'Recipient 1')),
+			'to' => $to_array,
 			);
-		 pr($message);
-			 exit;
+		
 			//$template_name = 'Image1';
 			
 			$template_content = array(
@@ -1550,9 +1555,9 @@ function mailchimp($template_name, $message, $template_content)
 	
 	$mandrill->templates->add($template_name);
 	$mandrill->templates->publish($template_name);
-	exit;
+	
 	$mandrill->messages->sendTemplate($template_name, $template_content, $message);
-	$mandrill->templates->delete($template_name);
+	//$mandrill->templates->delete($template_name);
 }
 
 function smtpmailer($to, $from_name, $subject, $message_web,$reply, $is_gmail=true)
