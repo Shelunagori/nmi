@@ -45,6 +45,8 @@ class NonmovinginventoryController extends AppController
 		
 		 $template_name=$this->request->data('template_name');
 			 $to=$this->request->data('email_id');
+			 echo $to;
+			 exit;
 			 $message_body=$this->request->data('massege');
 			$message = array(
 			'subject' => 'Test message',

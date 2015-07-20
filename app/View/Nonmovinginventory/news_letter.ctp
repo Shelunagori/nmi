@@ -79,14 +79,7 @@ $message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5
 
 	<td style="text-align:center; font-size: 20px;" colspan="2">
 
-    <a  style="
-	font-weight: bold;
-	padding: 17px;
-	line-height: 26px;
-	box-sizing: border-box;
-	height: 62px;
-	margin: 0px 0px 16px;
-border-radius: 4px; background-color: #F78E11; border-color: #F78E11; padding:5px; color:#FFF; text-decoration:none;" href="http://app.nonmovinginventory.com/">Go to the App Now</a>
+    <a  style="font-weight: bold; padding: 17px; line-height: 26px; box-sizing: border-box; height: 62px; margin: 0px 0px 16px; border-radius: 4px; background-color: #F78E11; border-color: #F78E11; padding:5px; color:#FFF; text-decoration:none;" href="http://app.nonmovinginventory.com/">Go to the App Now</a>
 </td>
 </tr>
 </table>
