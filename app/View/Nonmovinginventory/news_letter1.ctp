@@ -1,25 +1,29 @@
-<?php
-$message_body='<html>
+<html>
 <head>
 <style>
 .form-control{
 display:inline !important;
 }
-#main-div
-{
-	width:600px;
-}
 </style>
 </head>
-<body>';
-?>
-
+<body>
+<form class="form-horizontal"  method="post"  name="send_template"  id="send_template">
+<div class="form-group">
+<center>
+											<label class="control-label">Template Name</label>
+											
+                                                <input id="template_name" name="template_name" class="form-control  input-medium" value="" type="text">
+                                                <label class="control-label">Email Id</label>
+                                                <input id="email_id" name="email_id" class="form-control  input-medium" value="" type="text">
+												<button type="submit"  name="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
+											</center>
+										</div>
                                         
 
 <br/>
 <?php
 $show_img="http://app.nonmovinginventory.com";
-$message_body.='<div id="main-div" style=" margin:auto; padding:5px; border:solid 1px; overflow:auto; font-family:lato, sans-serif">
+$message_body='<div id="massege"><div style="width:600px; margin:auto; padding:5px; border:solid 1px; overflow:auto; font-family:lato, sans-serif">
 	<table width="100%">
     <tr>
     <td><a href="index.php"><img src="'.$show_img.$this->webroot.'images/project_logo/non-moving-logo.png" /></a></td>
@@ -79,26 +83,12 @@ $message_body.='<div id="main-div" style=" margin:auto; padding:5px; border:soli
 </div></div>';
 echo $message_body;
 ?>
-
-<?php
-  $message_body.='</body>
-</html>';
-?>
-<form class="form-horizontal"  method="post"  name="send_template"  id="send_template">
-<div class="form-group">
-<center>
-											<label class="control-label">Template Name</label>
-											
-                                                <input id="template_name" name="template_name" class="form-control  input-medium" value="" type="text">
-                                                <label class="control-label">Email Id</label>
-                                                <input id="email_id" name="email_id" class="form-control  input-medium" value="" type="text">
-												<button type="submit"  name="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
-											</center>
-										</div>
-                                        <textarea name="massege">
+<textarea name="massege">
 <?php echo $message_body; ?>
 </textarea>
 </form>
+</body>
+</html>
 <!--
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script>
