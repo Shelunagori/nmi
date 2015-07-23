@@ -45,7 +45,7 @@ table
 .product-item
 {
 	 
-	height:auto;
+	
 }
 a
 {
@@ -93,6 +93,7 @@ a.uppercase
 	float:left;
 	width:33.3% !important;
 	margin-left:0px;
+	height:auto;
 }	
 @media (min-width:600px) {
 	.img-div 
