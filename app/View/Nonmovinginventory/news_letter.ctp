@@ -88,7 +88,12 @@ a.uppercase
 //padding-right:0px !important;
 }
 
-
+.col-md-2 
+{
+	float:left;
+	width:33.3% !important;
+	margin-left:0px;
+}	
 @media (min-width:600px) {
 	.col-md-2 
 	{
