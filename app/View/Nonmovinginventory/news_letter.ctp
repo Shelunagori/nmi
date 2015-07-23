@@ -73,14 +73,13 @@ a.uppercase
 .footer-contain >td
 {
 	padding: 5px;
-	text-align:justify; 
 }
 .go-app
 {
 	font-weight: bold; 
 	font-size:18;
 	box-sizing: border-box;
-	border-radius: 4px; 
+	border-radius: 4px;
 	background-color: #CC8837; 
 	border-color: #CC8837; 
 	padding:5px; 
@@ -151,9 +150,13 @@ $message_body.='<div id="main-div">
 
 <table  style=" font-size: 17px;" cellspacing="0">
 
- <tr class="footer-contain"><td><p>
-<a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top" style=" color:#FFF;">Mail us at nonmoving@phppoets.com</a>
-</p></td><td style="text-align:right; color:#FFF;">Contact No. +91 9549993335<br/>+91 9460329666</td></tr>
+ <tr class="footer-contain">
+ <td>
+ <div style="float:left">
+<a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top" style=" text-align:left; color:#FFF;">Mail us at nonmoving@phppoets.com</a>
+</div>
+
+<div style="text-align:right; color:#FFF; float:left;">Contact No. +91 9549993335<br/>+91 9460329666</div></td></tr>
 <tr class="footer-contain">
 
 	<td style="text-align:center;" colspan="2">
