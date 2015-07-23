@@ -156,7 +156,7 @@ $message_body.='<div id="main-div">
 <a href="mailto:ankit@phppoets.com?Subject=Hello%20again" target="_top" style=" text-align:left; color:#FFF;">Mail us at nonmoving@phppoets.com</a>
 </div>
 
-<div style="text-align:right; color:#FFF; float:left;">Contact No. +91 9549993335<br/>+91 9460329666</div></td></tr>
+<div style="text-align:right; color:#FFF; float:right; width:50%;">Contact No. +91 9549993335<br/>+91 9460329666</div></td></tr>
 <tr class="footer-contain">
 
 	<td style="text-align:center;" colspan="2">
