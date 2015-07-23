@@ -84,10 +84,6 @@ a.uppercase
 	padding:5px; 
 	color:#FFF;
 }
-.img-div {
-//padding-right:0px !important;
-}
-
 .img-div 
 {
 	float:left;
