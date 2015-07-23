@@ -130,7 +130,7 @@ class NonmovinginventoryController extends AppController
 		}
 		if(!empty($message) || !empty($phone_no))
 		{
-			$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
+			//$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
 		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
