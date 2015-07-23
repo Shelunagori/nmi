@@ -122,16 +122,16 @@ class NonmovinginventoryController extends AppController
 		$this->loadmodel('Enquiry');
 		$this->Enquiry->saveAll(array('name'=>$name,'email'=>$email_reply,'phone_no'=>$phone_no,'message'=>$message));
 		$working_key='A7a76ea72525fc05bbe9963267b48dd96';
-		$sms_sender='BULKSMS';
+		$sms_sender='PHPSMS';
 		if(!empty($phone_no))
 		{
 			$sms='Hello';
-			$sms1=str_replace(' ', '+', $sms);
+			$sms1=str_replace(' ', '+', $message_web);
 			$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey='.$working_key.'&sender='.$sms_sender.'&to='.$phone_no.'&message='.$sms1.'');
 		}
 		if(!empty($message) || !empty($phone_no))
 		{
-			$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
+			//$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
 		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
