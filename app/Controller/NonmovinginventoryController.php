@@ -118,20 +118,19 @@ class NonmovinginventoryController extends AppController
 		$email_to=$this->request->query('email_to');
 		$phone_no=$this->request->query('phone');
 		$message=$this->request->query('message');
-		$message_web='Name '.$name.'<br/>Email '.$email_reply.'<br/>Phone No. '.$phone_no.'<br/>Message '.$message;
+		$message_web='Message '.$message;
 		$this->loadmodel('Enquiry');
 		$this->Enquiry->saveAll(array('name'=>$name,'email'=>$email_reply,'phone_no'=>$phone_no,'message'=>$message));
 		$working_key='A7a76ea72525fc05bbe9963267b48dd96';
 		$sms_sender='PHPSMS';
 		if(!empty($phone_no))
 		{
-			$sms='Hello';
-			$sms1=str_replace(' ', '+', $message_web);
+			$sms1=str_replace(' ', '+', 'A query has been generated from NMI portal. Please check your mail.<br/> Thanks Team <br/> NMI');
 			$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey='.$working_key.'&sender='.$sms_sender.'&to='.$phone_no.'&message='.$sms1.'');
 		}
 		if(!empty($message) || !empty($phone_no))
 		{
-			//$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
+			$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
 		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1574,7 +1573,7 @@ App::import('Vendor', 'PhpMailer', array('file' => 'phpmailer' . DS . 'class.php
 		$mail->Host = 'smtp.gmail.com';
 		$mail->Port = 465;  
 		$mail->Username = 'ankit.sisodiya@spsu.ac.in';  
-		$mail->Password = 'sanjay.gupta#123';  
+		$mail->Password = 'sanjay.gupta#123';
 		$mail->SMTPDebug = 1; 
 	} else {
 		$mail->SMTPSecure = 'ssl'; 
