@@ -44,8 +44,7 @@ table
 }
 .product-item
 {
-	float:left; 
-	width:33%; 
+	 
 	height:auto;
 }
 a
@@ -84,6 +83,38 @@ a.uppercase
 	border-color: #CC8837; 
 	padding:5px; 
 	color:#FFF;
+}
+.col-md-2 {
+//padding-right:0px !important;
+}
+
+
+@media (min-width:600px) {
+	.col-md-2 
+	{
+		float:left;
+		width:33.3% !important;
+		margin-left:0px;
+	}
+}
+@media (max-width:500px) {
+	.col-md-2 
+	{
+		float:left;
+		width:41% !important;
+		margin-left:0px;
+		margin-top:0%;
+   }
+}
+@media (max-width:320px) {
+	.col-md-2 
+	{
+		float:left;
+		width:41%;
+		margin-left:0px;
+		margin-top:0%;
+	}
+
 }
 </style>
 </head>
@@ -126,7 +157,7 @@ $message_body.='<div id="main-div">
                     $i++;
                    
 				 
-                      $message_body.='<div class="product-item">
+                      $message_body.='<div class="product-item col-md-2">
                         
                         <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" class="uppercase">
 						<img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" height="160" width="180"  class="img-responsive">
