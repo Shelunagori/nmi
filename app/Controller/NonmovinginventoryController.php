@@ -125,12 +125,12 @@ class NonmovinginventoryController extends AppController
 		$sms_sender='PHPSMS';
 		if(!empty($phone_no))
 		{
-			$sms1=str_replace(' ', '+', 'A query has been generated from NMI portal. Please check your mail.\n Thanks Team /n NMI');
-			$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey='.$working_key.'&sender='.$sms_sender.'&to='.$phone_no.'&message='.$sms1.'');
+			$sms1=str_replace(' ', '+', 'A query has been generated from NMI portal. Please check your mail. Thanks Team NMI');
+			//$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey='.$working_key.'&sender='.$sms_sender.'&to='.$phone_no.'&message='.$sms1.'');
 		}
 		if(!empty($message) || !empty($phone_no))
 		{
-			//$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
+			$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
 		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -91,7 +91,7 @@ a.uppercase
 	margin-left:0px;
 	height:auto;
 }	
-@media only screen (min-width:600px) {
+@media only screen and (min-width:600px) {
 	.img-div 
 	{
 		float:left;
@@ -99,7 +99,7 @@ a.uppercase
 		margin-left:0px;
 	}
 }
-@media only screen (max-width:500px) {
+@media only screen and (max-width:500px) {
 	.img-div 
 	{
 		float:left;
@@ -108,11 +108,11 @@ a.uppercase
 		margin-top:0%;
    }
 }
-@media only screen (max-width:320px) {
+@media only screen and (max-width:480px) {
 	.img-div 
 	{
 		float:left;
-		width:41%;
+		width:60%;
 		margin-left:0px;
 		margin-top:0%;
 	}
