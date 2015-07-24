@@ -223,6 +223,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
                                                           <textarea class="form-control" rows="5" id="message" name="message"></textarea>
                                                         </div>
                                                        <input type="hidden" value="<?php echo $email_id; ?>" id="email_to" />
+                                                        <input type="hidden" value="<?php echo $mobile_no; ?>" id="mobile_no" />
                                                         <div class="padding-top-20">                  
                                                         <!--  <button type="submit" class="btn btn-primary">Send</button>-->
                                                           <a class="btn btn-primary" id="notific8_show" >

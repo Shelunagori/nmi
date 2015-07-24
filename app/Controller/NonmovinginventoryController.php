@@ -118,19 +118,18 @@ class NonmovinginventoryController extends AppController
 		$email_to=$this->request->query('email_to');
 		$phone_no=$this->request->query('phone');
 		$message=$this->request->query('message');
+		$mobile_no=$this->request->query('mobile_no');
 		$message_web='Message '.$message;
 		$this->loadmodel('Enquiry');
-		$this->Enquiry->saveAll(array('name'=>$name,'email'=>$email_reply,'phone_no'=>$phone_no,'message'=>$message));
-		$working_key='A7a76ea72525fc05bbe9963267b48dd96';
-		$sms_sender='PHPSMS';
-		if(!empty($phone_no))
+		
+		if(!empty($message) && !empty($mobile_no))
 		{
+			$working_key='A7a76ea72525fc05bbe9963267b48dd96';
+			$sms_sender='PHPSMS';
+			$this->Enquiry->saveAll(array('name'=>$name,'email'=>$email_reply,'phone_no'=>$phone_no,'message'=>$message));
 			$sms1=str_replace(' ', '+', 'A query has been generated from NMI portal. Please check your mail. Thanks Team NMI');
-			//$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey='.$working_key.'&sender='.$sms_sender.'&to='.$phone_no.'&message='.$sms1.'');
-		}
-		if(!empty($message) || !empty($phone_no))
-		{
-			$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
+			$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey='.$working_key.'&sender='.$sms_sender.'&to='.$mobile_no.'&message='.$sms1.'');
+			//$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
 		}
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1450,6 +1449,7 @@ $this->set('new_page_id',$new_page_id);
 		@$profile_arr=$this->Registration->find('all', array('conditions' => array("Registration.login_id" =>$user_id)));		
 		$name_of_person=$profile_arr[0]['Registration']['name_of_person'];
 		$organization_name=$profile_arr[0]['Registration']['organization_name'];
+		$mobile_no=$profile_arr[0]['Registration']['mobile_no'];
 		
 		$click_cnt_new=$click_cnt+1;	
 		$this->loadmodel('Classified_post');
@@ -1457,6 +1457,7 @@ $this->set('new_page_id',$new_page_id);
 			
 		$this->set('display_name',$name_of_person);		
 		$this->set('company_name',$organization_name);	
+		$this->set('mobile_no',$mobile_no);	
 		$this->set('click_cnt_new',$click_cnt_new);	
 		$this->set('classified_posts_arr',$rst_classified_posts);		
 		
@@ -1556,7 +1557,7 @@ function mailchimp($template_name, $message, $template_content, $message_body)
 	$mandrill->templates->publish($template_name);
 	
 	$mandrill->messages->sendTemplate($template_name, $template_content, $message);
-	//$mandrill->templates->delete($template_name);
+	$mandrill->templates->delete($template_name);
 }
 
 function smtpmailer($to, $from_name, $subject, $message_web,$reply, $is_gmail=true)
@@ -1636,7 +1637,8 @@ public function ajax_function()
 			var email_to=$("#email_to").val();
             var phone=$("#phone").val();
             var message=$("#message").val();
-            var query="?name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&email_to=" + encodeURIComponent(email_to) + "&phone=" + encodeURIComponent(phone) + "&message=" + encodeURIComponent(message);
+			 var mobile_no=$("#mobile_no").val();
+            var query="?name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&email_to=" + encodeURIComponent(email_to) + "&phone=" + encodeURIComponent(phone) + "&message=" + encodeURIComponent(message) + "&mobile_no=" + encodeURIComponent(mobile_no);
             $("#enquiry_loading").html('<center><img src="<?PHP echo $this->webroot; ?>images/ajax-loaders/loading_windows.gif" width="70px" ></center>').load('enquiry_submit'+query);	
 					
 
