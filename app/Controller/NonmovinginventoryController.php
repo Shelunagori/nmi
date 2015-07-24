@@ -1552,7 +1552,7 @@ function mailchimp($template_name, $message, $template_content, $message_body)
 	$mandrill = new Mandrill('fEa-Q9Q1NHhKE-BsvG8LpA'); 
 	$publish = true;
 	//add($name, $from_email=null, $from_name=null, $subject=null, $code=null, $text=null, $publish=true, $labels=array());
-	$mandrill->templates->add($template_name, 'Hello', 'Mail', $$message_body);
+	$mandrill->templates->add($template_name, '', 'Hello', 'Mail', $message_body);
 	$mandrill->templates->publish($template_name);
 	
 	$mandrill->messages->sendTemplate($template_name, $template_content, $message);
