@@ -96,12 +96,20 @@ a.uppercase
 	margin-left:0px;
 	height:auto !important;
 }	
-
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:1500px) {
 	.img-div 
 	{
 		float:left !important;
-		width:80% !important;
+		width:50% !important;
+		margin-left:0px !important;
+	}
+
+}
+@media only screen and (max-width:480px) {
+	.img-div 
+	{
+		float:left !important;
+		width:50% !important;
 		margin-left:0px !important;
 	}
 
