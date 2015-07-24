@@ -1555,7 +1555,7 @@ function mailchimp($template_name, $message, $template_content)
 	$mandrill->templates->publish($template_name);
 	
 	$mandrill->messages->sendTemplate($template_name, $template_content, $message);
-	$mandrill->templates->delete($template_name);
+	//$mandrill->templates->delete($template_name);
 }
 
 function smtpmailer($to, $from_name, $subject, $message_web,$reply, $is_gmail=true)
