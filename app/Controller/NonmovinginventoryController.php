@@ -1551,8 +1551,7 @@ function mailchimp($template_name, $message, $template_content)
 	App::import('Vendor', 'mailchimp_mandrill', array('file' => 'mailchimp_mandrill' . DS . 'src' . DS . 'Mandrill.php')); 
 	$mandrill = new Mandrill('fEa-Q9Q1NHhKE-BsvG8LpA'); 
 	$publish = true;
-	
-	$mandrill->templates->add($template_name);
+	$mandrill->templates->add($template_name, '', 'Hello', $message);
 	$mandrill->templates->publish($template_name);
 	
 	$mandrill->messages->sendTemplate($template_name, $template_content, $message);
