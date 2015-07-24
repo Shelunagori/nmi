@@ -97,11 +97,11 @@ a.uppercase
 	height:auto !important;
 }	
 
-@media only screen and (max-width:480px) {
+@media only screen and (max-width:600px) {
 	.img-div 
 	{
 		float:left !important;
-		width:60% !important;
+		width:80% !important;
 		margin-left:0px !important;
 	}
 
