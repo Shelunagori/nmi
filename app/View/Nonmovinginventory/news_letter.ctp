@@ -89,13 +89,13 @@ a.uppercase
 	float:left;
 	width:33.3% !important;
 	margin-left:0px;
-	height:auto;
+	height:auto !important;
 }	
 @media only screen and (min-width:600px) {
 	.img-div 
 	{
 		float:left;
-		width:33.3% !important;
+		width:50% !important;
 		margin-left:0px;
 	}
 }
