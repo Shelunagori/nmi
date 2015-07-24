@@ -71,7 +71,7 @@ class NonmovinginventoryController extends AppController
 					'content' => 'Copyright 2012.')
 			
 			);
-			$this->mailchimp($template_name, $message, $template_content);
+			$this->mailchimp($template_name, $message, $template_content, $message_body);
 		
 		}
 	}
@@ -1545,15 +1545,14 @@ public function category_setup()
 }
 
 ////////////////// Mailer ////////////////////////////////
-function mailchimp($template_name, $message, $template_content)
+function mailchimp($template_name, $message, $template_content, $message_body)
 {
 	
 	App::import('Vendor', 'mailchimp_mandrill', array('file' => 'mailchimp_mandrill' . DS . 'src' . DS . 'Mandrill.php')); 
 	$mandrill = new Mandrill('fEa-Q9Q1NHhKE-BsvG8LpA'); 
 	$publish = true;
-	$mes[]=$message;
 	//add($name, $from_email=null, $from_name=null, $subject=null, $code=null, $text=null, $publish=true, $labels=array());
-	$mandrill->templates->add($template_name, 'Hello', 'Mail', $mes);
+	$mandrill->templates->add($template_name, 'Hello', 'Mail', $$message_body);
 	$mandrill->templates->publish($template_name);
 	
 	$mandrill->messages->sendTemplate($template_name, $template_content, $message);
