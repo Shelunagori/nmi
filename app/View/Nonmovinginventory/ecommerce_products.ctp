@@ -196,21 +196,22 @@
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 
 <script>
-/*
+
 $(document).scroll(function(e){
 
     // grab the scroll amount and the window height
     var scrollAmount = $(window).scrollTop();
     var documentHeight = $(document).height();
-	// alert(documentHeight);
+	// 
     // calculate the percentage the user has scrolled down the page
     var scrollPercent = (scrollAmount / documentHeight) * 100;
+ //scrollPercent = scrollPercent.toFixed(2)
 
-    if(scrollPercent >50) 
+    if(scrollPercent > 50)
 	{
      	ecommerce_product_scroll();
     }
 });
 
-*/
+
 </script>

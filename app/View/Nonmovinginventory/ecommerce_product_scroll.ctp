@@ -1,6 +1,5 @@
 <?php
-$srno=0;
-
+$srno=($new_page_id-1)*100;
 foreach($arr_classified as $value)
 {
 	 $status_id=$value['classified_post']['status'];
