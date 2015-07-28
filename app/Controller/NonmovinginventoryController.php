@@ -12,12 +12,6 @@ class NonmovinginventoryController extends AppController
     'Session','Cookie','RequestHandler'
  	);
 	
-	/*public function send_message(){
-		$this->layout=null;
-		$m="You one Product is liked by some one. Kindly login into the portal for more details.";
-		$sms1=str_replace(' ', '+', $m);
-		$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey=A1d987e6da856f0d2de06aa0456dcb04b&sender=BULKSMS&to=9636653883&message='.$sms1);
-	}*/
 	public function authentication()
 	{
 		$user_id=$this->Session->read('user_id');
@@ -113,6 +107,8 @@ class NonmovinginventoryController extends AppController
 	public function enquiry_submit()
 	{
 		$this->layout='ajax_layout';
+		
+		$product_id=$this->request->query('product_id');
 		$name=$this->request->query('name');
 		$email_reply=$this->request->query('email');
 		$email_to=$this->request->query('email_to');
@@ -126,7 +122,7 @@ class NonmovinginventoryController extends AppController
 		{
 			$working_key='A7a76ea72525fc05bbe9963267b48dd96';
 			$sms_sender='PHPSMS';
-			$this->Enquiry->saveAll(array('name'=>$name,'email'=>$email_reply,'phone_no'=>$phone_no,'message'=>$message));
+			$this->Enquiry->saveAll(array('product_id'=>$product_id,'name'=>$name,'email'=>$email_reply,'phone_no'=>$phone_no,'message'=>$message));
 			$sms1=str_replace(' ', '+', 'A query has been generated from NMI portal. Please check your mail. Thanks Team NMI');
 			$payload = file_get_contents('http://alerts.sinfini.com/api/web2sms.php?workingkey='.$working_key.'&sender='.$sms_sender.'&to='.$mobile_no.'&message='.$sms1.'');
 			$success=$this->smtpmailer($email_to,'Nonmoving Inventory','Enquiry',$message_web,$email_reply);
@@ -1177,7 +1173,8 @@ class NonmovinginventoryController extends AppController
 		$this->loadmodel('classified_post');
   		$page_id=$this->request->query('page_id');
 		$limit=100;
-		$new_page_id=$page_id+1;
+		 $new_page_id=$page_id+1;
+		
 		$start = ($new_page_id-1)*100;
 		$this->set('new_page_id',$new_page_id);
 		$user_id=$this->Session->read('user_id');
@@ -1632,13 +1629,14 @@ public function ajax_function()
 	
         $("#notific8_show").live('click',function(e){
         
+			var product_id=$("#product_id").val();
             var name=$("#name").val();
             var email=$("#email").val();
 			var email_to=$("#email_to").val();
             var phone=$("#phone").val();
             var message=$("#message").val();
 			 var mobile_no=$("#mobile_no").val();
-            var query="?name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&email_to=" + encodeURIComponent(email_to) + "&phone=" + encodeURIComponent(phone) + "&message=" + encodeURIComponent(message) + "&mobile_no=" + encodeURIComponent(mobile_no);
+            var query="?name=" + encodeURIComponent(name) + "&product_id=" + encodeURIComponent(product_id) + "&email=" + encodeURIComponent(email) + "&email_to=" + encodeURIComponent(email_to) + "&phone=" + encodeURIComponent(phone) + "&message=" + encodeURIComponent(message) + "&mobile_no=" + encodeURIComponent(mobile_no);
             $("#enquiry_loading").html('<center><img src="<?PHP echo $this->webroot; ?>images/ajax-loaders/loading_windows.gif" width="70px" ></center>').load('enquiry_submit'+query);	
 					
 
@@ -1823,28 +1821,25 @@ public function ajax_function()
 	
 	function ecommerce_product_scroll()
     { 
-	 //$('body').delegate('th#seeking', 'click', function() {
+	
 		var content;
-        var page_id=$("#page").val();
+        var page_id=eval($("#page").val());
 		var query="?page_id=" + encodeURIComponent(page_id);
 		$("#lode_more_" + page_id).html('<center><img src="<?PHP echo $this->webroot; ?>images/ajax-loaders/ajax-loader-5.gif" ></center>');
 		
-		/*	$.ajax({
-			url: "ecommerce_product_scroll"+query,
-		}).done(function(response) {
-			$('#datatable_products').append(response);
-			$("#lode_more_" + page_id).remove(); 
-		});*/
+		$("#page").remove();
+		if(page_id!=undefined)
+		{
+			var new_page_id=page_id+1;
 		 $.ajax({
-        type: "GET",
-        url: "ecommerce_product_scroll",
-        data: "?page_id=" + encodeURIComponent(page_id),
-        success: function(response){
+       url: "ecommerce_product_scroll"+query,
+		}).done(function(response) {
+			$("#lode_more_" + page_id).remove();
 			$('#datatable_products').append(response);
-			$("#lode_more_" + page_id).remove(); 
-			}
-       
+			$('#datatable_products').after('<div style="width:100%"  id="#lode_more_' + new_page_id + '"><input name="page"  class="form-control" id="page" type="hidden" value="' + new_page_id + '"></div>');
+			                 
       });
+		}
     }
     
     function accending_disending(sort_status,categories_id,search_by_meta,sub_categories_id,search_type)

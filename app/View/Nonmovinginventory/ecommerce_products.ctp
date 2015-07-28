@@ -196,7 +196,8 @@
 <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 
 <script>
-
+// $(document).delegate('scroll', function(e) {
+	//	 alert();
 $(document).scroll(function(e){
 
     // grab the scroll amount and the window height
@@ -210,6 +211,7 @@ $(document).scroll(function(e){
     if(scrollPercent > 50)
 	{
      	ecommerce_product_scroll();
+		
     }
 });
 

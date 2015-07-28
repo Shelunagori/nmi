@@ -33,7 +33,4 @@ foreach($arr_classified as $value)
 
 <?php
 }
-
-
 ?>
-<div style="width:100%"  id="#lode_more_<?php echo $new_page_id; ?>"><input name="page"  class="form-control" id="page" type="text" value="<?php echo $new_page_id; ?>"></div>                       

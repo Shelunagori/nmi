@@ -208,6 +208,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
                                                         <h2>Write a Enquiry</h2>
                                                         <div class="form-group">
                                                           <label for="name">Name <span class="require">*</span></label>
+                                                          <input class="form-control" id="product_id" name="product_id" type="hidden" value="<?php echo $classified_post_id;  ?>">
                                                           <input class="form-control" id="name" name="name" type="text">
                                                         </div>
                                                         <div class="form-group">
