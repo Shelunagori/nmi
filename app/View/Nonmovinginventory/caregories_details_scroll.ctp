@@ -94,7 +94,7 @@ foreach($classified_posts_arr_ajax as $ftc_classified_post)
                            <div style="height:150px;width:150px"> 
                             <img style="border:2px solid #67809F; border-radius:5px 5px 5px 5px;" alt="Post Images" class="img-res" width="150"  height="135"  src="<?php if(empty($photo_first)){ echo $this->webroot; ?>images/image/no_pic.gif<?php } else { echo $this->webroot; ?>images_post/<?php echo $ftc_classified_post['Classified_post']['user_id']."/".$ftc_classified_post['Classified_post']['id']."/".$photo_first; } ?>"/>
                             
-                              <a href="ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn blue-hoki btn-sm" style="width:100%; padding-top:3px; margin-top:1px;" rel='tab'><i class="fa fa-th-large"></i> <b>Details</b></a>
+                              <a href="<?php echo $this->webroot; ?>ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" class="btn blue-hoki btn-sm" style="width:100%; padding-top:3px; margin-top:1px;" rel='tab'><i class="fa fa-th-large"></i> <b>Details</b></a>
                             </div>
                             </a>
                                     </div>
