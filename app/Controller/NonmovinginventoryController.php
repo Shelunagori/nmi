@@ -1410,7 +1410,7 @@ $this->set('new_page_id',$new_page_id);
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	function ads_details1() 
+	function ads_details() 
 	{
 		//date_default_timezone_set('Asia/kolkata'); 	
 		if($this->RequestHandler->isAjax())
