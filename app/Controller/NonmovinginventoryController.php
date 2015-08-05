@@ -1421,7 +1421,98 @@ $this->set('new_page_id',$new_page_id);
 			$this->layout='index_layout';
 		}
 		$post_id=$this->request->query('post_id');
+		$this->loadmodel('Classified_post');
+		@$rst_classified_posts=$this->Classified_post->find('all', array(
+				'conditions' => array(
+				"Classified_post.id" =>$post_id
+				),
+				
+				));
+				
+		foreach($rst_classified_posts as $res_values)
+		{
+			$user_id=$res_values['Classified_post']['user_id'];
+			$click_cnt=$res_values['Classified_post']['click_cnt'];
+		}
 		
+		$this->loadmodel('login');
+		@$login_arr=$this->login->find('all', array('conditions' => array("login.id" =>$user_id)));		
+		 $email_id=$login_arr[0]['login']['email_id'];
+		$this->set('email_id',$email_id);	
+					
+		$this->loadmodel('Registration');
+		@$profile_arr=$this->Registration->find('all', array('conditions' => array("Registration.login_id" =>$user_id)));		
+		$name_of_person=$profile_arr[0]['Registration']['name_of_person'];
+		$organization_name=$profile_arr[0]['Registration']['organization_name'];
+		$mobile_no=$profile_arr[0]['Registration']['mobile_no'];
+		
+		$click_cnt_new=$click_cnt+1;	
+		$this->loadmodel('Classified_post');
+		$this->Classified_post->updateAll(array('click_cnt'=>"'$click_cnt_new'"), array('Classified_post.id'=>$post_id));
+			
+		$this->set('display_name',$name_of_person);		
+		$this->set('company_name',$organization_name);	
+		$this->set('mobile_no',$mobile_no);	
+		$this->set('click_cnt_new',$click_cnt_new);	
+		$this->set('classified_posts_arr',$rst_classified_posts);		
+		
+			
+		$fetch_result=$this->Classified_post->findById($post_id);
+		 $sub_categories_id=$fetch_result['Classified_post']['sub_category_id'];
+		
+		if(isset($sub_categories_id))
+		{
+			
+			$order_by='id DESC';
+		
+			$this->loadmodel('Sub_categorie');
+			$sub_categories_ftc=$this->Sub_categorie->findById($sub_categories_id);
+			$categories_id=$sub_categories_ftc['Sub_categorie']['categories_id'];
+			$sub_categories_nm=$sub_categories_ftc['Sub_categorie']['sub_categories'];
+			
+			
+			$result_sub_categories= $this->Sub_categorie->find('all', array('conditions' => array('Sub_categorie.categories_id' => $categories_id)));
+			$this->set('sub_categories_arr',$result_sub_categories);
+			foreach($result_sub_categories as $res_values)
+			{
+				$sub_categories_ftc[]=$res_values['Sub_categorie']['id'];	
+			}
+					
+	
+			$this->loadmodel('Categorie');
+			$result_sub_categories=$this->Categorie->findById($categories_id);
+			$categories_nm=$result_sub_categories['Categorie']['categories'];
+			
+			$categories_id_blank="";
+			$this->set('categories_nm',$categories_nm);
+			$this->set('categories_id',$categories_id_blank);
+			$this->set('categories_id_sub',$categories_id);
+			$this->set('sub_categories_nm',$sub_categories_nm);
+			$this->set('sub_categories_id',$sub_categories_id);
+			$this->set('order_by',$order_by);
+			
+			$this->loadmodel('Classified_post');
+			@$rst_classified_posts=$this->Classified_post->find('all', array(
+			'conditions' => array(
+			'Classified_post.sub_category_id' =>$sub_categories_id,
+			'Classified_post.status' => "1"
+			),
+			'order'=>$order_by,
+			'limit'=>$limit,
+			));
+			
+			@$rst_classified_posts_next=$this->Classified_post->find('all', array(
+			'conditions' => array(
+			'Classified_post.sub_category_id' =>$sub_categories_id,
+			'Classified_post.status' => "1"
+			),
+			'order'=>$order_by,
+			'limit'=>1,
+			'offset' => $start_next,
+			));
+		}
+        
+        @$this->set('classified_posts_arr_related',$rst_classified_posts);
 	}
 	function ads_details() 
 	{
