@@ -227,8 +227,7 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
 						<!-- Begin: life time stats -->
 						<div class="portlet light">
 							<div class="portlet-body">
-                             <div id="sorting_ase_desc" >     
-                             <a href="<?php echo $this->webroot; ?>index?1=1" rel="tab">Index</a>
+                             <div id="sorting_ase_desc" >  
                               <input id="sub_categories_id" type="hidden" class="form-control" value="<?php echo @$sub_categories_id;  ?>">
                                 <input id="categories_id" type="hidden"class="form-control" value="<?php echo @$categories_id;  ?>">
                                 <input id="search_by_meta" type="hidden" class="form-control" value="<?php echo @$search_by_meta;  ?>">
@@ -264,7 +263,8 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
                                              
 								 				<div class="portlet-title">
                                                     <div class="caption">
-                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="<?php echo $this->webroot; ?>ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" rel='tab' ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
+                                                        <i class="fa fa-cogs"></i>
+                                                        <a style="color:#FFF" class="search-result-title  " href="<?php echo $this->webroot; ?>ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" rel='tab' >hello</a>
                                                     </div>
                                                 </div>
 									
