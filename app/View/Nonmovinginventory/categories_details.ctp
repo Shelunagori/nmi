@@ -228,7 +228,7 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
 						<div class="portlet light">
 							<div class="portlet-body">
                              <div id="sorting_ase_desc" >     
-                             <a href="<?php echo $this->webroot; ?>index" rel="tab">Index</a>
+                             <a href="<?php echo $this->webroot; ?>index?1=1" rel="tab">Index</a>
                               <input id="sub_categories_id" type="hidden" class="form-control" value="<?php echo @$sub_categories_id;  ?>">
                                 <input id="categories_id" type="hidden"class="form-control" value="<?php echo @$categories_id;  ?>">
                                 <input id="search_by_meta" type="hidden" class="form-control" value="<?php echo @$search_by_meta;  ?>">
