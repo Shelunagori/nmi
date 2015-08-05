@@ -1409,10 +1409,9 @@ $this->set('new_page_id',$new_page_id);
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	function ads_details() 
+	function ad_details() 
 	{
-		//date_default_timezone_set('Asia/kolkata'); 	
+		date_default_timezone_set('Asia/kolkata'); 	
 		if($this->RequestHandler->isAjax())
 		{
 			$this->layout='ajax_layout';
@@ -1423,7 +1422,21 @@ $this->set('new_page_id',$new_page_id);
 		}
 		$post_id=$this->request->query('post_id');
 		
-		/*$this->loadmodel('Classified_post');
+	}
+	function ads_details() 
+	{
+		date_default_timezone_set('Asia/kolkata'); 	
+		if($this->RequestHandler->isAjax())
+		{
+			$this->layout='ajax_layout';
+		}
+		else
+		{
+			$this->layout='index_layout';
+		}
+		$post_id=$this->request->query('post_id');
+		
+		$this->loadmodel('Classified_post');
 		@$rst_classified_posts=$this->Classified_post->find('all', array(
 				'conditions' => array(
 				"Classified_post.id" =>$post_id
@@ -1514,7 +1527,7 @@ $this->set('new_page_id',$new_page_id);
 			));
 		}
         
-        @$this->set('classified_posts_arr_related',$rst_classified_posts);*/
+        @$this->set('classified_posts_arr_related',$rst_classified_posts);
 	}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////

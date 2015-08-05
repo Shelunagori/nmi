@@ -1,7 +1,5 @@
-
-hello
-<?php 
-/*foreach($classified_posts_arr as $ftc_classified_post)
+<?php
+foreach($classified_posts_arr as $ftc_classified_post)
 		{
 			$photo=$ftc_classified_post['Classified_post']['photo'];	
 			
@@ -404,4 +402,4 @@ hello
             
           </div>
       </div>
-  */
+  

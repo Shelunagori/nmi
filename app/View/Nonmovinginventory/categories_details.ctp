@@ -257,13 +257,13 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
 								}
 								
 								?>
-                                 	categories_details?categories_id=3
+                                 	
                                   		<div class="col-md-6 col-sm-12">
                                        		 <div class="portlet blue-hoki box">
                                              
 								 				<div class="portlet-title">
                                                     <div class="caption">
-                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="<?php echo $this->webroot; ?>ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" rel='tab' ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
+                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="<?php echo $this->webroot; ?>ad_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" rel='tab' ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
                                                     </div>
                                                 </div>
 									
