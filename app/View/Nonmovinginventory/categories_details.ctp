@@ -2,7 +2,28 @@
 $submit_succ=1;
 $limit="LIMIT 10";
 ?>		
-
+ <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script><script>
+jQuery(document).ready(function(){
+$("select[rel='tab']").bind('change',function(){
+		//ee.preventDefault();
+		$(".page-spinner-bar").removeClass("hide"); //show loading]
+		var pageurl = $(this).val();
+		
+		window.history.pushState({path:pageurl},'',pageurl);
+		$.ajax({
+			url:pageurl,
+		}).done(function(responce){
+			$(".page-spinner-bar").addClass(" hide"); //hide loading
+			 
+			$(".page-content").html(responce);
+			$("html, body").animate({
+				scrollTop:0
+			},"slow");
+		});
+		
+		});
+});
+</script>
  <style type='text/css'>
 @media (max-width: 770px) 
 {
@@ -242,7 +263,7 @@ if(!empty($search_by_meta) || !empty($categories_id) || !empty($sub_categories_i
                                              
 								 				<div class="portlet-title">
                                                     <div class="caption">
-                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="<?php echo $this->webroot; ?>Nonmovinginventory/ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" rel='tab' ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
+                                                        <i class="fa fa-cogs"></i><a style="color:#FFF" class="search-result-title  " href="<?php echo $this->webroot; ?>ads_details?post_id=<?php echo $ftc_classified_post['Classified_post']['id']; ?>" rel='tab' ><?php echo @$sub_categories; if(!empty($ftc_classified_post['Classified_post']['product_name'])) { ?> ( <?php echo $ftc_classified_post['Classified_post']['product_name']; ?> ) <?php } ?></a>
                                                     </div>
                                                 </div>
 									
@@ -351,8 +372,6 @@ $(document).scroll(function(e){
     var documentHeight = $(document).height();
 	// alert(documentHeight);
     // calculate the percentage the user has scrolled down the page
-
-
     var scrollPercent = (scrollAmount / documentHeight) * 100;
 
     if(scrollPercent >50) {
@@ -387,25 +406,4 @@ $(document).scroll(function(e){
 });
 
 </script>
-<script>
-jQuery(document).ready(function(){
-$("select[rel='tab']").bind('change',function(){
-		//ee.preventDefault();
-		$(".page-spinner-bar").removeClass("hide"); //show loading]
-		var pageurl = $(this).val();
-		
-		window.history.pushState({path:pageurl},'',pageurl);
-		$.ajax({
-			url:pageurl,
-		}).done(function(responce){
-			$(".page-spinner-bar").addClass(" hide"); //hide loading
-			 
-			$(".page-content").html(responce);
-			$("html, body").animate({
-				scrollTop:0
-			},"slow");
-		});
-		
-		});
-});
-</script>
+
