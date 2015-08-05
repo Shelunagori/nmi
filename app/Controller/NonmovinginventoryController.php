@@ -1412,7 +1412,7 @@ $this->set('new_page_id',$new_page_id);
 	
 	function ads_details() 
 	{
-		date_default_timezone_set('Asia/kolkata'); 	
+		//date_default_timezone_set('Asia/kolkata'); 	
 		if($this->RequestHandler->isAjax())
 		{
 			$this->layout='ajax_layout';
@@ -1421,6 +1421,7 @@ $this->set('new_page_id',$new_page_id);
 		{
 			$this->layout='index_layout';
 		}
+		echo "helo"; exit;
 		$post_id=$this->request->query('post_id');
 		
 		$this->loadmodel('Classified_post');
