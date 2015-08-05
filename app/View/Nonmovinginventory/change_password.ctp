@@ -1,6 +1,6 @@
 
     <div class="logo">
-	<a href="<?php echo $this->webroot; ?>Nonmovinginventory/user_index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="250" alt="NON MOVING INVENTORY"></a>
+	<a href="<?php echo $this->webroot; ?>user_index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="250" alt="NON MOVING INVENTORY"></a>
 </div>
 </div>
 <div class="content">

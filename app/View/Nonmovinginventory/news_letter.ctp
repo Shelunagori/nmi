@@ -149,7 +149,7 @@ $message_body.='<div id="main-div">
 				 
                       $message_body.='<div class="img-div">
                         
-                        <a href="'.$show_img.$this->webroot.'Nonmovinginventory/categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" class="uppercase">
+                        <a href="'.$show_img.$this->webroot.'categories_details?categories_id='.$categories_ftc['Categorie']['id'].'" class="uppercase">
 						<img src="'.$show_img.$this->webroot.'images/icon_category/'.$categories_ftc['Categorie']['icon'].'" height="160" width="180"  class="img-responsive">
                          
                             <p class="img-caption"  height="200" style=""><strong>'.$categories_ftc['Categorie']['categories'].'</strong></p>

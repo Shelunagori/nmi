@@ -1,5 +1,5 @@
 <div class="logo">
-	<a href="<?php echo $this->webroot; ?>Nonmovinginventory/index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="250" alt="NON MOVING INVENTORY"></a>
+	<a href="<?php echo $this->webroot; ?>index"><img src="<?php echo $this->webroot; ?>images/project_logo/non-moving-logo.png" width="250" alt="NON MOVING INVENTORY"></a>
 </div>
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
@@ -40,7 +40,7 @@
 		
 		<div class="create-account">
 			<p>
-				<a href="<?php echo $this->webroot; ?>Nonmovinginventory/register"  class="uppercase">Create an account</a>
+				<a href="<?php echo $this->webroot; ?>register"  class="uppercase">Create an account</a>
 			</p>
 		</div>
 	</form>

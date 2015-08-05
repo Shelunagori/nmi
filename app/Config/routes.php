@@ -28,7 +28,14 @@
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	//Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	foreach(scandir('../View/Nonmovinginventory') as $path){
+  if(pathinfo($path, PATHINFO_EXTENSION) == "ctp")
+  {
+	$name = pathinfo($path, PATHINFO_FILENAME);
+    Router::connect('/'.$name, array('controller' => 'Nonmovinginventory', 'action' => $name));
+  }
+}
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

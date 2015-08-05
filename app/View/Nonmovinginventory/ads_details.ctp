@@ -59,7 +59,7 @@ foreach($classified_posts_arr as $ftc_classified_post)
     
 
             <div class="product-page">
-             <a href="<?php echo $this->webroot; ?>Nonmovinginventory/categories_details?sub_categories_id=<?php echo $sub_categories_id; ?>" class="btn btn-info" rel="tab"><i class="fa fa-arrow-circle-left"></i> Back</a>
+             <a href="<?php echo $this->webroot; ?>categories_details?sub_categories_id=<?php echo $sub_categories_id; ?>" class="btn btn-info" rel="tab"><i class="fa fa-arrow-circle-left"></i> Back</a>
              <br/><br/>
               <div class="row">
                 <div class="col-md-3 col-sm-6">
