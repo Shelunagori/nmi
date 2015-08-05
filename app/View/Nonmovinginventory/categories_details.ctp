@@ -385,25 +385,4 @@ $(document).scroll(function(e){
 });
 
 </script>
- <script src="<?php echo $this->webroot; ?>theme_admin/assets/global/plugins/jquery.min.js" type="text/javascript"></script><script>
-jQuery(document).ready(function(){
-$("select[rel='tab']").bind('change',function(){
-		//ee.preventDefault();
-		$(".page-spinner-bar").removeClass("hide"); //show loading]
-		var pageurl = $(this).val();
-		
-		window.history.pushState({path:pageurl},'',pageurl);
-		$.ajax({
-			url:pageurl,
-		}).done(function(responce){
-			$(".page-spinner-bar").addClass(" hide"); //hide loading
-			 
-			$(".page-content").html(responce);
-			$("html, body").animate({
-				scrollTop:0
-			},"slow");
-		});
-		
-		});
-});
-</script>
+
