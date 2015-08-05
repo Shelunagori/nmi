@@ -1423,7 +1423,7 @@ $this->set('new_page_id',$new_page_id);
 		}
 		$post_id=$this->request->query('post_id');
 		
-		$this->loadmodel('Classified_post');
+		/*$this->loadmodel('Classified_post');
 		@$rst_classified_posts=$this->Classified_post->find('all', array(
 				'conditions' => array(
 				"Classified_post.id" =>$post_id
@@ -1514,7 +1514,7 @@ $this->set('new_page_id',$new_page_id);
 			));
 		}
         
-        @$this->set('classified_posts_arr_related',$rst_classified_posts);
+        @$this->set('classified_posts_arr_related',$rst_classified_posts);*/
 	}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
