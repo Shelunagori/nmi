@@ -1421,7 +1421,6 @@ $this->set('new_page_id',$new_page_id);
 		{
 			$this->layout='index_layout';
 		}
-		echo "helo"; exit;
 		$post_id=$this->request->query('post_id');
 		
 		$this->loadmodel('Classified_post');
