@@ -52,14 +52,11 @@ jQuery(document).ready(function(){
 		e.preventDefault();
 		$(".page-spinner-bar").removeClass("hide"); //show loading
 		pageurl=$(this).attr('href');
-		alert(pageurl);
 		window.history.pushState({path:pageurl},'',pageurl);
 		$.ajax({
 			url:pageurl,
 		}).done(function(responce){
-			alert(2);
 			$(".page-spinner-bar").addClass(" hide"); //hide loading
-			 
 			$(".page-content").html(responce);
 			$("html, body").animate({
 				scrollTop:0
